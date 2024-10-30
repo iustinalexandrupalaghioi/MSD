@@ -1,0 +1,32 @@
+1. Basic Configuration: - Madalin
+    - Maven
+    - SpringBoot
+    - Hibernate
+    - Lombok
+    - pom.xml
+2. Clean Arhitecture - Madalin
+
+.idea/                                              # IDE Configuration
+src/
+├── main/
+│   ├── java/
+│   │   └── com.msd.erp/
+│   │       ├── application/                        # Use cases
+│   │       ├── domain/                             # Data models and business logic
+│   │       ├── infrastructure/                     # Database access and other resources
+│   │       ├── interface/                          # CRUD / REST APIs (Spring Boot)
+│   │       └── WebApplication.java                 # Entry point of the web com.msd.erp.application
+│   └── resources/
+│       └── com.msd.erp.application.properties      # Spring Boot configurations
+└── test/
+    └── java/                                       # Unit and integration tests
+
+3. Configure com.msd.erp.application.properties - Madalin
+4. Add Entities: - Madalin
+    - VATRate - Done
+    - Category - Done
+    - Relation - Done
+    - Penlaty - Done
+    - Article - Done
+    + Enums: RelationType, PenaltyType - Done
+5. Run project and check database - Failed
