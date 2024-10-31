@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e904b406-082e-4434-b969-f099ca3dab11" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/WebApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/WebApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/Article.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/Article.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/Category.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/Penalty.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/Penalty.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/PenaltyType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/PenaltyType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/Relation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/Relation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/RelationType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/RelationType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/UMType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/UMType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/VATRate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/VATRate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/WebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/WebApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="e904b406-082e-4434-b969-f099ca3dab11" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

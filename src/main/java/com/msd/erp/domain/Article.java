@@ -30,10 +30,10 @@ public class Article {
     private UMType um;
 
     @ManyToOne
-    @JoinColumn(name = "_pk_categoryid", nullable = false)
+    @JoinColumn(name = "_fk_categoryid", nullable = false)
     private Category categoryid;
 
     @ManyToOne
-    @JoinColumn(name = "_pk_vatid", nullable = false)
+    @JoinColumn(name = "_fk_vatid", nullable = false)
     private VATRate vatid;
 }
