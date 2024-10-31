@@ -29,4 +29,7 @@ src/
     - Penlaty - Done
     - Article - Done
     + Enums: RelationType, PenaltyType - Done
-5. Run project and check database - Failed
+5. Run project and check database - Resolved - Madalin
+5.1. Update: - Madalin
+    - pom.xml
+    - application.properties

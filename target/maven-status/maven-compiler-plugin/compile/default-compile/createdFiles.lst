@@ -1,0 +1,9 @@
+com\msd\erp\domain\Penalty.class
+com\msd\erp\domain\VATRate.class
+com\msd\erp\domain\Article.class
+com\msd\erp\domain\Relation.class
+com\msd\erp\domain\RelationType.class
+com\msd\erp\domain\Category.class
+com\msd\erp\domain\UMType.class
+com\msd\erp\WebApplication.class
+com\msd\erp\domain\PenaltyType.class

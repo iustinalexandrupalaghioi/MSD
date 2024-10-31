@@ -5,7 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e904b406-082e-4434-b969-f099ca3dab11" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/WebApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/WebApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/Article.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/Article.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/Penalty.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/Penalty.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/PenaltyType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/PenaltyType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/Relation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/Relation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/RelationType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/RelationType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/UMType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/UMType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/VATRate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/VATRate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/WebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/WebApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,19 +49,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.WebApplication.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Madalin/Desktop/SM11/master 1/DAM",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.WebApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Madalin/Desktop/SM11/master 1/DAM&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -59,5 +72,16 @@
       <updated>1730296819297</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
