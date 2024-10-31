@@ -1,6 +1,9 @@
 package com.msd.erp.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,9 +19,12 @@ public class Penalty {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long _pk_penaltyid;
 
+    @NotBlank(message = "Description cannot be empty")
+    @Size(max = 100, message = "Description must be less than or equal to 100 characters")
     @Column(name = "description", nullable = false)
     private String description;
 
+    @NotNull(message = "Penalty type cannot be null")
     @Enumerated(EnumType.STRING)
     @Column(name = "penaltytype", nullable = false)
     private PenaltyType penaltytype;

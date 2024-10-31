@@ -1,9 +1,16 @@
+com\msd\erp\application\views\VATRateDTO.class
 com\msd\erp\domain\Penalty.class
+com\msd\erp\application\views\PenaltyDTO.class
 com\msd\erp\domain\VATRate.class
 com\msd\erp\domain\Article.class
+com\msd\erp\application\views\RelationDTO.class
 com\msd\erp\domain\Relation.class
+com\msd\erp\application\validations\DomainValidationService.class
 com\msd\erp\domain\RelationType.class
 com\msd\erp\domain\Category.class
+com\msd\erp\application\computations\PricingService.class
 com\msd\erp\domain\UMType.class
-com\msd\erp\WebApplication.class
+com\msd\erp\application\views\CategoryDTO.class
 com\msd\erp\domain\PenaltyType.class
+com\msd\erp\application\views\ArticleDTO.class
+com\msd\erp\WebApplication.class

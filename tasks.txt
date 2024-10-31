@@ -4,7 +4,7 @@
     - Hibernate
     - Lombok
     - pom.xml
-2. Clean Arhitecture - Madalin
+2. Clean Architecture - Madalin
 
 .idea/                                              # IDE Configuration
 src/
@@ -26,10 +26,26 @@ src/
     - VATRate - Done
     - Category - Done
     - Relation - Done
-    - Penlaty - Done
+    - Penalty - Done
     - Article - Done
     + Enums: RelationType, PenaltyType - Done
 5. Run project and check database - Resolved - Madalin
 5.1. Update: - Madalin
     - pom.xml
     - application.properties
+6. ADD JavaBean Validation Rules for: - Madalin
+    - VATRate - Done
+    - Category - Done
+    - Relation - Done
+    - Penalty - Done
+    - Article - Done
+7. CREATE Domain Validation Service - Madalin
+    - Simple Validation for jakarta rules - ERROR
+    8. CREATE Domain Computation Service Entity Fields: - Madalin
+    - PricingService (Discount)
+9. CREATE Domain Computation Service Entity Views: - Madalin
+    - ArticleDTO - Done
+    - CategoryDTO - Done
+    - PenaltyDTO - Done
+    - RelationDTO - Done
+    - VATRateDTO - Done

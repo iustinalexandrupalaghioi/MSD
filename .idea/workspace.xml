@@ -4,11 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e904b406-082e-4434-b969-f099ca3dab11" name="Changes" comment="" />
+    <list default="true" id="e904b406-082e-4434-b969-f099ca3dab11" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/Article.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MSD/com/msd/erp/domain/Article.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/Article.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/Penalty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/Penalty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/Relation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/Relation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/VATRate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/VATRate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MSD-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/MSD-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MSD-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/MSD-1.0-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tasks.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -29,7 +49,9 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2o9zwkzqjftPFj7SsUu7Mvv5WrW" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
