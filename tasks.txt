@@ -11,10 +11,10 @@ src/
 ├── main/
 │   ├── java/
 │   │   └── com.msd.erp/
-│   │       ├── application/                        # Use cases
+│   │       ├── application/                        # Computations, validations and services
 │   │       ├── domain/                             # Data models and business logic
 │   │       ├── infrastructure/                     # Database access and other resources
-│   │       ├── interface/                          # CRUD / REST APIs (Spring Boot)
+│   │       ├── web/                                # CRUD / REST APIs (Spring Boot - Controllers)
 │   │       └── WebApplication.java                 # Entry point of the web com.msd.erp.application
 │   └── resources/
 │       └── com.msd.erp.application.properties      # Spring Boot configurations
@@ -49,3 +49,22 @@ src/
     - PenaltyDTO - Done
     - RelationDTO - Done
     - VATRateDTO - Done
+10. Resolve ERROR - Madalin
+11. CREATE Repositories: - Madalin
+    - ArticleRepository - Done
+    - CategoryRepository - Done
+    - PenaltyRepository - Done
+    - RelationRepository - Done
+    - VATRateRepository - Done
+12. CREATE Services: - Madalin
+    - ArticleService - Done
+    - CategoryService - Done
+    - PenaltyService - Done
+    - RelationService - Done
+    - VATRateService - Done
+13. CREATE Controllers - Madalin
+    - ArticleController - Done
+    - CategoryController - Done
+    - PenaltyController - Done
+    - RelationController - Done
+    - VATRateController - Done

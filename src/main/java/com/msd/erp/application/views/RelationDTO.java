@@ -9,9 +9,9 @@ import lombok.Data;
 public class RelationDTO {
     private Long id;
     private String name;
+    private String relationType;
     private String country;
     private String address;
     private String email;
     private String phonenumber;
-    private String relationType;
 }

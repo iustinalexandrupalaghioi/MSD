@@ -9,7 +9,7 @@ public class ArticleDTO {
     private Long id;
     private String name;
     private String description;
-    private double price;
     private String categoryName;
+    private double price;
     private double VATRate;
 }
