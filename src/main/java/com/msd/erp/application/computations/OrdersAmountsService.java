@@ -4,9 +4,10 @@ import com.msd.erp.domain.PurchaseOrder;
 import com.msd.erp.domain.PurchaseOrderLine;
 import com.msd.erp.domain.SalesOrder;
 import com.msd.erp.domain.SalesOrderLine;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-
+@Service
 public class OrdersAmountsService {
 
     public BigDecimal calculatePurchaseLineAmount(PurchaseOrderLine line) {
