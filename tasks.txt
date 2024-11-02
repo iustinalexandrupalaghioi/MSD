@@ -94,3 +94,5 @@ src/
     - SalesOrderLineService - Done
 18. CREATE Domain Computation Service Entity Fields: - Andrei
     - OrdersAmountsService -Done
+19. Error FIX - Andrei
+    -Added @Service annotation
