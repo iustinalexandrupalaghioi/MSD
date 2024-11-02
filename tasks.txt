@@ -50,6 +50,12 @@ src/
     - RelationDTO - Done
     - VATRateDTO - Done
 10. Resolve ERROR - Madalin
+10. CREATE Domain Computation Service Entity Views: - Andrei
+    - ProjectDTO - Done
+    - PurchaseOrderDTO - Done
+    - PurchaseOrderLineDTO - Done
+    - SalesOrderDTO - Done
+    - SalesOrderLineDTO - Done
 11. CREATE Repositories: - Madalin
     - ArticleRepository - Done
     - CategoryRepository - Done

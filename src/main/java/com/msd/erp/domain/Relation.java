@@ -18,7 +18,7 @@ public class Relation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long _pk_relationid;
+    private Long relationid;
 
     @NotBlank(message = "Name cannot be empty")
     @Size(max = 100, message = "Name must be less than or equal to 100 characters")

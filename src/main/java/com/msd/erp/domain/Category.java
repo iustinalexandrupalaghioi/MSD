@@ -16,7 +16,7 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long _pk_categoryid;
+    private Long categoryid;
 
     @NotBlank(message = "Name cannot be empty")
     @Size(max = 100, message = "Name must be less than or equal to 100 characters")

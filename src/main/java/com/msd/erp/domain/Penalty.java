@@ -17,7 +17,7 @@ public class Penalty {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long _pk_penaltyid;
+    private Long penaltyid;
 
     @NotBlank(message = "Description cannot be empty")
     @Size(max = 100, message = "Description must be less than or equal to 100 characters")

@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "article")
 @Data
@@ -15,7 +17,7 @@ public class Article {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long _pk_articleid;
+    private Long articleid;
 
     @NotBlank(message = "Name cannot be empty")
     @Size(max = 100, message = "Name must be less than or equal to 100 characters")
@@ -31,7 +33,7 @@ public class Article {
     @DecimalMin(value = "0.0", inclusive = false, message = "Price must be greater than 0")
     @Digits(integer = 10, fraction = 2, message = "Price must be a valid decimal value with two decimal places")
     @Column(name = "price", nullable = false)
-    private double price;
+    private BigDecimal price;
 
     @NotNull(message = "Unit of Measure (UM) cannot be null")
     @Enumerated(EnumType.STRING)

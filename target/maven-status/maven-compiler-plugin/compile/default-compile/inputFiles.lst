@@ -1,16 +1,31 @@
-C:\Users\Madalin\IdeaProjects\MSD\src\main\java\com\msd\erp\domain\Category.java
-C:\Users\Madalin\IdeaProjects\MSD\src\main\java\com\msd\erp\domain\Relation.java
-C:\Users\Madalin\IdeaProjects\MSD\src\main\java\com\msd\erp\domain\UMType.java
-C:\Users\Madalin\IdeaProjects\MSD\src\main\java\com\msd\erp\domain\PenaltyType.java
-C:\Users\Madalin\IdeaProjects\MSD\src\main\java\com\msd\erp\WebApplication.java
-C:\Users\Madalin\IdeaProjects\MSD\src\main\java\com\msd\erp\domain\VATRate.java
-C:\Users\Madalin\IdeaProjects\MSD\src\main\java\com\msd\erp\application\views\VATRateDTO.java
-C:\Users\Madalin\IdeaProjects\MSD\src\main\java\com\msd\erp\application\views\PenaltyDTO.java
-C:\Users\Madalin\IdeaProjects\MSD\src\main\java\com\msd\erp\domain\Penalty.java
-C:\Users\Madalin\IdeaProjects\MSD\src\main\java\com\msd\erp\application\views\CategoryDTO.java
-C:\Users\Madalin\IdeaProjects\MSD\src\main\java\com\msd\erp\domain\Article.java
-C:\Users\Madalin\IdeaProjects\MSD\src\main\java\com\msd\erp\application\views\RelationDTO.java
-C:\Users\Madalin\IdeaProjects\MSD\src\main\java\com\msd\erp\application\computations\PricingService.java
-C:\Users\Madalin\IdeaProjects\MSD\src\main\java\com\msd\erp\application\views\ArticleDTO.java
-C:\Users\Madalin\IdeaProjects\MSD\src\main\java\com\msd\erp\application\validations\DomainValidationService.java
-C:\Users\Madalin\IdeaProjects\MSD\src\main\java\com\msd\erp\domain\RelationType.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\RelationType.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\infrastructure\repositories\RelationRepository.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\web\PenaltyController.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\services\CategoryService.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\views\CategoryDTO.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\VATRate.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\web\CategoryController.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\infrastructure\repositories\PenaltyRepository.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\WebApplication.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\services\PenaltyService.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\views\RelationDTO.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\web\VATRateController.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\Relation.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\Article.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\infrastructure\repositories\ArticleRepository.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\services\VATRateService.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\validations\DomainValidationService.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\web\ArticleController.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\views\PenaltyDTO.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\Penalty.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\infrastructure\repositories\VATRateRepository.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\PenaltyType.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\web\RelationController.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\views\ArticleDTO.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\services\ArticleService.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\infrastructure\repositories\CategoryRepository.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\Category.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\services\RelationService.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\UMType.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\computations\PricingService.java
+E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicațiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\views\VATRateDTO.java
