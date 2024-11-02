@@ -50,27 +50,47 @@ src/
     - RelationDTO - Done
     - VATRateDTO - Done
 10. Resolve ERROR - Madalin
-10. CREATE Domain Computation Service Entity Views: - Andrei
+11. CREATE Domain Computation Service Entity Views: - Andrei
     - ProjectDTO - Done
     - PurchaseOrderDTO - Done
     - PurchaseOrderLineDTO - Done
     - SalesOrderDTO - Done
     - SalesOrderLineDTO - Done
-11. CREATE Repositories: - Madalin
+12. CREATE Repositories: - Madalin
     - ArticleRepository - Done
     - CategoryRepository - Done
     - PenaltyRepository - Done
     - RelationRepository - Done
     - VATRateRepository - Done
-12. CREATE Services: - Madalin
+13. CREATE Services: - Madalin
     - ArticleService - Done
     - CategoryService - Done
     - PenaltyService - Done
     - RelationService - Done
     - VATRateService - Done
-13. CREATE Controllers - Madalin
+14. CREATE Controllers - Madalin
     - ArticleController - Done
     - CategoryController - Done
     - PenaltyController - Done
     - RelationController - Done
     - VATRateController - Done
+15. CREATE Repositories: - Andrei
+    - ProjectRepository - Done
+    - PurchaseOrderRepository - Done
+    - PurchaseOrderLineRepository - Done
+    - SalesOrderRepository - Done
+    - SalesOrderLineRepository - Done
+16. Controllers - Andrei
+    - ProjectController - Done
+    - PurchaseOrderController- Done
+    - PurchaseOrderLineController - Done
+    - SalesOrderController - Done
+    - SalesOrderLineController - Done
+17. CREATE Services: - Andrei
+    - ProjectService - Done
+    - PurchaseOrderService - Done
+    - PurchaseOrderService - Done
+    - SalesOrderService - Done
+    - SalesOrderLineService - Done
+18. CREATE Domain Computation Service Entity Fields: - Andrei
+    - OrdersAmountsService -Done

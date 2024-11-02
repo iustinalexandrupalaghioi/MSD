@@ -25,7 +25,7 @@ public class Project {
     @NotNull(message = "CustomerId cannot be null")
     @ManyToOne
     @JoinColumn(name = "_fk_customerId", nullable = false)
-    private Relation CustomerId;
+    private Relation customerId;
 
     @NotNull(message = "The start date cannot be null")
     @Column(name = "start_date", nullable = false)

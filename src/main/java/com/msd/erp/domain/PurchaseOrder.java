@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-
+import java.util.List;
 @Entity
 @Table(name = "purchaseOrder")
 @Data
@@ -26,7 +26,7 @@ public class PurchaseOrder {
     @NotNull(message = "ProjectId cannot be null")
     @ManyToOne
     @JoinColumn(name = "_fk_projectId", nullable = false)
-    private Project ProjectId;
+    private Project projectId;
 
     @NotNull(message = "Date cannot be null")
     @Column(name = "date", nullable = false)
@@ -43,4 +43,7 @@ public class PurchaseOrder {
     @Digits(integer = 10, fraction = 2, message = "Total price with VAT must be a valid decimal value with two decimal places")
     @Column(name = "total_price_with_vat", nullable = false)
     private BigDecimal totalPriceWithVAT;
+
+    @OneToMany(mappedBy = "purchaseOrder", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PurchaseOrderLine> purchaseOrderLines;
 }

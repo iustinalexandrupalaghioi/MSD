@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "salesOrder")
@@ -44,4 +45,8 @@ public class SalesOrder {
     @Digits(integer = 10, fraction = 2, message = "Total price with VAT must be a valid decimal value with two decimal places")
     @Column(name = "total_price_with_vat", nullable = false)
     private BigDecimal totalPriceWithVAT;
+
+    @OneToMany(mappedBy = "salesOrder", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SalesOrderLine> salesOrderLines;
+
 }

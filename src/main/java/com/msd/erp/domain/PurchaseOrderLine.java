@@ -8,7 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import com.msd.erp.application.computations.OrdersAmountsService;
 import java.math.BigDecimal;
 
 
@@ -59,3 +59,4 @@ public class PurchaseOrderLine {
     @Column(name = "price", nullable = false)
     private BigDecimal price;
 }
+

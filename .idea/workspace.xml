@@ -6,12 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e904b406-082e-4434-b969-f099ca3dab11" name="Changes" comment="10. CREATE ProjectDTO PurchaseOrderDTO PurchaseOrderLineDTO SalesOrderDTO SalesOrderLineDTO">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Article.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Article.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Category.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Penalty.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Penalty.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Relation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Relation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/VATRate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/VATRate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/PurchaseOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/PurchaseOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/PurchaseOrderLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/PurchaseOrderLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/SalesOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/SalesOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/domain.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tasks.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +23,7 @@
       <list>
         <option value="module-info" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -53,31 +54,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.WebApplication.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/NU STERGE NICIODATA!!!/Cursuri TERMINAT/MASTER/Semestrul 1/Dezvoltarea aplicatiilor multistrat/Laborator/Proiect/MSD",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "spring.configuration.checksum": "62171ff3b6fe5eda941078665bf2a277",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.WebApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/NU STERGE NICIODATA!!!/Cursuri TERMINAT/MASTER/Semestrul 1/Dezvoltarea aplicatiilor multistrat/Laborator/Proiect/MSD&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;62171ff3b6fe5eda941078665bf2a277&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="WebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="MSD" />
@@ -98,7 +99,8 @@
       <workItem from="1730542203422" duration="1597000" />
       <workItem from="1730543846710" duration="193000" />
       <workItem from="1730544047607" duration="618000" />
-      <workItem from="1730544707563" duration="1494000" />
+      <workItem from="1730544707563" duration="6233000" />
+      <workItem from="1730550953659" duration="15219000" />
     </task>
     <task id="LOCAL-00001" summary="10. CREATE ProjectDTO PurchaseOrderDTO PurchaseOrderLineDTO SalesOrderDTO SalesOrderLineDTO">
       <created>1730545727820</created>
