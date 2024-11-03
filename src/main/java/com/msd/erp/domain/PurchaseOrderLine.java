@@ -8,9 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import com.msd.erp.application.computations.OrdersAmountsService;
 import java.math.BigDecimal;
-
 
 @Entity
 @Table(name = "purchaseOrderLine")
@@ -32,9 +30,9 @@ public class PurchaseOrderLine {
     @JoinColumn(name = "_fk_articleId", nullable = false)
     private Article article;
 
-//    @NotNull(message = "VAT ID cannot be null")
-//    @Column(name = "_fk_vatId", nullable = false)
-//    private String vatId;
+    // @NotNull(message = "VAT ID cannot be null")
+    // @Column(name = "_fk_vatId", nullable = false)
+    // private String vatId;
 
     @NotNull(message = "Quantity cannot be null")
     @Min(value = 1, message = "Quantity must be at least 1")
@@ -59,4 +57,3 @@ public class PurchaseOrderLine {
     @Column(name = "price", nullable = false)
     private BigDecimal price;
 }
-

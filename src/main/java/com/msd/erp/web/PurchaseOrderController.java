@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/purchase-orders")
@@ -36,7 +35,8 @@ public class PurchaseOrderController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PurchaseOrder> updatePurchaseOrder(@PathVariable Long id, @RequestBody PurchaseOrder purchaseOrder) {
+    public ResponseEntity<PurchaseOrder> updatePurchaseOrder(@PathVariable Long id,
+            @RequestBody PurchaseOrder purchaseOrder) {
         return purchaseOrderService.updatePurchaseOrder(id, purchaseOrder)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());

@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/sales-order-lines")
@@ -36,7 +35,8 @@ public class SalesOrderLineController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<SalesOrderLine> updateSalesOrderLine(@PathVariable Long id, @RequestBody SalesOrderLine salesOrderLine) {
+    public ResponseEntity<SalesOrderLine> updateSalesOrderLine(@PathVariable Long id,
+            @RequestBody SalesOrderLine salesOrderLine) {
         return salesOrderLineService.updateSalesOrderLine(id, salesOrderLine)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());

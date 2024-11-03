@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/purchase-order-lines")
@@ -18,7 +17,8 @@ public class PurchaseOrderLineController {
 
     @PostMapping
     public ResponseEntity<PurchaseOrderLine> createPurchaseOrderLine(@RequestBody PurchaseOrderLine purchaseOrderLine) {
-        PurchaseOrderLine createdPurchaseOrderLine = purchaseOrderLineService.createPurchaseOrderLine(purchaseOrderLine);
+        PurchaseOrderLine createdPurchaseOrderLine = purchaseOrderLineService
+                .createPurchaseOrderLine(purchaseOrderLine);
         return ResponseEntity.ok(createdPurchaseOrderLine);
     }
 
@@ -36,7 +36,8 @@ public class PurchaseOrderLineController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PurchaseOrderLine> updatePurchaseOrderLine(@PathVariable Long id, @RequestBody PurchaseOrderLine purchaseOrderLine) {
+    public ResponseEntity<PurchaseOrderLine> updatePurchaseOrderLine(@PathVariable Long id,
+            @RequestBody PurchaseOrderLine purchaseOrderLine) {
         return purchaseOrderLineService.updatePurchaseOrderLine(id, purchaseOrderLine)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -49,8 +50,10 @@ public class PurchaseOrderLineController {
     }
 
     @GetMapping("/purchase-order/{purchaseOrderId}")
-    public ResponseEntity<List<PurchaseOrderLine>> getPurchaseOrderLinesByPurchaseOrderId(@PathVariable Long purchaseOrderId) {
-        List<PurchaseOrderLine> purchaseOrderLines = purchaseOrderLineService.getPurchaseOrderLinesByPurchaseOrderId(purchaseOrderId);
+    public ResponseEntity<List<PurchaseOrderLine>> getPurchaseOrderLinesByPurchaseOrderId(
+            @PathVariable Long purchaseOrderId) {
+        List<PurchaseOrderLine> purchaseOrderLines = purchaseOrderLineService
+                .getPurchaseOrderLinesByPurchaseOrderId(purchaseOrderId);
         return ResponseEntity.ok(purchaseOrderLines);
     }
 

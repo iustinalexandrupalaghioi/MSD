@@ -17,6 +17,7 @@ public class VATRate {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "vat_id", nullable = false)
     private Long vatid;
 
     @NotNull(message = "Price cannot be null")
