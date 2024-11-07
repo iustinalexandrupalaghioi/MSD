@@ -1,6 +1,7 @@
 # IntelliJ IDEA files
 .idea/
 *.iml
+.vscode
 
 # Build folders
 /target/
