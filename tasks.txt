@@ -96,3 +96,6 @@ src/
     - OrdersAmountsService -Done
 19. Error FIX - Andrei
     -Added @Service annotation
+20. Data Types change - Andrei
+    -From BigDecimal to Double
+    -Eliminated unnecessary annotations (@Digits)
