@@ -1,5 +1,6 @@
 package com.msd.erp.domain;
 
+import com.msd.erp.application.computations.OrdersAmountsService;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Digits;
@@ -8,7 +9,6 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.math.BigDecimal;
 
 @Entity
 @Table(name = "purchaseOrderLine")
@@ -41,19 +41,19 @@ public class PurchaseOrderLine {
 
     @NotNull(message = "Total line amount cannot be null")
     @DecimalMin(value = "0.0", inclusive = true, message = "Total line amount must be greater than or equal to 0")
-    @Digits(integer = 10, fraction = 2, message = "Total line amount must be a valid decimal value with two decimal places")
     @Column(name = "total_line_amount", nullable = false)
-    private BigDecimal totalLineAmount;
+    private Double totalLineAmount;
 
     @NotNull(message = "Total line amount with VAT cannot be null")
     @DecimalMin(value = "0.0", inclusive = true, message = "Total line amount with VAT must be greater than or equal to 0")
-    @Digits(integer = 10, fraction = 2, message = "Total line amount with VAT must be a valid double value with two decimal places")
     @Column(name = "total_line_amount_with_vat", nullable = false)
-    private BigDecimal totalLineAmountWithVAT;
+    private Double totalLineAmountWithVAT;
 
     @NotNull(message = "Price cannot be null")
     @DecimalMin(value = "0.0", inclusive = true, message = "Price must be greater than or equal to 0")
-    @Digits(integer = 10, fraction = 2, message = "Price must be a valid double value with two decimal places")
     @Column(name = "price", nullable = false)
-    private BigDecimal price;
+    private Double price;
 }
+
+
+

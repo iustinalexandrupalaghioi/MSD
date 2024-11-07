@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -23,8 +22,8 @@ public class SalesOrderService {
     @Transactional
     public SalesOrder createSalesOrder(SalesOrder salesOrder) {
         validationService.validateEntity(salesOrder);
-        BigDecimal totalAmount = ordersAmountsService.calculateSaleOrderAmount(salesOrder);
-        BigDecimal totalAmountWithVAT = ordersAmountsService.calculateSaleOrderAmountWithVAT(salesOrder);
+        Double totalAmount = ordersAmountsService.calculateSaleOrderAmount(salesOrder);
+        Double totalAmountWithVAT = ordersAmountsService.calculateSaleOrderAmountWithVAT(salesOrder);
         salesOrder.setTotalPrice(totalAmount);
         salesOrder.setTotalPriceWithVAT(totalAmountWithVAT);
         return salesOrderRepository.save(salesOrder);

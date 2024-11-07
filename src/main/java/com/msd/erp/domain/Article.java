@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 
 @Entity
 @Table(name = "article")
@@ -31,9 +30,8 @@ public class Article {
 
     @NotNull(message = "Price cannot be null")
     @DecimalMin(value = "0.0", inclusive = false, message = "Price must be greater than 0")
-    @Digits(integer = 10, fraction = 2, message = "Price must be a valid decimal value with two decimal places")
     @Column(name = "price", nullable = false)
-    private BigDecimal price;
+    private Double price;
 
     @NotNull(message = "Unit of Measure (UM) cannot be null")
     @Enumerated(EnumType.STRING)

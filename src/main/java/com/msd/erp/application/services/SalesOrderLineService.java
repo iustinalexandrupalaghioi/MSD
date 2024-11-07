@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,8 +20,8 @@ public class SalesOrderLineService {
     private final OrdersAmountsService ordersAmountsService;
     public SalesOrderLine saveSalesOrderLine(SalesOrderLine salesOrderLine) {
         // Calculează totalurile folosind OrdersAmountsService
-        BigDecimal lineAmount = ordersAmountsService.calculateSalesLineAmount(salesOrderLine);
-        BigDecimal lineAmountWithVAT = ordersAmountsService.calculateSalesLineAmountWithVAT(salesOrderLine);
+        Double lineAmount = ordersAmountsService.calculateSalesLineAmount(salesOrderLine);
+        Double lineAmountWithVAT = ordersAmountsService.calculateSalesLineAmountWithVAT(salesOrderLine);
 
         // Setează totalurile calculate în obiectul salesOrderLine
         salesOrderLine.setTotalLineAmount(lineAmount);

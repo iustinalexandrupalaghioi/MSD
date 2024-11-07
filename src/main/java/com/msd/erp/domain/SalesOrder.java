@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -36,15 +35,13 @@ public class SalesOrder {
 
     @NotNull(message = "Total price cannot be null")
     @DecimalMin(value = "0.0", inclusive = true, message = "Total price must be greater than 0")
-    @Digits(integer = 10, fraction = 2, message = "Total Price must be a valid decimal value with two decimal places")
     @Column(name = "total_price", nullable = false)
-    private BigDecimal totalPrice;
+    private Double totalPrice;
 
     @NotNull(message = "Total price with VAT cannot be null")
     @DecimalMin(value = "0.0", inclusive = true, message = "Total price with VAT must be greater than 0")
-    @Digits(integer = 10, fraction = 2, message = "Total price with VAT must be a valid decimal value with two decimal places")
     @Column(name = "total_price_with_vat", nullable = false)
-    private BigDecimal totalPriceWithVAT;
+    private Double totalPriceWithVAT;
 
     @OneToMany(mappedBy = "salesOrder", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SalesOrderLine> salesOrderLines;

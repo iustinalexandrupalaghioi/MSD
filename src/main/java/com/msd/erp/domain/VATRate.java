@@ -6,8 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
 @Entity
 @Table(name = "vatrate")
 @Data
@@ -22,5 +20,5 @@ public class VATRate {
 
     @NotNull(message = "Price cannot be null")
     @Column(name = "percent", nullable = false)
-    private BigDecimal percent;
+    private Double percent;
 }

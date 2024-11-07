@@ -6,69 +6,66 @@ import com.msd.erp.domain.SalesOrder;
 import com.msd.erp.domain.SalesOrderLine;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 
 @Service
 public class OrdersAmountsService {
 
-    public BigDecimal calculatePurchaseLineAmount(PurchaseOrderLine line) {
-        BigDecimal quantity = BigDecimal.valueOf(line.getQuantity());
-        BigDecimal lineAmount = line.getArticle().getPrice().multiply(quantity);
-        return lineAmount.setScale(2, BigDecimal.ROUND_HALF_UP);
+    public Double calculatePurchaseLineAmount(PurchaseOrderLine line) {
+        Integer quantity = line.getQuantity();
+        Double lineAmount = line.getArticle().getPrice() * quantity;
+        return lineAmount;
     }
 
-    public BigDecimal calculatePurchaseLineAmountWithVAT(PurchaseOrderLine line) {
-        BigDecimal lineAmount = calculatePurchaseLineAmount(line);
-        BigDecimal vatRate = line.getArticle().getVatid().getPercent();
-        BigDecimal vatAmount = lineAmount.multiply(vatRate).divide(BigDecimal.valueOf(100), 2,
-                BigDecimal.ROUND_HALF_UP);
-        return lineAmount.add(vatAmount).setScale(2, BigDecimal.ROUND_HALF_UP);
+    public Double calculatePurchaseLineAmountWithVAT(PurchaseOrderLine line) {
+        Double lineAmount = calculatePurchaseLineAmount(line);
+        Double vatRate = line.getArticle().getVatid().getPercent();
+        Double vatAmount = lineAmount * vatRate / 100;
+        return lineAmount + vatAmount;
     }
 
-    public BigDecimal calculatePurchaseOrderAmmount(PurchaseOrder order) {
-        BigDecimal totalPrice = BigDecimal.ZERO;
+    public Double calculatePurchaseOrderAmmount(PurchaseOrder order) {
+        Double totalPrice = 0.0;
         for (PurchaseOrderLine line : order.getPurchaseOrderLines()) {
-            totalPrice.add(calculatePurchaseLineAmount(line));
+            totalPrice = totalPrice + calculatePurchaseLineAmount(line);
         }
-        return totalPrice.setScale(2, BigDecimal.ROUND_HALF_UP);
+        return totalPrice;
     }
 
-    public BigDecimal calculatePurchaseOrderAmountWithVAT(PurchaseOrder order) {
-        BigDecimal totalPriceWithVAT = BigDecimal.ZERO;
+    public Double calculatePurchaseOrderAmountWithVAT(PurchaseOrder order) {
+        Double totalPriceWithVAT = 0.0;
         for (PurchaseOrderLine line : order.getPurchaseOrderLines()) {
-            totalPriceWithVAT = totalPriceWithVAT.add(calculatePurchaseLineAmountWithVAT(line));
+            totalPriceWithVAT = totalPriceWithVAT + calculatePurchaseLineAmountWithVAT(line);
         }
-        return totalPriceWithVAT.setScale(2, BigDecimal.ROUND_HALF_UP);
+        return totalPriceWithVAT;
     }
 
-    public BigDecimal calculateSalesLineAmount(SalesOrderLine line) {
-        BigDecimal quantity = BigDecimal.valueOf(line.getQuantity());
-        BigDecimal lineAmount = line.getArticle().getPrice().multiply(quantity);
-        return lineAmount.setScale(2, BigDecimal.ROUND_HALF_UP);
+    public Double calculateSalesLineAmount(SalesOrderLine line) {
+        Integer quantity = line.getQuantity();
+        Double lineAmount = line.getArticle().getPrice() * quantity;
+        return lineAmount;
     }
 
-    public BigDecimal calculateSalesLineAmountWithVAT(SalesOrderLine line) {
-        BigDecimal lineAmount = calculateSalesLineAmount(line);
-        BigDecimal vatRate = line.getArticle().getVatid().getPercent();
-        BigDecimal vatAmount = lineAmount.multiply(vatRate).divide(BigDecimal.valueOf(100), 2,
-                BigDecimal.ROUND_HALF_UP);
-        return vatAmount.add(lineAmount).setScale(2, BigDecimal.ROUND_HALF_UP);
+    public Double calculateSalesLineAmountWithVAT(SalesOrderLine line) {
+        Double lineAmount = calculateSalesLineAmount(line);
+        Double vatRate = line.getArticle().getVatid().getPercent();
+        Double vatAmount = lineAmount * vatRate / 100;
+        return vatAmount;
     }
 
-    public BigDecimal calculateSaleOrderAmount(SalesOrder order) {
-        BigDecimal totalPrice = BigDecimal.ZERO;
+    public Double calculateSaleOrderAmount(SalesOrder order) {
+        Double totalPrice = 0.0;
         for (SalesOrderLine line : order.getSalesOrderLines()) {
-            totalPrice.add(calculateSalesLineAmount(line));
+            totalPrice = totalPrice + (calculateSalesLineAmount(line));
         }
-        return totalPrice.setScale(2, BigDecimal.ROUND_HALF_UP);
+        return totalPrice;
     }
 
-    public BigDecimal calculateSaleOrderAmountWithVAT(SalesOrder order) {
-        BigDecimal totalPriceWithVAT = BigDecimal.ZERO;
+    public Double calculateSaleOrderAmountWithVAT(SalesOrder order) {
+        Double totalPriceWithVAT = 0.0;
         for (SalesOrderLine line : order.getSalesOrderLines()) {
-            totalPriceWithVAT.add(calculateSalesLineAmountWithVAT(line));
+            totalPriceWithVAT = totalPriceWithVAT + (calculateSalesLineAmountWithVAT(line));
         }
-        return totalPriceWithVAT.setScale(2, BigDecimal.ROUND_HALF_UP);
+        return totalPriceWithVAT;
     }
 
 }

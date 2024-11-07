@@ -8,7 +8,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -42,9 +41,8 @@ public class Project {
 
     @NotNull(message = "Budget cannot be null")
     @DecimalMin(value = "0.0", inclusive = true, message = "Budget must be greater than 0")
-    @Digits(integer = 10, fraction = 2, message = "Budget must be a valid decimal value with two decimal places")
     @Column(name = "budget", nullable = false)
-    private BigDecimal budget;
+    private Double budget;
 
     @NotNull(message = "'Is in budget' cannot be null")
     @Column(name = "is_in_budget", nullable = false)

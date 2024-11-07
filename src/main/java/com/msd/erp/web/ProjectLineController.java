@@ -90,9 +90,9 @@ public class ProjectLineController {
 
             // if (optionalProject.isPresent()) {
             // Project project = optionalProject.get();
-            // BigDecimal budget = project.getBudget();
-            // BigDecimal lineAmount =
-            // BigDecimal.valueOf(existingProjectLine.getLineAmount());
+            // Double budget = project.getBudget();
+            // Double lineAmount =
+            // Double.valueOf(existingProjectLine.getLineAmount());
 
             // boolean isInBudget = lineAmount.compareTo(budget) <= 0;
             // project.setIsInBudget(isInBudget);

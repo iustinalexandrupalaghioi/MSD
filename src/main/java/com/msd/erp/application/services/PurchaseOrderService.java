@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,8 +26,8 @@ public class PurchaseOrderService {
     }
 
     public PurchaseOrder savePurchaseOrder(PurchaseOrder purchaseOrder) {
-        BigDecimal totalAmount = ordersAmountsService.calculatePurchaseOrderAmmount(purchaseOrder);
-        BigDecimal totalAmountWithVAT = ordersAmountsService.calculatePurchaseOrderAmountWithVAT(purchaseOrder);
+        Double totalAmount = ordersAmountsService.calculatePurchaseOrderAmmount(purchaseOrder);
+        Double totalAmountWithVAT = ordersAmountsService.calculatePurchaseOrderAmountWithVAT(purchaseOrder);
         purchaseOrder.setTotalPrice(totalAmount);
         purchaseOrder.setTotalPriceWithVAT(totalAmountWithVAT);
 

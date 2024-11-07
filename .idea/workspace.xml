@@ -4,7 +4,122 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e904b406-082e-4434-b969-f099ca3dab11" name="Changes" comment="Create computation, repos, controllers and services" />
+    <list default="true" id="e904b406-082e-4434-b969-f099ca3dab11" name="Changes" comment="Error fix">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/computations/OrdersAmountsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/computations/OrdersAmountsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/computations/RentComputation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/computations/RentComputation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/services/PurchaseOrderLineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/services/PurchaseOrderLineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/services/PurchaseOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/services/PurchaseOrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/services/SalesOrderLineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/services/SalesOrderLineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/services/SalesOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/services/SalesOrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/views/ProjectDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/views/ProjectDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/views/PurchaseOrderDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/views/PurchaseOrderDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/views/PurchaseOrderLineDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/views/PurchaseOrderLineDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/views/SalesOrderDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/views/SalesOrderDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/views/SalesOrderLineDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/views/SalesOrderLineDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/views/VATRateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/views/VATRateDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/Article.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/PurchaseOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/PurchaseOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/PurchaseOrderLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/PurchaseOrderLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/SalesOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/SalesOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/SalesOrderLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/SalesOrderLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/VATRate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/VATRate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/web/ProjectLineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/web/ProjectLineController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MSD-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/MSD-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MSD-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/MSD-1.0-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/WebApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/WebApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/computations/OrdersAmountsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/computations/OrdersAmountsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/computations/PricingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/computations/PricingService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/computations/ProjectLineComputation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/computations/ProjectLineComputation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/computations/RentComputation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/computations/RentComputation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/computations/StockCalculation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/computations/StockCalculation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/AppliedPenaltyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/AppliedPenaltyService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/ArticleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/ArticleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/CategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/CategoryService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/PenaltyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/PenaltyService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/ProjectLineService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/ProjectLineService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/ProjectService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/ProjectService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/PurchaseOrderLineService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/PurchaseOrderLineService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/PurchaseOrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/PurchaseOrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/RelationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/RelationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/RentLineService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/RentLineService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/RentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/RentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/SalesOrderLineService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/SalesOrderLineService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/SalesOrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/SalesOrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/StockService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/StockService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/VATRateService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/VATRateService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/validations/DomainValidationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/validations/DomainValidationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/ArticleDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/ArticleDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/CategoryDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/CategoryDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/PenaltyDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/PenaltyDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/ProjectDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/ProjectDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/ProjectLineDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/ProjectLineDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/PurchaseOrderDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/PurchaseOrderDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/PurchaseOrderLineDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/PurchaseOrderLineDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/RelationDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/RelationDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/RentDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/RentDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/RentLineDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/RentLineDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/SalesOrderDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/SalesOrderDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/SalesOrderLineDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/SalesOrderLineDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/StockDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/StockDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/StockUpdateDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/StockUpdateDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/VATRateDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/VATRateDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/AppliedPenalty.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/AppliedPenalty.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Article.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Article.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Penalty.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Penalty.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/PenaltyType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/PenaltyType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Project.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Project.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/ProjectLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/ProjectLine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/ProjectType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/ProjectType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/PurchaseOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/PurchaseOrder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/PurchaseOrderLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/PurchaseOrderLine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Relation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Relation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/RelationType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/RelationType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Rent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Rent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/RentLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/RentLine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/SalesOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/SalesOrder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/SalesOrderLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/SalesOrderLine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Stock.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Stock.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/UMType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/UMType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/VATRate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/VATRate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/AppliedPenaltyRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/AppliedPenaltyRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/ArticleRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/ArticleRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/CategoryRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/CategoryRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/PenaltyRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/PenaltyRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/ProjectLineRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/ProjectLineRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/ProjectRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/ProjectRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/PurchaseOrderLineRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/PurchaseOrderLineRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/PurchaseOrderRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/PurchaseOrderRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/RelationRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/RelationRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/RentLineRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/RentLineRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/RentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/RentRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/SalesOrderLineRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/SalesOrderLineRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/SalesOrderRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/SalesOrderRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/StockRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/StockRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/VATRateRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/VATRateRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/AppliedPenaltyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/AppliedPenaltyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/ArticleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/ArticleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/CategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/CategoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/PenaltyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/PenaltyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/ProjectController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/ProjectController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/ProjectLineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/ProjectLineController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/PurchaseOrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/PurchaseOrderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/PurchaseOrderLineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/PurchaseOrderLineController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/RelationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/RelationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/RentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/RentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/RentLineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/RentLineController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/SalesOrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/SalesOrderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/SalesOrderLineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/SalesOrderLineController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/StockController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/StockController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/VATRateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/VATRateController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,9 +179,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "spring.configuration.checksum": "62171ff3b6fe5eda941078665bf2a277",
     "vue.rearranger.settings.migration": "true"
   }
@@ -92,7 +207,8 @@
       <workItem from="1730543846710" duration="193000" />
       <workItem from="1730544047607" duration="618000" />
       <workItem from="1730544707563" duration="6233000" />
-      <workItem from="1730550953659" duration="16569000" />
+      <workItem from="1730550953659" duration="16887000" />
+      <workItem from="1730983733815" duration="6164000" />
     </task>
     <task id="LOCAL-00001" summary="10. CREATE ProjectDTO PurchaseOrderDTO PurchaseOrderLineDTO SalesOrderDTO SalesOrderLineDTO">
       <created>1730545727820</created>
@@ -108,7 +224,21 @@
       <option name="project" value="LOCAL" />
       <updated>1730568841828</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Error fix">
+      <created>1730570291491</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1730570291491</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Error fix">
+      <created>1730570340224</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1730570340224</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,6 +293,21 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="10. CREATE ProjectDTO PurchaseOrderDTO PurchaseOrderLineDTO SalesOrderDTO SalesOrderLineDTO" />
     <MESSAGE value="Create computation, repos, controllers and services" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create computation, repos, controllers and services" />
+    <MESSAGE value="Error fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Error fix" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.springframework.beans.factory.BeanCreationException" package="org.springframework.beans.factory" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -3,7 +3,6 @@ package com.msd.erp.application.views;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
@@ -14,6 +13,6 @@ public class ProjectDTO {
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private String projectType;
-    private BigDecimal budget;
+    private Double budget;
     private Boolean isInBudget;
 }
