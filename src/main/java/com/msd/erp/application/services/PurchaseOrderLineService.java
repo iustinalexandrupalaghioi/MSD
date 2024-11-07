@@ -3,7 +3,6 @@ package com.msd.erp.application.services;
 import com.msd.erp.application.computations.OrdersAmountsService;
 import com.msd.erp.application.validations.DomainValidationService;
 import com.msd.erp.domain.PurchaseOrderLine;
-import com.msd.erp.domain.SalesOrderLine;
 import com.msd.erp.infrastructure.repositories.PurchaseOrderLineRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -29,9 +28,9 @@ public class PurchaseOrderLineService {
         purchaseOrderLine.setTotalLineAmount(lineAmount);
         purchaseOrderLine.setTotalLineAmountWithVAT(lineAmountWithVAT);
 
-
         return purchaseOrderLineRepository.save(purchaseOrderLine);
     }
+
     @Transactional
     public PurchaseOrderLine createPurchaseOrderLine(PurchaseOrderLine purchaseOrderLine) {
         validationService.validateEntity(purchaseOrderLine);

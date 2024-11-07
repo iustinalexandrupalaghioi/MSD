@@ -1,7 +1,6 @@
 package com.msd.erp.application.services;
 
 import com.msd.erp.application.validations.DomainValidationService;
-import com.msd.erp.domain.Article;
 import com.msd.erp.domain.Penalty;
 import com.msd.erp.infrastructure.repositories.PenaltyRepository;
 import lombok.RequiredArgsConstructor;

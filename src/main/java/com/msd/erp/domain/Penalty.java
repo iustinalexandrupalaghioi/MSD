@@ -9,7 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "relation")
+@Table(name = "penalty")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,4 +28,8 @@ public class Penalty {
     @Enumerated(EnumType.STRING)
     @Column(name = "penaltytype", nullable = false)
     private PenaltyType penaltytype;
+
+    @NotNull(message = "Price cannot be null")
+    @Column(name = "price", nullable = false)
+    private Double price = 0.0;
 }

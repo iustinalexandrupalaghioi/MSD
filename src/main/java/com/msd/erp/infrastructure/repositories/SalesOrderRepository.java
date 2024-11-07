@@ -14,5 +14,6 @@ public interface SalesOrderRepository extends JpaRepository<SalesOrder, Long> {
     List<SalesOrder> findByCustomerId(@Param("customerId") Long customerId);
 
     @Query("SELECT so FROM SalesOrder so WHERE so.date BETWEEN :startDate AND :endDate")
-    List<SalesOrder> findByDateRange(@Param("startDate") LocalDateTime startDate, @Param("endDate") LocalDateTime endDate);
+    List<SalesOrder> findByDateRange(@Param("startDate") LocalDateTime startDate,
+            @Param("endDate") LocalDateTime endDate);
 }

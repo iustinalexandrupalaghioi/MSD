@@ -7,6 +7,7 @@ import com.msd.erp.domain.SalesOrderLine;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+
 @Service
 public class OrdersAmountsService {
 
@@ -19,13 +20,14 @@ public class OrdersAmountsService {
     public BigDecimal calculatePurchaseLineAmountWithVAT(PurchaseOrderLine line) {
         BigDecimal lineAmount = calculatePurchaseLineAmount(line);
         BigDecimal vatRate = line.getArticle().getVatid().getPercent();
-        BigDecimal vatAmount = lineAmount.multiply(vatRate).divide(BigDecimal.valueOf(100), 2, BigDecimal.ROUND_HALF_UP);
+        BigDecimal vatAmount = lineAmount.multiply(vatRate).divide(BigDecimal.valueOf(100), 2,
+                BigDecimal.ROUND_HALF_UP);
         return lineAmount.add(vatAmount).setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
-    public BigDecimal calculatePurchaseOrderAmmount(PurchaseOrder order){
+    public BigDecimal calculatePurchaseOrderAmmount(PurchaseOrder order) {
         BigDecimal totalPrice = BigDecimal.ZERO;
-        for(PurchaseOrderLine line: order.getPurchaseOrderLines()){
+        for (PurchaseOrderLine line : order.getPurchaseOrderLines()) {
             totalPrice.add(calculatePurchaseLineAmount(line));
         }
         return totalPrice.setScale(2, BigDecimal.ROUND_HALF_UP);
@@ -45,28 +47,28 @@ public class OrdersAmountsService {
         return lineAmount.setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
-    public BigDecimal calculateSalesLineAmountWithVAT(SalesOrderLine line){
+    public BigDecimal calculateSalesLineAmountWithVAT(SalesOrderLine line) {
         BigDecimal lineAmount = calculateSalesLineAmount(line);
         BigDecimal vatRate = line.getArticle().getVatid().getPercent();
-        BigDecimal vatAmount =  lineAmount.multiply(vatRate).divide(BigDecimal.valueOf(100),2,BigDecimal.ROUND_HALF_UP);
-        return vatAmount.add(lineAmount).setScale(2,BigDecimal.ROUND_HALF_UP);
+        BigDecimal vatAmount = lineAmount.multiply(vatRate).divide(BigDecimal.valueOf(100), 2,
+                BigDecimal.ROUND_HALF_UP);
+        return vatAmount.add(lineAmount).setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
-    public BigDecimal calculateSaleOrderAmount (SalesOrder order){
+    public BigDecimal calculateSaleOrderAmount(SalesOrder order) {
         BigDecimal totalPrice = BigDecimal.ZERO;
-        for(SalesOrderLine line: order.getSalesOrderLines()){
+        for (SalesOrderLine line : order.getSalesOrderLines()) {
             totalPrice.add(calculateSalesLineAmount(line));
         }
-        return totalPrice.setScale(2,BigDecimal.ROUND_HALF_UP);
+        return totalPrice.setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
-    public BigDecimal calculateSaleOrderAmountWithVAT(SalesOrder order){
+    public BigDecimal calculateSaleOrderAmountWithVAT(SalesOrder order) {
         BigDecimal totalPriceWithVAT = BigDecimal.ZERO;
-        for(SalesOrderLine line: order.getSalesOrderLines()){
+        for (SalesOrderLine line : order.getSalesOrderLines()) {
             totalPriceWithVAT.add(calculateSalesLineAmountWithVAT(line));
         }
-        return totalPriceWithVAT.setScale(2,BigDecimal.ROUND_HALF_UP);
+        return totalPriceWithVAT.setScale(2, BigDecimal.ROUND_HALF_UP);
     }
-
 
 }

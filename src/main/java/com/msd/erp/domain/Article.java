@@ -42,11 +42,11 @@ public class Article {
 
     @NotNull(message = "CategoryID cannot be null")
     @ManyToOne
-    @JoinColumn(name = "_fk_categoryid", nullable = false)
+    @JoinColumn(name = "categoryid", nullable = false)
     private Category categoryid;
 
     @NotNull(message = "VATRateID cannot be null")
     @ManyToOne
-    @JoinColumn(name = "_fk_vatid", nullable = false)
+    @JoinColumn(name = "vatid", nullable = false)
     private VATRate vatid;
 }

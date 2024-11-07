@@ -1,6 +1,5 @@
 package com.msd.erp.infrastructure.repositories;
 
-import com.msd.erp.domain.Article;
 import com.msd.erp.domain.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
