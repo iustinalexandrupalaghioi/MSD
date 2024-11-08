@@ -1,6 +1,6 @@
 package com.msd.erp.application.computations;
 
-//import java.time.temporal.ChronoUnit;
+import java.time.temporal.ChronoUnit;
 import com.msd.erp.domain.Rent;
 import com.msd.erp.domain.RentLine;
 
@@ -8,7 +8,7 @@ public class RentComputation {
 
     public static void updateRentPeriod(Rent rent) {
         if (rent.getStartDate() != null && rent.getEndDate() != null) {
-//            rent.setPeriod(ChronoUnit.DAYS.between(rent.getStartDate(), rent.getEndDate()));
+            rent.setPeriod(ChronoUnit.DAYS.between(rent.getStartDate(), rent.getEndDate()));
         }
     }
 
