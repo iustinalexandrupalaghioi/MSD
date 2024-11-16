@@ -49,7 +49,7 @@ public class OrdersAmountsService {
         Double lineAmount = calculateSalesLineAmount(line);
         Double vatRate = line.getArticle().getVatid().getPercent();
         Double vatAmount = lineAmount * vatRate / 100;
-        return vatAmount;
+        return vatAmount + lineAmount;
     }
 
     public Double calculateSaleOrderAmount(SalesOrder order) {

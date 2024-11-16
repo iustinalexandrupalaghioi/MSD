@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 public class PricingService {
 
     // Service to calculate price discounts
-    public double calculateDiscountedPrice(double price, double discountPercentage) {
+    public Double calculateDiscountedPrice(Double price, Double discountPercentage) {
         if (discountPercentage < 0 || discountPercentage > 100) {
             throw new IllegalArgumentException("Discount percentage must be between 0 and 100");
         }
