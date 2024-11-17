@@ -1,9 +1,7 @@
 package com.msd.erp.domain;
 
-import com.msd.erp.application.computations.OrdersAmountsService;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -54,6 +52,3 @@ public class PurchaseOrderLine {
     @Column(name = "price", nullable = false)
     private Double price;
 }
-
-
-

@@ -2,6 +2,9 @@ package com.msd.erp.web;
 
 import com.msd.erp.domain.Article;
 import com.msd.erp.domain.Stock;
+
+import jakarta.validation.Valid;
+
 import com.msd.erp.application.services.StockService;
 import com.msd.erp.application.views.StockUpdateDTO;
 
@@ -44,47 +47,19 @@ public class StockController {
 
     // Update stock by article ID
     @PutMapping("/update/{articleId}")
-    public ResponseEntity<Stock> updateStock(@PathVariable Long articleId, @RequestBody StockUpdateDTO stockUpdateDTO) {
-        Optional<Stock> existingStockOptional = stockService.findByArticleId(articleId);
+    public ResponseEntity<Stock> updateStock(@PathVariable Long articleId,
+            @RequestBody @Valid StockUpdateDTO stockUpdateDTO) {
+        try {
+            Optional<Stock> existingStockOptional = stockService.findByArticleId(articleId);
 
-        if (existingStockOptional.isPresent()) {
-            Stock existingStock = existingStockOptional.get();
-
-            // Incoming quantity
-            if (stockUpdateDTO.getIncomingQuantity() != null) {
-                existingStock.setIncomingQuantity(
-                        existingStock.getIncomingQuantity() + stockUpdateDTO.getIncomingQuantity());
+            if (existingStockOptional.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
 
-            // rented quantity
-            if (stockUpdateDTO.getRentedQuantity() != null) {
-                existingStock.setRentedQuantity(existingStock.getRentedQuantity() + stockUpdateDTO.getRentedQuantity());
-                existingStock.setAvailableQuantity(
-                        existingStock.getAvailableQuantity() - stockUpdateDTO.getRentedQuantity());
-            }
-
-            // transfer from incoming to available (receive)
-            if (stockUpdateDTO.getReceivedQuantity() != null) {
-                existingStock.setIncomingQuantity(
-                        existingStock.getIncomingQuantity() - stockUpdateDTO.getReceivedQuantity());
-                existingStock.setAvailableQuantity(
-                        existingStock.getAvailableQuantity() + stockUpdateDTO.getReceivedQuantity());
-            }
-
-            // transfer from rented to available (return)
-            if (stockUpdateDTO.getReturnedQuantity() != null) {
-                existingStock
-                        .setRentedQuantity(existingStock.getRentedQuantity() - stockUpdateDTO.getReturnedQuantity());
-                existingStock
-                        .setAvailableQuantity(
-                                existingStock.getAvailableQuantity() + stockUpdateDTO.getReturnedQuantity());
-            }
-
-            stockService.updateCalculatedQuantities(existingStock);
-            Stock updatedStock = stockService.save(existingStock);
+            Stock updatedStock = stockService.processStockUpdate(existingStockOptional.get(), stockUpdateDTO);
             return new ResponseEntity<>(updatedStock, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

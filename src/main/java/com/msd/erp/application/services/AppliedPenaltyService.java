@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.msd.erp.application.validations.DomainValidationService;
 import com.msd.erp.domain.AppliedPenalty;
 import com.msd.erp.domain.Article;
 import com.msd.erp.domain.Penalty;
@@ -26,6 +27,9 @@ public class AppliedPenaltyService {
 
     @Autowired
     private ArticleService articleService;
+
+    @Autowired
+    private DomainValidationService validationService;
 
     public AppliedPenalty createPenalty(AppliedPenalty appliedPenalty) {
         Long rentLineId = appliedPenalty.getRentLine().getRentLineId();
@@ -55,6 +59,7 @@ public class AppliedPenaltyService {
         rentLine.setPenaltiesAmount(oldPenaltiesAmount + penaltyPrice);
 
         rentLineService.updateRentLine(rentLine);
+
         return appliedPenaltyRepository.save(appliedPenalty);
 
     }
@@ -69,6 +74,11 @@ public class AppliedPenaltyService {
 
     public List<AppliedPenalty> findByRentLineId(Long rentLineId) {
         return appliedPenaltyRepository.findByRentLineId(rentLineId);
+    }
+
+    public AppliedPenalty save(AppliedPenalty appliedPenalty) {
+        validationService.validateEntity(appliedPenalty);
+        return appliedPenaltyRepository.save(appliedPenalty);
     }
 
     public void deleteById(Long id) {

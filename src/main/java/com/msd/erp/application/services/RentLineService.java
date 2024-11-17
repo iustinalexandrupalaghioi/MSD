@@ -1,6 +1,8 @@
 package com.msd.erp.application.services;
 
 import com.msd.erp.application.computations.RentComputation;
+import com.msd.erp.application.validations.DomainValidationService;
+import com.msd.erp.application.views.RentLineDTO;
 import com.msd.erp.domain.Article;
 import com.msd.erp.domain.Rent;
 import com.msd.erp.domain.RentLine;
@@ -32,6 +34,9 @@ public class RentLineService {
     @Autowired
     private RentLineRepository rentLineRepository;
 
+    @Autowired
+    private DomainValidationService validationService;
+
     public RentLine createRentLine(RentLine rentLine) {
         Rent rent = rentService.findById(rentLine.getRent().getRentId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Rent not found"));
@@ -51,6 +56,7 @@ public class RentLineService {
 
         rentService.updateRentHeaderTotals(rent, rentLine.getLineAmount(), rentLine.getLineAmountWithVAT(),
                 rentLine.getLineAmountWithPenalties());
+
         rentService.save(rent);
 
         return createdRentLine;
@@ -68,6 +74,7 @@ public class RentLineService {
         return rentLineRepository.findAll();
     }
 
+    // update rent line
     public RentLine updateRentLine(RentLine rentLine) {
         Rent rent = rentService.findById(rentLine.getRent().getRentId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Rent not found"));
@@ -82,12 +89,37 @@ public class RentLineService {
                 oldLineAmount, rentLine.getLineAmount(),
                 oldLineAmountWithVAT, rentLine.getLineAmountWithVAT(),
                 oldLineAmountWithPenalties, rentLine.getLineAmountWithPenalties());
+
         rentService.save(rent);
 
         return rentLineRepository.save(rentLine);
     }
 
+    // method for DTO-based updates
+    public RentLine updateRentLine(Long rentLineId, RentLineDTO rentLineDTO) {
+
+        RentLine rentLine = rentLineRepository.findById(rentLineId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "RentLine not found"));
+
+        if (rentLineDTO.getPricePerDay() != null) {
+            rentLine.setPricePerDay(rentLineDTO.getPricePerDay());
+        }
+
+        if (rentLineDTO.getQuantity() != null) {
+            rentLine.setQuantity(rentLineDTO.getQuantity());
+        }
+
+        if (rentLineDTO.getVat() != null) {
+            VATRate vatRate = vatService.getVATRateById(rentLineDTO.getVat().getVatid())
+                    .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "VAT rate not found"));
+            rentLine.setVat(vatRate);
+        }
+
+        return updateRentLine(rentLine);
+    }
+
     public RentLine save(RentLine rentLine) {
+        validationService.validateEntity(rentLine);
         return rentLineRepository.save(rentLine);
     }
 

@@ -38,7 +38,7 @@ public class RentController {
     public ResponseEntity<Rent> updateRent(@PathVariable Long rentId, @RequestBody RentDTO rentDTO) {
         Optional<Rent> updatedRent = rentService.updateRent(rentId, rentDTO);
 
-        return updatedRent.map(rent -> new ResponseEntity<>(rent, HttpStatus.CREATED))
+        return updatedRent.map(rent -> new ResponseEntity<>(rent, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 
     }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.msd.erp.application.computations.RentComputation;
+import com.msd.erp.application.validations.DomainValidationService;
 import com.msd.erp.application.views.RentDTO;
 import com.msd.erp.domain.Rent;
 import com.msd.erp.infrastructure.repositories.RentRepository;
@@ -16,6 +17,9 @@ public class RentService {
 
     @Autowired
     private RentRepository rentRepository;
+
+    @Autowired
+    private DomainValidationService validationService;
 
     public Optional<Rent> findById(Long rentId) {
         return rentRepository.findById(rentId);
@@ -57,6 +61,7 @@ public class RentService {
     }
 
     public Rent save(Rent rent) {
+        validationService.validateEntity(rent);
         return rentRepository.save(rent);
     }
 

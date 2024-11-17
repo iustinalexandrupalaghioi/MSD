@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.msd.erp.application.computations.StockCalculation;
+import com.msd.erp.application.validations.DomainValidationService;
+import com.msd.erp.application.views.StockUpdateDTO;
 import com.msd.erp.domain.Article;
 import com.msd.erp.domain.Stock;
 import com.msd.erp.infrastructure.repositories.StockRepository;
@@ -17,6 +19,9 @@ public class StockService {
 
     @Autowired
     private StockRepository stockRepository;
+
+    @Autowired
+    private DomainValidationService validationService;
 
     public List<Stock> findAllStocks() {
         return stockRepository.findAll();
@@ -40,28 +45,33 @@ public class StockService {
     }
 
     @Transactional
-    public Stock updateStock(Article article, Integer incomingQuantity, Integer rentedQuantity,
-            Integer availableQuantity) {
-        Optional<Stock> existingStock = stockRepository.findByArticle(article);
-
-        if (existingStock.isPresent()) {
-            Stock stock = existingStock.get();
-            stock.setIncomingQuantity(incomingQuantity);
-            stock.setRentedQuantity(rentedQuantity);
-            stock.setAvailableQuantity(availableQuantity);
-            updateCalculatedQuantities(stock);
-            return stockRepository.save(stock);
-        } else {
-            Stock stock;
-            stock = new Stock();
-            stock.setArticle(article);
-
-            stock.setAvailableQuantity(0);
-            stock.setIncomingQuantity(0);
-            stock.setRentedQuantity(0);
-            stock.setTechnicalQuantity(0);
-            return stockRepository.save(stock);
+    public Stock processStockUpdate(Stock existingStock, StockUpdateDTO stockUpdateDTO) {
+        if (stockUpdateDTO.getIncomingQuantity() != null) {
+            existingStock
+                    .setIncomingQuantity(existingStock.getIncomingQuantity() + stockUpdateDTO.getIncomingQuantity());
         }
+
+        if (stockUpdateDTO.getRentedQuantity() != null) {
+            existingStock.setRentedQuantity(existingStock.getRentedQuantity() + stockUpdateDTO.getRentedQuantity());
+            existingStock
+                    .setAvailableQuantity(existingStock.getAvailableQuantity() - stockUpdateDTO.getRentedQuantity());
+        }
+
+        if (stockUpdateDTO.getReceivedQuantity() != null) {
+            existingStock
+                    .setIncomingQuantity(existingStock.getIncomingQuantity() - stockUpdateDTO.getReceivedQuantity());
+            existingStock
+                    .setAvailableQuantity(existingStock.getAvailableQuantity() + stockUpdateDTO.getReceivedQuantity());
+        }
+
+        if (stockUpdateDTO.getReturnedQuantity() != null) {
+            existingStock.setRentedQuantity(existingStock.getRentedQuantity() - stockUpdateDTO.getReturnedQuantity());
+            existingStock
+                    .setAvailableQuantity(existingStock.getAvailableQuantity() + stockUpdateDTO.getReturnedQuantity());
+        }
+
+        updateCalculatedQuantities(existingStock);
+        return stockRepository.save(existingStock);
     }
 
     public void updateCalculatedQuantities(Stock stock) {
@@ -72,6 +82,7 @@ public class StockService {
     }
 
     public Stock save(Stock stock) {
+        validationService.validateEntity(stock);
         return stockRepository.save(stock);
     }
 

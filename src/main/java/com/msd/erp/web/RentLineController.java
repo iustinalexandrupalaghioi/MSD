@@ -1,18 +1,16 @@
 package com.msd.erp.web;
 
 import com.msd.erp.domain.RentLine;
-import com.msd.erp.domain.VATRate;
 import com.msd.erp.application.services.RentLineService;
-import com.msd.erp.application.services.VATRateService;
 import com.msd.erp.application.views.RentLineDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/rentlines")
@@ -20,9 +18,6 @@ public class RentLineController {
 
     @Autowired
     private RentLineService rentLineService;
-
-    @Autowired
-    private VATRateService vatService;
 
     @PostMapping("/create")
     public ResponseEntity<RentLine> createRentLine(@RequestBody RentLine rentLine) {
@@ -34,34 +29,13 @@ public class RentLineController {
     public ResponseEntity<RentLine> updateRentLine(
             @PathVariable Long rentLineId,
             @RequestBody RentLineDTO rentLineDTO) {
-
-        Optional<RentLine> optionalRentLine = rentLineService.getRentLineById(rentLineId);
-        if (optionalRentLine.isPresent()) {
-            RentLine existingRentLine = optionalRentLine.get();
-
-            existingRentLine.setPricePerDay(rentLineDTO.getPricePerDay() != null
-                    ? rentLineDTO.getPricePerDay()
-                    : existingRentLine.getPricePerDay());
-
-            existingRentLine.setQuantity(rentLineDTO.getQuantity() != null
-                    ? rentLineDTO.getQuantity()
-                    : existingRentLine.getQuantity());
-
-            if (rentLineDTO.getVat() != null) {
-                Optional<VATRate> vatRateOptional = vatService.getVATRateById(rentLineDTO.getVat().getVatid());
-                if (vatRateOptional.isPresent()) {
-                    existingRentLine.setVat(vatRateOptional.get());
-                } else {
-                    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-                }
-            }
-
-            RentLine updatedRentLine = rentLineService.updateRentLine(existingRentLine);
-
+        try {
+            RentLine updatedRentLine = rentLineService.updateRentLine(rentLineId, rentLineDTO);
             return new ResponseEntity<>(updatedRentLine, HttpStatus.OK);
-        } else {
+        } catch (ResponseStatusException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+
     }
 
     @GetMapping("/{id}")

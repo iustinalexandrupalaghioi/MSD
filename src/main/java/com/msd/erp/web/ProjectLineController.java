@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,8 @@ import com.msd.erp.application.services.ProjectService;
 import com.msd.erp.application.views.ProjectLineDTO;
 import com.msd.erp.domain.Project;
 import com.msd.erp.domain.ProjectLine;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/project-lines")
@@ -68,41 +71,23 @@ public class ProjectLineController {
 
     // Update a ProjectLine
     @PutMapping("/update/{projectLineId}")
-    public ResponseEntity<ProjectLine> updateProjectLine(@PathVariable Long projectLineId,
-            @RequestBody ProjectLineDTO projectLineDTO) {
-        Optional<ProjectLine> existingProjectLineOpt = projectLineService.findById(projectLineId);
-        if (existingProjectLineOpt.isPresent()) {
-            ProjectLine existingProjectLine = existingProjectLineOpt.get();
+    public ResponseEntity<ProjectLine> updateProjectLine(
+            @PathVariable Long projectLineId,
+            @RequestBody @Valid ProjectLineDTO projectLineDTO) {
 
-            existingProjectLine.setArticle(projectLineDTO.getArticle() != null ? projectLineDTO.getArticle()
-                    : existingProjectLine.getArticle());
-            existingProjectLine.setPurchaseOrder(projectLineDTO.getPurchaseOrder());
-            existingProjectLine.setPurchaseOrderLine(projectLineDTO.getPurchaseOrderLine());
-            existingProjectLine.setQuantity(projectLineDTO.getQuantity() != null ? projectLineDTO.getQuantity()
-                    : existingProjectLine.getQuantity());
-            existingProjectLine.setPrice(projectLineDTO.getPrice() != null ? projectLineDTO.getPrice()
-                    : existingProjectLine.getPrice());
+        try {
+            Optional<ProjectLine> existingProjectLineOpt = projectLineService.findById(projectLineId);
 
-            existingProjectLine.setLineAmount(ProjectLineComputation
-                    .calculateLineAmount(existingProjectLine.getQuantity(), existingProjectLine.getPrice()));
-            // Optional<Project> optionalProject = projectService
-            // .getProjectById(existingProjectLine.getProject().getProjectId());
+            if (existingProjectLineOpt.isEmpty()) {
+                return ResponseEntity.notFound().build();
+            }
 
-            // if (optionalProject.isPresent()) {
-            // Project project = optionalProject.get();
-            // Double budget = project.getBudget();
-            // Double lineAmount =
-            // Double.valueOf(existingProjectLine.getLineAmount());
+            ProjectLine updatedProjectLine = projectLineService.updateProjectLine(existingProjectLineOpt.get(),
+                    projectLineDTO);
+            return ResponseEntity.ok(updatedProjectLine);
 
-            // boolean isInBudget = lineAmount.compareTo(budget) <= 0;
-            // project.setIsInBudget(isInBudget);
-            // projectService.updateProject(project.getProjectId(), project);
-            // }
-
-            ProjectLine savedProjectLine = projectLineService.save(existingProjectLine);
-            return ResponseEntity.ok(savedProjectLine);
-        } else {
-            return ResponseEntity.notFound().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
 
