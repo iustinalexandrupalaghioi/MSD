@@ -1,4 +1,4 @@
-package com.msd.erp.servicesTests;
+package com.msd.erp.application.workflowTests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

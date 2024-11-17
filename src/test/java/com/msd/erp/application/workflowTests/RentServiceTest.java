@@ -1,4 +1,4 @@
-package com.msd.erp.servicesTests;
+package com.msd.erp.application.workflowTests;
 
 import com.msd.erp.application.services.RentService;
 import com.msd.erp.application.validations.DomainValidationService;
