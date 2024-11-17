@@ -128,4 +128,13 @@ src/
     - RentService - Done
     - RentLineServiceTest - Done
     - ProjectLineService - Done
-   
+26. Create Workflow Tests: - Andrei
+    - ArticleServiceTest
+    - CategoryServiceTest
+    - PurchaseOrderServiceTest
+    - SalesOrderServiceTest
+    - VATRateServiceTest
+27. Added 3 new CRUD methods in PurchaseOrderLineService: - Andrei
+    - deleteById
+    - findById
+    - save

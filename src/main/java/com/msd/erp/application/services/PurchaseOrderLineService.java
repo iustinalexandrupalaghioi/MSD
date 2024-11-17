@@ -30,6 +30,20 @@ public class PurchaseOrderLineService {
         return purchaseOrderLineRepository.save(purchaseOrderLine);
     }
 
+    public PurchaseOrderLine save(PurchaseOrderLine purchaseOrderLine) {
+        validationService.validateEntity(purchaseOrderLine);
+        return purchaseOrderLineRepository.save(purchaseOrderLine);
+    }
+
+    public Optional<PurchaseOrderLine> findById(Long id) {
+        return purchaseOrderLineRepository.findById(id);
+    }
+
+    public void deleteById(Long id) {
+        purchaseOrderLineRepository.deleteById(id);
+    }
+
+
     @Transactional
     public PurchaseOrderLine createPurchaseOrderLine(PurchaseOrderLine purchaseOrderLine) {
         validationService.validateEntity(purchaseOrderLine);
@@ -47,17 +61,19 @@ public class PurchaseOrderLineService {
     @Transactional
     public Optional<PurchaseOrderLine> updatePurchaseOrderLine(Long id, PurchaseOrderLine updatedPurchaseOrderLine) {
         return purchaseOrderLineRepository.findById(id).map(existingPurchaseOrderLine -> {
-            existingPurchaseOrderLine.setPurchaseOrder(updatedPurchaseOrderLine.getPurchaseOrder());
-            existingPurchaseOrderLine.setArticle(updatedPurchaseOrderLine.getArticle());
+            // Actualizăm câmpurile
             existingPurchaseOrderLine.setQuantity(updatedPurchaseOrderLine.getQuantity());
+            existingPurchaseOrderLine.setPrice(updatedPurchaseOrderLine.getPrice());
             existingPurchaseOrderLine.setTotalLineAmount(updatedPurchaseOrderLine.getTotalLineAmount());
             existingPurchaseOrderLine.setTotalLineAmountWithVAT(updatedPurchaseOrderLine.getTotalLineAmountWithVAT());
-            existingPurchaseOrderLine.setPrice(updatedPurchaseOrderLine.getPrice());
 
+            // Validăm și salvăm
             validationService.validateEntity(existingPurchaseOrderLine);
             return purchaseOrderLineRepository.save(existingPurchaseOrderLine);
         });
     }
+
+
 
     @Transactional
     public void deletePurchaseOrderLine(Long id) {

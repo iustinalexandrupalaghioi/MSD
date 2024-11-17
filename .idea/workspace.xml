@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e904b406-082e-4434-b969-f099ca3dab11" name="Changes" comment="Error fix">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/msd/erp/application/computationsTests/OrdersAmountsServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/msd/erp/application/computationsTests/OrdersAmountsServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/services/PurchaseOrderLineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/services/PurchaseOrderLineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tasks.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,80 +83,82 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.OrdersAmountsServiceTest">
-    <configuration name="DomainValidationServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration name="ArticleServiceTest.createArticle_ShouldValidateAndSaveArticle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MSD" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.msd.erp.application.validationTests.*" />
+          <option name="PATTERN" value="com.msd.erp.application.workflowTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.msd.erp.application.validationTests" />
-      <option name="MAIN_CLASS_NAME" value="com.msd.erp.application.validationTests.DomainValidationServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrdersAmountsServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MSD" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.msd.erp.application.computationsTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.msd.erp.application.computationsTests" />
-      <option name="MAIN_CLASS_NAME" value="com.msd.erp.application.computationsTests.OrdersAmountsServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrdersAmountsServiceTest.calculatePurchaseOrderAmountWithVAT_ShouldReturnTotalAmountWithVAT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MSD" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.msd.erp.application.computationsTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.msd.erp.application.computationsTests" />
-      <option name="MAIN_CLASS_NAME" value="com.msd.erp.application.computationsTests.OrdersAmountsServiceTest" />
-      <option name="METHOD_NAME" value="calculatePurchaseOrderAmountWithVAT_ShouldReturnTotalAmountWithVAT" />
+      <option name="PACKAGE_NAME" value="com.msd.erp.application.workflowTests" />
+      <option name="MAIN_CLASS_NAME" value="com.msd.erp.application.workflowTests.ArticleServiceTest" />
+      <option name="METHOD_NAME" value="createArticle_ShouldValidateAndSaveArticle" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrdersAmountsServiceTest.calculatePurchaseOrderAmount_ShouldReturnTotalAmountForOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ArticleServiceTest.getAllArticles_ShouldReturnAllArticles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MSD" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.msd.erp.application.computationsTests.*" />
+          <option name="PATTERN" value="com.msd.erp.application.workflowTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.msd.erp.application.computationsTests" />
-      <option name="MAIN_CLASS_NAME" value="com.msd.erp.application.computationsTests.OrdersAmountsServiceTest" />
-      <option name="METHOD_NAME" value="calculatePurchaseOrderAmount_ShouldReturnTotalAmountForOrder" />
+      <option name="PACKAGE_NAME" value="com.msd.erp.application.workflowTests" />
+      <option name="MAIN_CLASS_NAME" value="com.msd.erp.application.workflowTests.ArticleServiceTest" />
+      <option name="METHOD_NAME" value="getAllArticles_ShouldReturnAllArticles" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrdersAmountsServiceTest.calculateSaleOrderAmountWithVAT_ShouldReturnTotalAmountWithVAT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StockServiceTest.processStockUpdate_ShouldUpdateStockCorrectly" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MSD" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.msd.erp.application.computationsTests.*" />
+          <option name="PATTERN" value="com.msd.erp.application.workflowTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.msd.erp.application.computationsTests" />
-      <option name="MAIN_CLASS_NAME" value="com.msd.erp.application.computationsTests.OrdersAmountsServiceTest" />
-      <option name="METHOD_NAME" value="calculateSaleOrderAmountWithVAT_ShouldReturnTotalAmountWithVAT" />
+      <option name="PACKAGE_NAME" value="com.msd.erp.application.workflowTests" />
+      <option name="MAIN_CLASS_NAME" value="com.msd.erp.application.workflowTests.StockServiceTest" />
+      <option name="METHOD_NAME" value="processStockUpdate_ShouldUpdateStockCorrectly" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VATRateServiceTest.createVATRate_ShouldSaveAndReturnVATRate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MSD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.msd.erp.application.workflowTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.msd.erp.application.workflowTests" />
+      <option name="MAIN_CLASS_NAME" value="com.msd.erp.application.workflowTests.VATRateServiceTest" />
+      <option name="METHOD_NAME" value="createVATRate_ShouldSaveAndReturnVATRate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VATRateServiceTest.updateVATRate_ShouldUpdateAndReturnUpdatedVATRate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MSD" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.msd.erp.application.workflowTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.msd.erp.application.workflowTests" />
+      <option name="MAIN_CLASS_NAME" value="com.msd.erp.application.workflowTests.VATRateServiceTest" />
+      <option name="METHOD_NAME" value="updateVATRate_ShouldUpdateAndReturnUpdatedVATRate" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -170,11 +173,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.OrdersAmountsServiceTest" />
-        <item itemvalue="JUnit.DomainValidationServiceTest" />
-        <item itemvalue="JUnit.OrdersAmountsServiceTest.calculatePurchaseOrderAmountWithVAT_ShouldReturnTotalAmountWithVAT" />
-        <item itemvalue="JUnit.OrdersAmountsServiceTest.calculateSaleOrderAmountWithVAT_ShouldReturnTotalAmountWithVAT" />
-        <item itemvalue="JUnit.OrdersAmountsServiceTest.calculatePurchaseOrderAmount_ShouldReturnTotalAmountForOrder" />
+        <item itemvalue="JUnit.StockServiceTest.processStockUpdate_ShouldUpdateStockCorrectly" />
+        <item itemvalue="JUnit.VATRateServiceTest.updateVATRate_ShouldUpdateAndReturnUpdatedVATRate" />
+        <item itemvalue="JUnit.VATRateServiceTest.createVATRate_ShouldSaveAndReturnVATRate" />
+        <item itemvalue="JUnit.ArticleServiceTest.createArticle_ShouldValidateAndSaveArticle" />
+        <item itemvalue="JUnit.ArticleServiceTest.getAllArticles_ShouldReturnAllArticles" />
       </list>
     </recent_temporary>
   </component>
@@ -292,5 +295,10 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/MSD$PricingServiceTest_calculateDiscountedPrice_shouldReturnFullPriceWhenDiscountIsZero.ic" NAME="PricingServiceTest.calculateDiscountedPrice_shouldReturnFullPriceWhenDiscountIsZero Coverage Results" MODIFIED="1731839215274" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.msd.erp.application.computationsTests.*</FILTER>
+    </SUITE>
   </component>
 </project>
