@@ -1,4 +1,4 @@
-package com.msd.erp.application.computationsTests;
+package com.msd.erp.servicesTests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,10 +19,13 @@ import com.msd.erp.domain.RentLine;
 import com.msd.erp.domain.VATRate;
 import com.msd.erp.infrastructure.repositories.RentLineRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyDouble;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
@@ -108,6 +111,58 @@ class RentLineServiceTest {
     }
 
     @Test
+    void getRentLineById_ShouldReturnRentLineWhenExists() {
+        Optional<RentLine> rentLine = rentLineService.getRentLineById(mockRentLine.getRentLineId());
+        assertTrue(rentLine.isPresent());
+        assertEquals(mockRentLine.getRentLineId(), rentLine.get().getRentLineId());
+        verify(rentLineRepository, times(1)).findById(mockRentLine.getRentLineId());
+    }
+
+    @Test
+    void getRentLineById_ShouldReturnEmptyWhenNotFound() {
+        when(rentLineRepository.findById(anyLong())).thenReturn(Optional.empty());
+
+        Optional<RentLine> rentLine = rentLineService.getRentLineById(999L);
+
+        assertTrue(rentLine.isEmpty());
+        verify(rentLineRepository, times(1)).findById(999L);
+    }
+
+    @Test
+    void getAllRentLines_ShouldReturnListOfRentLines() {
+        when(rentLineRepository.findAll()).thenReturn(List.of(mockRentLine));
+
+        List<RentLine> rentLines = rentLineService.getAllRentLines();
+
+        assertNotNull(rentLines);
+        assertEquals(1, rentLines.size());
+        verify(rentLineRepository, times(1)).findAll();
+    }
+
+    @Test
+    void getRentLinesByRentId_ShouldReturnListWhenRentLinesExist() {
+        when(rentLineRepository.findByRentId(mockRent.getRentId())).thenReturn(List.of(mockRentLine));
+
+        List<RentLine> rentLines = rentLineService.getRentLinesByRentId(mockRent.getRentId());
+
+        assertNotNull(rentLines);
+        assertEquals(1, rentLines.size());
+        assertEquals(mockRentLine, rentLines.get(0));
+        verify(rentLineRepository, times(1)).findByRentId(mockRent.getRentId());
+    }
+
+    @Test
+    void deleteRentLineAndUpdateRent_ShouldReturnFalseWhenRentLineNotFound() {
+        when(rentLineRepository.findById(anyLong())).thenReturn(Optional.empty());
+
+        boolean deleted = rentLineService.deleteRentLineAndUpdateRent(999L);
+
+        assertFalse(deleted);
+        verify(rentLineRepository, never()).delete(any());
+        verify(rentService, never()).updateRentHeaderTotals(any(), anyDouble(), anyDouble(), anyDouble());
+    }
+
+    @Test
     void updateRentLine_ShouldRecalculateLineAmountsWhenQuantityChanges() {
         when(rentLineRepository.findById(mockRentLine.getRentLineId())).thenReturn(Optional.of(mockRentLine));
 
@@ -189,5 +244,20 @@ class RentLineServiceTest {
 
         assertEquals("404 NOT_FOUND \"RentLine not found\"", exception.getMessage());
         verify(rentLineRepository, never()).save(any());
+    }
+
+    @Test
+    void deleteRentLineAndUpdateRent_ShouldDeleteAndUpdateTotals() {
+        when(rentLineRepository.findById(mockRentLine.getRentLineId())).thenReturn(Optional.of(mockRentLine));
+
+        boolean deleted = rentLineService.deleteRentLineAndUpdateRent(mockRentLine.getRentLineId());
+
+        assertTrue(deleted);
+        verify(rentLineRepository, times(1)).delete(mockRentLine);
+        verify(rentService, times(1)).updateRentHeaderTotals(
+                eq(mockRent),
+                eq(-mockRentLine.getLineAmount()),
+                eq(-mockRentLine.getLineAmountWithVAT()),
+                eq(-mockRentLine.getLineAmountWithPenalties()));
     }
 }

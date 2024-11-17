@@ -1,4 +1,4 @@
-package com.msd.erp.application.computationsTests;
+package com.msd.erp.servicesTests;
 
 import com.msd.erp.application.computations.StockCalculation;
 import com.msd.erp.application.services.StockService;
@@ -14,7 +14,11 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
+
+import java.util.Optional;
 
 class StockServiceTest {
 
@@ -46,6 +50,49 @@ class StockServiceTest {
                 existingStock.getIncomingQuantity(),
                 existingStock.getRentedQuantity(),
                 existingStock.getAvailableQuantity()));
+    }
+
+    @Test
+    void save_ShouldValidateAndSaveStock() {
+        when(stockRepository.save(existingStock)).thenReturn(existingStock);
+
+        Stock savedStock = stockService.save(existingStock);
+
+        verify(validationService, times(1)).validateEntity(existingStock);
+        verify(stockRepository, times(1)).save(existingStock);
+
+        assertEquals(existingStock.getIncomingQuantity(), savedStock.getIncomingQuantity());
+        assertEquals(existingStock.getRentedQuantity(), savedStock.getRentedQuantity());
+        assertEquals(existingStock.getAvailableQuantity(), savedStock.getAvailableQuantity());
+        assertEquals(existingStock.getTechnicalQuantity(), savedStock.getTechnicalQuantity());
+    }
+
+    @Test
+    void findAllStocks_ShouldReturnAllStocks() {
+        stockService.findAllStocks();
+        verify(stockRepository, times(1)).findAll();
+    }
+
+    @Test
+    void findByArticle_ShouldReturnStockIfExists() {
+        when(stockRepository.findByArticle(mockArticle)).thenReturn(Optional.of(existingStock));
+
+        Optional<Stock> foundStock = stockService.findByArticle(mockArticle);
+
+        assertTrue(foundStock.isPresent());
+        assertEquals(existingStock, foundStock.get());
+        verify(stockRepository, times(1)).findByArticle(mockArticle);
+    }
+
+    @Test
+    void findByArticleId_ShouldReturnStockIfExists() {
+        when(stockRepository.findByArticle_Articleid(1L)).thenReturn(Optional.of(existingStock));
+
+        Optional<Stock> foundStock = stockService.findByArticleId(1L);
+
+        assertTrue(foundStock.isPresent());
+        assertEquals(existingStock, foundStock.get());
+        verify(stockRepository, times(1)).findByArticle_Articleid(1L);
     }
 
     @Test
@@ -134,17 +181,20 @@ class StockServiceTest {
     }
 
     @Test
-    void save_ShouldValidateAndSaveStock() {
-        when(stockRepository.save(existingStock)).thenReturn(existingStock);
+    void deleteStockByArticleId_ShouldDeleteStock() {
+        when(stockRepository.findByArticle_Articleid(1L)).thenReturn(Optional.of(existingStock));
 
-        Stock savedStock = stockService.save(existingStock);
+        stockService.deleteStockByArticleId(1L);
 
-        verify(validationService, times(1)).validateEntity(existingStock);
-        verify(stockRepository, times(1)).save(existingStock);
+        verify(stockRepository, times(1)).delete(existingStock);
+    }
 
-        assertEquals(existingStock.getIncomingQuantity(), savedStock.getIncomingQuantity());
-        assertEquals(existingStock.getRentedQuantity(), savedStock.getRentedQuantity());
-        assertEquals(existingStock.getAvailableQuantity(), savedStock.getAvailableQuantity());
-        assertEquals(existingStock.getTechnicalQuantity(), savedStock.getTechnicalQuantity());
+    @Test
+    void deleteStockByArticleId_ShouldDoNothingIfStockNotFound() {
+        when(stockRepository.findByArticle_Articleid(1L)).thenReturn(Optional.empty());
+
+        stockService.deleteStockByArticleId(1L);
+
+        verify(stockRepository, never()).delete(any(Stock.class));
     }
 }

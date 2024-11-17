@@ -1,4 +1,4 @@
-package com.msd.erp.application.computationsTests;
+package com.msd.erp.servicesTests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,6 +19,9 @@ import com.msd.erp.infrastructure.repositories.ProjectLineRepository;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)
 class ProjectLineServiceTest {
@@ -55,6 +58,50 @@ class ProjectLineServiceTest {
         projectLineDTO.setPurchaseOrder(mockPurchaseOrder);
         projectLineDTO.setQuantity(20);
         projectLineDTO.setPrice(150.0);
+    }
+
+    @Test
+    void create_ShouldSaveAndReturnProjectLine() {
+        when(projectLineRepository.save(any(ProjectLine.class))).thenReturn(mockProjectLine);
+
+        ProjectLine savedProjectLine = projectLineService.save(mockProjectLine);
+
+        assertNotNull(savedProjectLine);
+        assertEquals(mockProjectLine.getProjectLineId(), savedProjectLine.getProjectLineId());
+        verify(projectLineRepository, times(1)).save(mockProjectLine);
+    }
+
+    @Test
+    void readById_ShouldReturnProjectLineIfExists() {
+        when(projectLineRepository.findById(1L)).thenReturn(Optional.of(mockProjectLine));
+
+        Optional<ProjectLine> foundProjectLine = projectLineService.findById(1L);
+
+        assertTrue(foundProjectLine.isPresent());
+        assertEquals(mockProjectLine.getProjectLineId(), foundProjectLine.get().getProjectLineId());
+        verify(projectLineRepository, times(1)).findById(1L);
+    }
+
+    @Test
+    void readById_ShouldReturnEmptyIfNotExists() {
+        when(projectLineRepository.findById(2L)).thenReturn(Optional.empty());
+
+        Optional<ProjectLine> foundProjectLine = projectLineService.findById(2L);
+
+        assertFalse(foundProjectLine.isPresent());
+        verify(projectLineRepository, times(1)).findById(2L);
+    }
+
+    @Test
+    void readAll_ShouldReturnListOfProjectLines() {
+        List<ProjectLine> projectLines = List.of(mockProjectLine, new ProjectLine());
+        when(projectLineRepository.findAll()).thenReturn(projectLines);
+
+        List<ProjectLine> foundProjectLines = projectLineService.findAll();
+
+        assertNotNull(foundProjectLines);
+        assertEquals(2, foundProjectLines.size());
+        verify(projectLineRepository, times(1)).findAll();
     }
 
     @Test
@@ -111,6 +158,15 @@ class ProjectLineServiceTest {
         assertEquals(200.0, updatedProjectLine.getPrice());
         assertEquals(expectedLineAmount, updatedProjectLine.getLineAmount());
         verify(projectLineRepository, times(1)).save(updatedProjectLine);
+    }
+
+    @Test
+    void deleteById_ShouldDeleteProjectLine() {
+        doNothing().when(projectLineRepository).deleteById(1L);
+
+        projectLineService.deleteById(1L);
+
+        verify(projectLineRepository, times(1)).deleteById(1L);
     }
 
 }
