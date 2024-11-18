@@ -129,12 +129,19 @@ src/
     - RentLineServiceTest - Done
     - ProjectLineService - Done
 26. Create Workflow Tests: - Andrei
-    - ArticleServiceTest
-    - CategoryServiceTest
-    - PurchaseOrderServiceTest
-    - SalesOrderServiceTest
-    - VATRateServiceTest
+    - ArticleServiceTest - Done
+    - CategoryServiceTest - Done
+    - PurchaseOrderServiceTest - Done
+    - SalesOrderServiceTest - Done
+    - VATRateServiceTest - Done
 27. Added 3 new CRUD methods in PurchaseOrderLineService: - Andrei
-    - deleteById
-    - findById
-    - save
+    - deleteById - Done
+    - findById - Done
+    - save - Done
+28. Added 5 new workflow tests - Andrei
+    - PenaltyServiceTest - Done
+    - ProjectServiceTest - Done
+    - PurchaseOrderLineServiceTest - Done
+    - RelationServiceTest - Done
+    - SalesOrderLineServiceTest - Done
+29. Modify updatePenalty method from PenaltyService class - Andrei - Done

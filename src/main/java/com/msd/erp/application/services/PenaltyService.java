@@ -32,10 +32,11 @@ public class PenaltyService {
     }
 
     @Transactional
-    public Optional<Penalty> updatePenalty(Long id, Penalty updatedPenalty) {
-        return penaltyRepository.findById(id).map(existingPenalty -> {
+    public Optional<Penalty> updatePenalty(Long penaltyId, Penalty updatedPenalty) {
+        return penaltyRepository.findById(penaltyId).map(existingPenalty -> {
             existingPenalty.setDescription(updatedPenalty.getDescription());
             existingPenalty.setPenaltytype(updatedPenalty.getPenaltytype());
+            existingPenalty.setPrice(updatedPenalty.getPrice()); // Actualizarea prețului
 
             validationService.validateEntity(existingPenalty);
             return penaltyRepository.save(existingPenalty);
