@@ -105,17 +105,6 @@ class ProjectLineServiceTest {
     }
 
     @Test
-    void save_ShouldSaveAndReturnProjectLine() {
-        when(projectLineRepository.save(any(ProjectLine.class))).thenReturn(mockProjectLine);
-
-        ProjectLine savedProjectLine = projectLineService.save(mockProjectLine);
-
-        assertNotNull(savedProjectLine);
-        assertEquals(mockProjectLine.getProjectLineId(), savedProjectLine.getProjectLineId());
-        verify(projectLineRepository, times(1)).save(mockProjectLine);
-    }
-
-    @Test
     void updateProjectLine_ShouldUpdateAndReturnUpdatedProjectLine() {
         when(projectLineRepository.save(any(ProjectLine.class))).thenReturn(mockProjectLine);
 

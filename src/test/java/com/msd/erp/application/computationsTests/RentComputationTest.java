@@ -12,7 +12,7 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class RentComputationsTest {
+class RentComputationTest {
 
     private Rent rent;
     private RentLine rentLine;
