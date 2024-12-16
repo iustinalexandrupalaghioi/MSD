@@ -33,7 +33,6 @@ public class ProjectLineController {
     @Autowired
     private ProjectService projectService;
 
-    @Autowired
     public ProjectLineController(ProjectLineService projectLineService) {
         this.projectLineService = projectLineService;
     }
