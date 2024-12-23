@@ -1,13 +1,22 @@
 package com.msd.erp.domain;
 
-import jakarta.persistence.*;
+import java.time.LocalDate;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "project")
@@ -27,11 +36,11 @@ public class Project {
 
     @NotNull(message = "The start date cannot be null")
     @Column(name = "start_date", nullable = false)
-    private LocalDateTime startDate;
+    private LocalDate startDate;
 
     @NotNull(message = "The end date cannot be null")
     @Column(name = "end_date", nullable = false)
-    private LocalDateTime endDate;
+    private LocalDate endDate;
 
     @NotNull(message = "The project type cannot be null")
     @Enumerated(EnumType.STRING)
@@ -43,7 +52,6 @@ public class Project {
     @Column(name = "budget", nullable = false)
     private Double budget;
 
-    @NotNull(message = "'Is in budget' cannot be null")
-    @Column(name = "is_in_budget", nullable = false)
+    @Column(name = "is_in_budget")
     private Boolean isInBudget;
 }
