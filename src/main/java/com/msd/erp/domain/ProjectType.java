@@ -1,8 +1,8 @@
 package com.msd.erp.domain;
 
 public enum ProjectType {
-    RESIDENTIAL,
-    COMERCIAL,
-    INTERNAL,
-    INDUSTRIAL, 
+    Residential,
+    Comercial,
+    Industrial,
+    Internal, 
 }

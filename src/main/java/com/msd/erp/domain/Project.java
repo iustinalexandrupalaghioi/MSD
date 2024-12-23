@@ -1,6 +1,6 @@
 package com.msd.erp.domain;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -36,11 +36,11 @@ public class Project {
 
     @NotNull(message = "The start date cannot be null")
     @Column(name = "start_date", nullable = false)
-    private LocalDate startDate;
+    private Date startDate;
 
     @NotNull(message = "The end date cannot be null")
     @Column(name = "end_date", nullable = false)
-    private LocalDate endDate;
+    private Date endDate;
 
     @NotNull(message = "The project type cannot be null")
     @Enumerated(EnumType.STRING)

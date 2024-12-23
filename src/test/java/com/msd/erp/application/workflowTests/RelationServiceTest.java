@@ -1,20 +1,24 @@
 package com.msd.erp.application.workflowTests;
 
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import org.mockito.MockitoAnnotations;
+
 import com.msd.erp.application.services.RelationService;
 import com.msd.erp.application.validations.DomainValidationService;
 import com.msd.erp.domain.Relation;
 import com.msd.erp.domain.RelationType;
 import com.msd.erp.infrastructure.repositories.RelationRepository;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 class RelationServiceTest {
 
@@ -40,7 +44,7 @@ class RelationServiceTest {
         relation.setAddress("123 Test Street");
         relation.setEmail("test@example.com");
         relation.setPhonenumber("123456789");
-        relation.setRelationtype(RelationType.SUPPLIER);
+        relation.setRelationtype(RelationType.Supplier);
     }
 
     @Test
@@ -74,7 +78,7 @@ class RelationServiceTest {
         updatedRelation.setAddress("456 Updated Street");
         updatedRelation.setEmail("updated@example.com");
         updatedRelation.setPhonenumber("987654321");
-        updatedRelation.setRelationtype(RelationType.CUSTOMER);
+        updatedRelation.setRelationtype(RelationType.Customer);
 
         when(relationRepository.findById(1L)).thenReturn(Optional.of(relation));
         when(relationRepository.save(relation)).thenReturn(relation);
@@ -87,7 +91,7 @@ class RelationServiceTest {
         assertEquals("456 Updated Street", result.get().getAddress());
         assertEquals("updated@example.com", result.get().getEmail());
         assertEquals("987654321", result.get().getPhonenumber());
-        assertEquals(RelationType.CUSTOMER, result.get().getRelationtype());
+        assertEquals(RelationType.Customer, result.get().getRelationtype());
         verify(validationService).validateEntity(relation);
         verify(relationRepository).save(relation);
     }

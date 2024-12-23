@@ -2,6 +2,8 @@ package com.msd.erp.application.workflowTests;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -46,12 +48,15 @@ class ProjectServiceTest {
         customer.setRelationid(1L);
         customer.setName("Test Customer");
 
+        LocalDate startDate = LocalDate.of(2024, 12, 1);
+        LocalDate endDate = LocalDate.of(2024, 12, 31);
+
         project = new Project();
         project.setProjectId(1L);
         project.setCustomerId(customer);
-        project.setStartDate(LocalDate.of(2024, 1, 1));
-        project.setEndDate(LocalDate.of(2024, 12, 31));
-        project.setProjectType(ProjectType.RESIDENTIAL);
+        project.setStartDate(Date.from(startDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        project.setEndDate(Date.from(endDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        project.setProjectType(ProjectType.Residential);
         project.setBudget(50000.0);
         project.setIsInBudget(true);
     }
@@ -82,9 +87,12 @@ class ProjectServiceTest {
     @Test
     void updateProject_ShouldUpdateExistingProject() {
         Project updatedProject = new Project();
-        updatedProject.setStartDate(LocalDate.of(2025, 1, 1));
-        updatedProject.setEndDate(LocalDate.of(2025, 12, 31));
-        updatedProject.setProjectType(ProjectType.COMERCIAL);
+
+         LocalDate startDate = LocalDate.of(2024, 12, 1);
+        LocalDate endDate = LocalDate.of(2024, 12, 31);
+        updatedProject.setStartDate(Date.from(startDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        updatedProject.setEndDate(Date.from(endDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        updatedProject.setProjectType(ProjectType.Comercial);
         updatedProject.setBudget(60000.0);
         updatedProject.setIsInBudget(false);
 
@@ -96,7 +104,7 @@ class ProjectServiceTest {
         assertTrue(result.isPresent());
         assertEquals(LocalDateTime.of(2025, 1, 1, 9, 0), result.get().getStartDate());
         assertEquals(LocalDateTime.of(2025, 12, 31, 18, 0), result.get().getEndDate());
-        assertEquals(ProjectType.COMERCIAL, result.get().getProjectType());
+        assertEquals(ProjectType.Comercial, result.get().getProjectType());
         assertEquals(60000.0, result.get().getBudget());
         assertFalse(result.get().getIsInBudget());
         verify(validationService).validateEntity(project);
