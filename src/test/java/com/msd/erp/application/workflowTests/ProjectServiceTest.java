@@ -1,22 +1,28 @@
 package com.msd.erp.application.workflowTests;
 
-import com.msd.erp.application.services.ProjectService;
-import com.msd.erp.application.validations.DomainValidationService;
-import com.msd.erp.domain.Project;
-import com.msd.erp.domain.Relation;
-import com.msd.erp.domain.ProjectType;
-import com.msd.erp.infrastructure.repositories.ProjectRepository;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import org.mockito.MockitoAnnotations;
 
-import java.time.LocalDateTime;
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import com.msd.erp.application.services.ProjectService;
+import com.msd.erp.application.validations.DomainValidationService;
+import com.msd.erp.domain.Project;
+import com.msd.erp.domain.ProjectType;
+import com.msd.erp.domain.Relation;
+import com.msd.erp.infrastructure.repositories.ProjectRepository;
 
 class ProjectServiceTest {
 
@@ -43,8 +49,8 @@ class ProjectServiceTest {
         project = new Project();
         project.setProjectId(1L);
         project.setCustomerId(customer);
-        project.setStartDate(LocalDateTime.of(2024, 1, 1, 9, 0));
-        project.setEndDate(LocalDateTime.of(2024, 12, 31, 18, 0));
+        project.setStartDate(LocalDate.of(2024, 1, 1));
+        project.setEndDate(LocalDate.of(2024, 12, 31));
         project.setProjectType(ProjectType.RESIDENTIAL);
         project.setBudget(50000.0);
         project.setIsInBudget(true);
@@ -76,8 +82,8 @@ class ProjectServiceTest {
     @Test
     void updateProject_ShouldUpdateExistingProject() {
         Project updatedProject = new Project();
-        updatedProject.setStartDate(LocalDateTime.of(2025, 1, 1, 9, 0));
-        updatedProject.setEndDate(LocalDateTime.of(2025, 12, 31, 18, 0));
+        updatedProject.setStartDate(LocalDate.of(2025, 1, 1));
+        updatedProject.setEndDate(LocalDate.of(2025, 12, 31));
         updatedProject.setProjectType(ProjectType.COMERCIAL);
         updatedProject.setBudget(60000.0);
         updatedProject.setIsInBudget(false);
