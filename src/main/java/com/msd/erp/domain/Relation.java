@@ -61,6 +61,6 @@ public class Relation {
 
     @JsonGetter("relationTypeDescription")
     public String getRelationTypeDescription() {
-        return relationtype.getDescription();
+        return relationtype != null ? relationtype.getDescription() : null;   
     }
 }
