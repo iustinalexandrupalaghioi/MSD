@@ -44,7 +44,7 @@ class RelationServiceTest {
         relation.setAddress("123 Test Street");
         relation.setEmail("test@example.com");
         relation.setPhonenumber("123456789");
-        relation.setRelationtype(RelationType.Supplier);
+        relation.setRelationtype(RelationType.SUPPLIER);
     }
 
     @Test
@@ -78,7 +78,7 @@ class RelationServiceTest {
         updatedRelation.setAddress("456 Updated Street");
         updatedRelation.setEmail("updated@example.com");
         updatedRelation.setPhonenumber("987654321");
-        updatedRelation.setRelationtype(RelationType.Customer);
+        updatedRelation.setRelationtype(RelationType.CUSTOMER);
 
         when(relationRepository.findById(1L)).thenReturn(Optional.of(relation));
         when(relationRepository.save(relation)).thenReturn(relation);
@@ -91,7 +91,7 @@ class RelationServiceTest {
         assertEquals("456 Updated Street", result.get().getAddress());
         assertEquals("updated@example.com", result.get().getEmail());
         assertEquals("987654321", result.get().getPhonenumber());
-        assertEquals(RelationType.Customer, result.get().getRelationtype());
+        assertEquals(RelationType.CUSTOMER, result.get().getRelationtype());
         verify(validationService).validateEntity(relation);
         verify(relationRepository).save(relation);
     }

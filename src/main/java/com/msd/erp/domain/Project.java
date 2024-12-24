@@ -2,6 +2,8 @@ package com.msd.erp.domain;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -54,4 +56,9 @@ public class Project {
 
     @Column(name = "is_in_budget")
     private Boolean isInBudget;
+
+    @JsonGetter("projectTypeDescription")
+    public String getProjectTypeDescription() {
+        return projectType.getDescription();
+    }
 }

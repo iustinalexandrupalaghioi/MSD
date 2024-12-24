@@ -56,7 +56,7 @@ class ProjectServiceTest {
         project.setCustomerId(customer);
         project.setStartDate(Date.from(startDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
         project.setEndDate(Date.from(endDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-        project.setProjectType(ProjectType.Residential);
+        project.setProjectType(ProjectType.RESIDENTIAL);
         project.setBudget(50000.0);
         project.setIsInBudget(true);
     }
@@ -92,7 +92,7 @@ class ProjectServiceTest {
         LocalDate endDate = LocalDate.of(2024, 12, 31);
         updatedProject.setStartDate(Date.from(startDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
         updatedProject.setEndDate(Date.from(endDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-        updatedProject.setProjectType(ProjectType.Comercial);
+        updatedProject.setProjectType(ProjectType.COMERCIAL);
         updatedProject.setBudget(60000.0);
         updatedProject.setIsInBudget(false);
 
@@ -104,7 +104,7 @@ class ProjectServiceTest {
         assertTrue(result.isPresent());
         assertEquals(LocalDateTime.of(2025, 1, 1, 9, 0), result.get().getStartDate());
         assertEquals(LocalDateTime.of(2025, 12, 31, 18, 0), result.get().getEndDate());
-        assertEquals(ProjectType.Comercial, result.get().getProjectType());
+        assertEquals(ProjectType.COMERCIAL, result.get().getProjectType());
         assertEquals(60000.0, result.get().getBudget());
         assertFalse(result.get().getIsInBudget());
         verify(validationService).validateEntity(project);
