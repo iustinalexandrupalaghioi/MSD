@@ -5,7 +5,7 @@ import com.msd.erp.application.computations.PricingService;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PricingServiceTest {
+class PricingServiceComputationTest {
 
     private final PricingService pricingService = new PricingService();
 
