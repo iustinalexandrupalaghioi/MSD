@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -31,7 +32,7 @@ public class SalesOrder {
 
     @NotNull(message = "Date cannot be null")
     @Column(name = "date", nullable = false)
-    private LocalDateTime date;
+    private Date date;
 
     @NotNull(message = "Total price cannot be null")
     @DecimalMin(value = "0.0", inclusive = true, message = "Total price must be greater than 0")
