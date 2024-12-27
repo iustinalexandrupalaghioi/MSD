@@ -1,13 +1,19 @@
 package com.msd.erp.domain;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import java.util.Date;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "salesOrder")
@@ -44,7 +50,7 @@ public class SalesOrder {
     @Column(name = "total_price_with_vat", nullable = false)
     private Double totalPriceWithVAT;
 
-    @OneToMany(mappedBy = "salesOrder", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<SalesOrderLine> salesOrderLines;
+    // @OneToMany(mappedBy = "salesOrder", cascade = CascadeType.ALL, orphanRemoval = true)
+    // private List<SalesOrderLine> salesOrderLines;
 
 }

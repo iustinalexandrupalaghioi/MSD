@@ -1,10 +1,11 @@
 package com.msd.erp.application.computations;
 
+import org.springframework.stereotype.Service;
+
 import com.msd.erp.domain.PurchaseOrder;
 import com.msd.erp.domain.PurchaseOrderLine;
 import com.msd.erp.domain.SalesOrder;
 import com.msd.erp.domain.SalesOrderLine;
-import org.springframework.stereotype.Service;
 
 
 @Service
@@ -54,17 +55,17 @@ public class OrdersAmountsService {
 
     public Double calculateSaleOrderAmount(SalesOrder order) {
         Double totalPrice = 0.0;
-        for (SalesOrderLine line : order.getSalesOrderLines()) {
-            totalPrice = totalPrice + (calculateSalesLineAmount(line));
-        }
+        // for (SalesOrderLine line : order.getSalesOrderLines()) {
+        //     totalPrice = totalPrice + (calculateSalesLineAmount(line));
+        // }
         return totalPrice;
     }
 
     public Double calculateSaleOrderAmountWithVAT(SalesOrder order) {
         Double totalPriceWithVAT = 0.0;
-        for (SalesOrderLine line : order.getSalesOrderLines()) {
-            totalPriceWithVAT = totalPriceWithVAT + (calculateSalesLineAmountWithVAT(line));
-        }
+        // for (SalesOrderLine line : order.getSalesOrderLines()) {
+        //     totalPriceWithVAT = totalPriceWithVAT + (calculateSalesLineAmountWithVAT(line));
+        // }
         return totalPriceWithVAT;
     }
 

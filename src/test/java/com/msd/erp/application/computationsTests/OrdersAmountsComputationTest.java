@@ -134,7 +134,7 @@ class OrdersAmountsServiceTest {
         when(line1.getQuantity()).thenReturn(2);
         when(line2.getQuantity()).thenReturn(1);
 
-        when(mockSalesOrder.getSalesOrderLines()).thenReturn(List.of(line1, line2));
+        // when(mockSalesOrder.getSalesOrderLines()).thenReturn(List.of(line1, line2));
 
         when(line1.getArticle()).thenReturn(mockArticle);
         when(line2.getArticle()).thenReturn(mockArticle);
@@ -153,7 +153,7 @@ class OrdersAmountsServiceTest {
         when(line1.getQuantity()).thenReturn(2);
         when(line2.getQuantity()).thenReturn(1);
 
-        when(mockSalesOrder.getSalesOrderLines()).thenReturn(List.of(line1, line2));
+        // when(mockSalesOrder.getSalesOrderLines()).thenReturn(List.of(line1, line2));
 
         when(line1.getArticle()).thenReturn(mockArticle);
         when(line2.getArticle()).thenReturn(mockArticle);

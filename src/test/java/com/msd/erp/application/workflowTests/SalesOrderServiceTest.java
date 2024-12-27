@@ -1,24 +1,33 @@
 package com.msd.erp.application.workflowTests;
 
-import com.msd.erp.application.services.SalesOrderService;
-import com.msd.erp.domain.SalesOrder;
-import com.msd.erp.domain.Relation;
-import com.msd.erp.domain.Project;
-import com.msd.erp.infrastructure.repositories.SalesOrderRepository;
-import com.msd.erp.application.validations.DomainValidationService;
-import com.msd.erp.application.computations.OrdersAmountsService;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.*;
-
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
-import java.util.Optional;
 import java.util.List;
-import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.mockito.ArgumentMatchers.any;
+import org.mockito.Mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import org.mockito.MockitoAnnotations;
+
+import com.msd.erp.application.computations.OrdersAmountsService;
+import com.msd.erp.application.services.SalesOrderService;
+import com.msd.erp.application.validations.DomainValidationService;
+import com.msd.erp.domain.Project;
+import com.msd.erp.domain.Relation;
+import com.msd.erp.domain.SalesOrder;
+import com.msd.erp.infrastructure.repositories.SalesOrderRepository;
 
 class SalesOrderServiceTest {
 
@@ -48,10 +57,10 @@ class SalesOrderServiceTest {
         // Setup salesOrder object for testing
         Relation customer = new Relation();
         Project project = new Project();
-        salesOrder = new SalesOrder(1L, customer, project, Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()), 100.0, 120.0, null);
+        salesOrder = new SalesOrder(1L, customer, project, Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()), 100.0, 120.0);
 
         // Setup updatedSalesOrder object for testing
-        updatedSalesOrder = new SalesOrder(1L, customer, project, Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()), 200.0, 240.0, null);
+        updatedSalesOrder = new SalesOrder(1L, customer, project, Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()), 200.0, 240.0);
     }
 
     @Test
