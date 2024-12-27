@@ -10,7 +10,11 @@ import com.msd.erp.application.computations.OrdersAmountsService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.Optional;
 import java.util.List;
 import static org.mockito.Mockito.*;
@@ -34,16 +38,20 @@ class SalesOrderServiceTest {
 
     @BeforeEach
     void setUp() {
+
+
+        LocalDate date1 = LocalDate.of(2024, 12, 1);
+        LocalDate date2 = LocalDate.of(2024, 12, 31);
         MockitoAnnotations.openMocks(this);
         salesOrderService = new SalesOrderService(salesOrderRepository, validationService, ordersAmountsService);
 
         // Setup salesOrder object for testing
         Relation customer = new Relation();
         Project project = new Project();
-        salesOrder = new SalesOrder(1L, customer, project, LocalDateTime.now(), 100.0, 120.0, null);
+        salesOrder = new SalesOrder(1L, customer, project, Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()), 100.0, 120.0, null);
 
         // Setup updatedSalesOrder object for testing
-        updatedSalesOrder = new SalesOrder(1L, customer, project, LocalDateTime.now(), 200.0, 240.0, null);
+        updatedSalesOrder = new SalesOrder(1L, customer, project, Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()), 200.0, 240.0, null);
     }
 
     @Test
