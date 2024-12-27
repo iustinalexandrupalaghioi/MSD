@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.msd.erp.application.services.ArticleService;
+import com.msd.erp.application.services.StockService;
 import com.msd.erp.domain.Article;
 
 import lombok.RequiredArgsConstructor;
@@ -23,10 +24,12 @@ import lombok.RequiredArgsConstructor;
 public class ArticleController {
 
     private final ArticleService articleService;
+    private final StockService stockService;
 
     @PostMapping
     public ResponseEntity<Article> createArticle(@RequestBody Article article) {
         Article createdArticle = articleService.createArticle(article);
+        stockService.createStock(createdArticle);
         return ResponseEntity.ok(createdArticle);
     }
 
