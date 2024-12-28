@@ -1,24 +1,32 @@
 package com.msd.erp.application.workflowTests;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.mockito.ArgumentMatchers.any;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import org.mockito.MockitoAnnotations;
+
 import com.msd.erp.application.services.RentService;
 import com.msd.erp.application.validations.DomainValidationService;
 import com.msd.erp.application.views.RentDTO;
 import com.msd.erp.domain.Relation;
 import com.msd.erp.domain.Rent;
 import com.msd.erp.infrastructure.repositories.RentRepository;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-
-import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 class RentServiceTest {
 
@@ -41,11 +49,23 @@ class RentServiceTest {
         mockCustomer = new Relation();
         mockCustomer.setRelationid(1L);
 
+        // Create rent object
         rent = new Rent();
         rent.setRentId(1L);
         rent.setCustomer(mockCustomer);
-        rent.setStartDate(LocalDate.of(2024, 11, 1));
-        rent.setEndDate(LocalDate.of(2024, 11, 10));
+
+        // Convert LocalDate to Date and set start date and end date
+        LocalDate startDate = LocalDate.of(2024, 11, 1);
+        LocalDate endDate = LocalDate.of(2024, 11, 10);
+
+        // Convert LocalDate to Date by setting time to midnight (start of the day)
+        Date start = Date.from(startDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        Date end = Date.from(endDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+
+        rent.setStartDate(start);
+        rent.setEndDate(end);
+
+        // Set other properties
         rent.setTotalPrice(100.0);
         rent.setTotalPriceWithVAT(119.0);
         rent.setTotalPriceWithPenalties(219.0);
@@ -96,25 +116,42 @@ class RentServiceTest {
         assertEquals(rent, savedRent);
     }
 
+   
     @Test
-    void updateRent_ShouldUpdateRentDetails() {
-        RentDTO rentDTO = new RentDTO();
-        rentDTO.setStartDate(LocalDate.of(2024, 11, 5));
-        rentDTO.setEndDate(LocalDate.of(2024, 11, 15));
-        rentDTO.setCustomer(mockCustomer);
+void updateRent_ShouldUpdateRentDetails() {
+    // Create a RentDTO with LocalDate values
+    RentDTO rentDTO = new RentDTO();
+    
+    // Convert LocalDate to Date before setting it on the RentDTO
+    Date startDate = Date.from(LocalDate.of(2024, 11, 5).atStartOfDay(ZoneId.systemDefault()).toInstant());
+    Date endDate = Date.from(LocalDate.of(2024, 11, 15).atStartOfDay(ZoneId.systemDefault()).toInstant());
+    
+    // Set the Date values on RentDTO
+    rentDTO.setStartDate(startDate); // Pass Date, not LocalDate
+    rentDTO.setEndDate(endDate);     // Pass Date, not LocalDate
+    rentDTO.setCustomer(mockCustomer);
 
-        when(rentRepository.findById(1L)).thenReturn(Optional.of(rent));
-        when(rentRepository.save(rent)).thenReturn(rent);
+    // Prepare the Rent entity (possibly the one you expect to update)
+    Rent rent = new Rent();
+    rent.setRentId(1L);
+    rent.setStartDate(startDate); // Set Date value
+    rent.setEndDate(endDate);     // Set Date value
+    rent.setCustomer(mockCustomer);
 
-        Optional<Rent> updatedRent = rentService.updateRent(1L, rentDTO);
+    // Mock repository calls
+    when(rentRepository.findById(1L)).thenReturn(Optional.of(rent));
+    when(rentRepository.save(rent)).thenReturn(rent);
 
-        assertTrue(updatedRent.isPresent());
-        assertEquals(LocalDate.of(2024, 11, 5), updatedRent.get().getStartDate());
-        assertEquals(LocalDate.of(2024, 11, 15), updatedRent.get().getEndDate());
-        assertEquals(mockCustomer, updatedRent.get().getCustomer());
-        verify(rentRepository, times(1)).save(rent);
-    }
+    // Call the updateRent method
+    Optional<Rent> updatedRent = rentService.updateRent(1L, rentDTO);
 
+    // Assertions to check if the Rent entity was updated correctly
+    assertTrue(updatedRent.isPresent());
+    assertEquals(startDate, updatedRent.get().getStartDate()); // Check start date
+    assertEquals(endDate, updatedRent.get().getEndDate());     // Check end date
+    assertEquals(mockCustomer, updatedRent.get().getCustomer()); // Check customer
+    verify(rentRepository, times(1)).save(rent); // Verify save was called
+}
     @Test
     void updateRent_ShouldReturnEmptyIfRentNotFound() {
         when(rentRepository.findById(1L)).thenReturn(Optional.empty());

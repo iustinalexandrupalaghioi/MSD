@@ -37,7 +37,6 @@ public class RentController {
     @PutMapping("/update/{rentId}")
     public ResponseEntity<Rent> updateRent(@PathVariable Long rentId, @RequestBody RentDTO rentDTO) {
         Optional<Rent> updatedRent = rentService.updateRent(rentId, rentDTO);
-
         return updatedRent.map(rent -> new ResponseEntity<>(rent, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 
@@ -46,9 +45,9 @@ public class RentController {
     @GetMapping
     public ResponseEntity<List<Rent>> getAllRents() {
         List<Rent> rents = rentService.findAll();
-        if (rents.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
+        // if (rents.isEmpty()) {
+        //     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        // }
         return new ResponseEntity<>(rents, HttpStatus.OK);
     }
 

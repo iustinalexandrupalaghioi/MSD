@@ -1,5 +1,7 @@
 package com.msd.erp.domain;
 
+import java.util.Date;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,8 +14,6 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "rent")
@@ -32,10 +32,10 @@ public class Rent {
     private Relation customer;
 
     @NotNull(message = "Start date cannot be null")
-    private LocalDate startDate;
+    private Date startDate;
 
     @NotNull(message = "End date cannot be null")
-    private LocalDate endDate;
+    private Date endDate;
 
     @NotNull(message = "Total price cannot be null")
     @Min(value = 0, message = "Total price cannot be negative")

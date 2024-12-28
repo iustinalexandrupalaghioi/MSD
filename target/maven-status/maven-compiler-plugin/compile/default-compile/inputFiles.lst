@@ -1,86 +1,87 @@
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\views\PurchaseOrderLineDTO.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\views\RentLineDTO.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\SalesOrder.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\services\AppliedPenaltyService.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\web\PenaltyController.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\services\VATRateService.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\Project.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\views\SalesOrderDTO.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\infrastructure\repositories\VATRateRepository.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\services\SalesOrderService.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\services\PurchaseOrderLineService.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\services\RentService.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\validations\DomainValidationService.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\views\RelationDTO.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\web\SalesOrderController.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\infrastructure\repositories\ProjectLineRepository.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\web\ProjectLineController.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\infrastructure\repositories\ArticleRepository.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\views\PenaltyDTO.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\infrastructure\repositories\PenaltyRepository.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\views\CategoryDTO.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\views\SalesOrderLineDTO.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\views\StockUpdateDTO.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\Penalty.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\infrastructure\repositories\SalesOrderLineRepository.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\infrastructure\repositories\StockRepository.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\web\AppliedPenaltyController.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\web\StockController.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\computations\ProjectLineComputation.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\Stock.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\web\PurchaseOrderController.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\computations\OrdersAmountsService.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\views\PurchaseOrderDTO.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\Category.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\SalesOrderLine.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\services\PenaltyService.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\services\SalesOrderLineService.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\RelationType.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\services\CategoryService.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\services\RentLineService.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\RentLine.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\views\VATRateDTO.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\services\RelationService.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\Article.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\web\RentLineController.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\infrastructure\repositories\SalesOrderRepository.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\views\ArticleDTO.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\web\ArticleController.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\infrastructure\repositories\RentLineRepository.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\infrastructure\repositories\ProjectRepository.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\UMType.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\views\StockDTO.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\PenaltyType.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\computations\StockCalculation.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\computations\PricingService.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\PurchaseOrderLine.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\VATRate.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\PurchaseOrder.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\services\StockService.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\Rent.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\ProjectType.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\services\ProjectLineService.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\views\ProjectDTO.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\services\ProjectService.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\ProjectLine.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\web\RelationController.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\web\RentController.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\infrastructure\repositories\PurchaseOrderLineRepository.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\infrastructure\repositories\RelationRepository.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\Relation.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\infrastructure\repositories\RentRepository.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\views\ProjectLineDTO.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\services\PurchaseOrderService.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\domain\AppliedPenalty.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\web\PurchaseOrderLineController.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\web\VATRateController.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\web\ProjectController.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\infrastructure\repositories\AppliedPenaltyRepository.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\web\CategoryController.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\web\SalesOrderLineController.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\views\RentDTO.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\services\ArticleService.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\application\computations\RentComputation.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\infrastructure\repositories\PurchaseOrderRepository.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\WebApplication.java
-E:\NU STERGE NICIODATA!!!\Cursuri TERMINAT\MASTER\Semestrul 1\Dezvoltarea aplicatiilor multistrat\Laborator\Proiect\MSD\src\main\java\com\msd\erp\infrastructure\repositories\CategoryRepository.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\web\PenaltyController.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\services\AppliedPenaltyService.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\services\RelationService.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\services\ProjectService.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\web\PurchaseOrderController.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\validations\DomainValidationService.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\views\SalesOrderLineDTO.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\infrastructure\repositories\RelationRepository.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\computations\RentComputation.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\views\StockUpdateDTO.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\services\RentLineService.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\computations\OrdersAmountsService.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\domain\Article.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\domain\Rent.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\config\WebConfig.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\views\VATRateDTO.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\web\RentLineController.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\services\PenaltyService.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\web\RelationController.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\services\ProjectLineService.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\WebApplication.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\views\RentDTO.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\infrastructure\repositories\ArticleRepository.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\domain\VATRate.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\infrastructure\repositories\VATRateRepository.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\web\AppliedPenaltyController.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\web\VATRateController.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\computations\PricingService.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\services\SalesOrderService.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\services\CategoryService.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\domain\SalesOrder.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\infrastructure\repositories\PurchaseOrderLineRepository.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\web\ProjectController.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\infrastructure\repositories\PurchaseOrderRepository.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\views\PurchaseOrderLineDTO.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\web\PurchaseOrderLineController.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\services\PurchaseOrderLineService.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\views\PenaltyDTO.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\views\PurchaseOrderDTO.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\infrastructure\repositories\CategoryRepository.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\infrastructure\repositories\SalesOrderLineRepository.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\web\ArticleController.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\web\CategoryController.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\views\RentLineDTO.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\services\SalesOrderLineService.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\domain\RelationType.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\infrastructure\repositories\ProjectRepository.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\infrastructure\repositories\StockRepository.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\domain\Relation.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\services\RentService.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\web\SalesOrderLineController.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\services\ArticleService.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\views\RelationDTO.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\domain\Stock.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\services\StockService.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\views\StockDTO.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\domain\ProjectLine.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\views\SalesOrderDTO.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\domain\Penalty.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\domain\AppliedPenalty.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\services\PurchaseOrderService.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\domain\PurchaseOrderLine.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\domain\Project.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\views\CategoryDTO.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\infrastructure\repositories\SalesOrderRepository.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\infrastructure\repositories\RentRepository.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\infrastructure\repositories\ProjectLineRepository.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\computations\ProjectLineComputation.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\views\ProjectDTO.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\domain\Category.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\domain\SalesOrderLine.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\views\ArticleDTO.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\domain\PenaltyType.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\web\SalesOrderController.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\infrastructure\repositories\RentLineRepository.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\computations\StockCalculation.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\domain\PurchaseOrder.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\services\VATRateService.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\domain\RentLine.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\web\ProjectLineController.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\web\StockController.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\domain\ProjectType.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\domain\UMType.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\infrastructure\repositories\AppliedPenaltyRepository.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\web\RentController.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\views\ProjectLineDTO.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\infrastructure\repositories\PenaltyRepository.java
