@@ -34,7 +34,7 @@ public class RentComputation {
     public static void computeLineAmounts(RentLine rentLine) {
         rentLine.setLineAmount(calculateLineAmount(rentLine.getQuantity(), rentLine.getPricePerDay()));
         rentLine.setLineAmountWithVAT(calculateLineAmountWithVAT(rentLine.getLineAmount(),
-                rentLine.getVat().getPercent()));
+                rentLine.getArticle().getVatid().getPercent()));
         rentLine.setLineAmountWithPenalties(calculateLineAmountWithPenalties(rentLine.getLineAmountWithVAT(),
                 rentLine.getPenaltiesAmount()));
     }

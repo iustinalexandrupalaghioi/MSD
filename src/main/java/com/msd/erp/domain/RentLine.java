@@ -34,10 +34,6 @@ public class RentLine {
     @JoinColumn(name = "articleid", nullable = false)
     private Article article;
 
-    @NotNull(message = "VAT ID cannot be null")
-    @ManyToOne
-    @JoinColumn(name = "vatid", nullable = false)
-    private VATRate vat;
 
     @NotNull(message = "Quantity cannot be null")
     @Min(value = 1, message = "Quantity must be at least 1")

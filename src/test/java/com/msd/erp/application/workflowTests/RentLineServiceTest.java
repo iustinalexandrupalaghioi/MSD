@@ -1,9 +1,25 @@
 package com.msd.erp.application.workflowTests;
 
+import java.util.List;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyDouble;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.eq;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import org.mockito.MockitoAnnotations;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -18,16 +34,6 @@ import com.msd.erp.domain.Rent;
 import com.msd.erp.domain.RentLine;
 import com.msd.erp.domain.VATRate;
 import com.msd.erp.infrastructure.repositories.RentLineRepository;
-
-import java.util.List;
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyDouble;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.*;
 
 class RentLineServiceTest {
 
@@ -69,7 +75,6 @@ class RentLineServiceTest {
         mockRentLine.setRent(mockRent);
         mockRentLine.setRentLineId(1L);
         mockRentLine.setArticle(mockArticle);
-        mockRentLine.setVat(mockVATRate);
         mockRentLine.setPricePerDay(100.0);
         mockRentLine.setQuantity(2);
 
@@ -90,7 +95,6 @@ class RentLineServiceTest {
 
         assertEquals(mockRent, createdRentLine.getRent());
         assertEquals(mockArticle, createdRentLine.getArticle());
-        assertEquals(mockVATRate, createdRentLine.getVat());
         verify(rentService, times(1)).updateRentHeaderTotals(
                 eq(mockRent),
                 eq(createdRentLine.getLineAmount()),
@@ -215,7 +219,6 @@ class RentLineServiceTest {
 
         when(rentLineRepository.save(any(RentLine.class))).thenAnswer(invocation -> {
             RentLine savedRentLine = invocation.getArgument(0);
-            savedRentLine.setVat(newVATRate);
             savedRentLine.setLineAmount(expectedLineAmount);
             savedRentLine.setLineAmountWithVAT(expectedLineAmountWithVAT);
             savedRentLine.setLineAmountWithPenalties(expectedLineAmountWithPenalties);
@@ -224,7 +227,6 @@ class RentLineServiceTest {
 
         RentLine updatedRentLine = rentLineService.updateRentLine(mockRentLine.getRentLineId(), rentLineDTO);
 
-        assertEquals(newVATRate, updatedRentLine.getVat());
         assertEquals(expectedLineAmount, updatedRentLine.getLineAmount());
         assertEquals(expectedLineAmountWithVAT, updatedRentLine.getLineAmountWithVAT());
         assertEquals(expectedLineAmountWithPenalties, updatedRentLine.getLineAmountWithPenalties());

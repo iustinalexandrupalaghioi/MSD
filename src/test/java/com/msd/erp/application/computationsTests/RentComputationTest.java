@@ -56,7 +56,6 @@ class RentComputationTest {
     rentLine = new RentLine();
     rentLine.setQuantity(5);
     rentLine.setPricePerDay(10.0);
-    rentLine.setVat(vat);
     rentLine.setPenaltiesAmount(50.0);
     }
 

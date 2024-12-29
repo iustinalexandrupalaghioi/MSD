@@ -1,23 +1,22 @@
 package com.msd.erp.application.services;
 
-import com.msd.erp.application.computations.RentComputation;
-import com.msd.erp.application.validations.DomainValidationService;
-import com.msd.erp.application.views.RentLineDTO;
-import com.msd.erp.domain.Article;
-import com.msd.erp.domain.Rent;
-import com.msd.erp.domain.RentLine;
-import com.msd.erp.domain.VATRate;
-import com.msd.erp.infrastructure.repositories.RentLineRepository;
-
-import jakarta.transaction.Transactional;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
-import java.util.Optional;
+import com.msd.erp.application.computations.RentComputation;
+import com.msd.erp.application.validations.DomainValidationService;
+import com.msd.erp.application.views.RentLineDTO;
+import com.msd.erp.domain.Article;
+import com.msd.erp.domain.Rent;
+import com.msd.erp.domain.RentLine;
+import com.msd.erp.infrastructure.repositories.RentLineRepository;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class RentLineService {
@@ -28,8 +27,7 @@ public class RentLineService {
     @Autowired
     private ArticleService articleService;
 
-    @Autowired
-    private VATRateService vatService;
+    
 
     @Autowired
     private RentLineRepository rentLineRepository;
@@ -44,12 +42,10 @@ public class RentLineService {
         Article article = articleService.getArticleById(rentLine.getArticle().getArticleid())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Article not found"));
 
-        VATRate vatRate = vatService.getVATRateById(rentLine.getVat().getVatid())
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "VATRate not found"));
+        
 
         rentLine.setRent(rent);
         rentLine.setArticle(article);
-        rentLine.setVat(vatRate);
         RentComputation.computeLineAmounts(rentLine);
 
         RentLine createdRentLine = rentLineRepository.save(rentLine);
@@ -109,11 +105,7 @@ public class RentLineService {
             rentLine.setQuantity(rentLineDTO.getQuantity());
         }
 
-        if (rentLineDTO.getVat() != null) {
-            VATRate vatRate = vatService.getVATRateById(rentLineDTO.getVat().getVatid())
-                    .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "VAT rate not found"));
-            rentLine.setVat(vatRate);
-        }
+        
 
         return updateRentLine(rentLine);
     }
