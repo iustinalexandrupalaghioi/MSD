@@ -10,12 +10,12 @@ public class RentComputation {
 
     public static void updateRentPeriod(Rent rent) {
         if (rent.getStartDate() != null && rent.getEndDate() != null) {
-            Instant instant1 = rent.getStartDate().toInstant();
+        Instant instant1 = rent.getStartDate().toInstant();
         Instant instant2 = rent.getEndDate().toInstant();
 
         // Calculate the difference in days
         long daysBetween = ChronoUnit.DAYS.between(instant1, instant2);
-            rent.setPeriod(daysBetween);
+            rent.setPeriod(daysBetween + 1);
         }
     }
 
