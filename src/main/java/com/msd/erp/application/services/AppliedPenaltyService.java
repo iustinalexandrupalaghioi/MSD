@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.msd.erp.application.validations.DomainValidationService;
 import com.msd.erp.domain.AppliedPenalty;
-import com.msd.erp.domain.Article;
 import com.msd.erp.domain.Penalty;
 import com.msd.erp.domain.RentLine;
 import com.msd.erp.infrastructure.repositories.AppliedPenaltyRepository;
@@ -25,8 +24,7 @@ public class AppliedPenaltyService {
     @Autowired
     private PenaltyService penaltyService;
 
-    @Autowired
-    private ArticleService articleService;
+  
 
     @Autowired
     private DomainValidationService validationService;
@@ -34,18 +32,15 @@ public class AppliedPenaltyService {
     public AppliedPenalty createPenalty(AppliedPenalty appliedPenalty) {
         Long rentLineId = appliedPenalty.getRentLine().getRentLineId();
         Long penaltyId = appliedPenalty.getPenalty().getPenaltyid();
-        Long articleId = appliedPenalty.getArticle().getArticleid();
 
-        Article article = articleService.getArticleById(articleId)
-                .orElseThrow(() -> new IllegalArgumentException("Article with ID " + articleId + " does not exist."));
-        ;
+        
+        
         Penalty penalty = penaltyService.getPenaltyById(penaltyId)
                 .orElseThrow(() -> new IllegalArgumentException("Penalty with ID " + penaltyId + " does not exist."));
 
         RentLine rentLine = rentLineService.getRentLineById(rentLineId)
                 .orElseThrow(() -> new IllegalArgumentException("RentLine with ID " + rentLineId + " does not exist."));
 
-        appliedPenalty.setArticle(article);
         appliedPenalty.setPenalty(penalty);
         appliedPenalty.setRentLine(rentLine);
 
@@ -63,6 +58,42 @@ public class AppliedPenaltyService {
         return appliedPenaltyRepository.save(appliedPenalty);
 
     }
+
+    public AppliedPenalty updatePenalty(Long id, AppliedPenalty appliedPenalty) {
+        AppliedPenalty existingAppliedPenalty = appliedPenaltyRepository.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("AppliedPenalty with ID " + id + " does not exist."));
+
+        // Retrieve related entities
+        Long rentLineId = appliedPenalty.getRentLine().getRentLineId();
+        Long penaltyId = appliedPenalty.getPenalty().getPenaltyid();
+
+     
+        Penalty penalty = penaltyService.getPenaltyById(penaltyId)
+            .orElseThrow(() -> new IllegalArgumentException("Penalty with ID " + penaltyId + " does not exist."));
+        RentLine rentLine = rentLineService.getRentLineById(rentLineId)
+            .orElseThrow(() -> new IllegalArgumentException("RentLine with ID " + rentLineId + " does not exist."));
+
+        Double oldPenaltyPrice = existingAppliedPenalty.getPenalty().getPrice();
+        Double newPenaltyPrice = penalty.getPrice();
+
+        if (newPenaltyPrice == null) {
+        throw new IllegalArgumentException("New penalty price must not be null.");
+        }
+
+        Double adjustedPenaltiesAmount = rentLine.getPenaltiesAmount() - oldPenaltyPrice + newPenaltyPrice;
+        rentLine.setPenaltiesAmount(adjustedPenaltiesAmount);
+        rentLineService.updateRentLine(rentLine);
+
+        // Update AppliedPenalty fields
+        existingAppliedPenalty.setPenalty(penalty);
+        existingAppliedPenalty.setRentLine(rentLine);
+
+        // Save updated AppliedPenalty
+        AppliedPenalty savedAppliedPenalty = appliedPenaltyRepository.save(existingAppliedPenalty);
+
+        return  savedAppliedPenalty;
+    }
+    
 
     public List<AppliedPenalty> findAll() {
         return appliedPenaltyRepository.findAll();

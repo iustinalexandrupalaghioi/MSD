@@ -1,5 +1,8 @@
 package com.msd.erp.domain;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,12 +25,9 @@ public class AppliedPenalty {
     @NotNull(message = "RentLine cannot be null")
     @ManyToOne
     @JoinColumn(name = "rent_line_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private RentLine rentLine;
 
-    @NotNull(message = "Article cannot be null")
-    @ManyToOne
-    @JoinColumn(name = "articleid", nullable = false)
-    private Article article;
 
     @NotNull(message = "Penalty cannot be null")
     @ManyToOne
