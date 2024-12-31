@@ -173,7 +173,7 @@ class RentLineServiceTest {
         RentLineDTO rentLineDTO = new RentLineDTO();
         rentLineDTO.setQuantity(5);
 
-        double expectedLineAmount = RentComputation.calculateLineAmount(5, mockRentLine.getPricePerDay());
+        double expectedLineAmount = RentComputation.calculateLineAmount(5, mockRentLine.getPricePerDay(), mockRent.getPeriod());
         double expectedLineAmountWithVAT = RentComputation.calculateLineAmountWithVAT(expectedLineAmount,
                 mockVATRate.getPercent());
         double expectedLineAmountWithPenalties = RentComputation
@@ -212,7 +212,7 @@ class RentLineServiceTest {
         rentLineDTO.setVat(newVATRate);
 
         double expectedLineAmount = RentComputation.calculateLineAmount(mockRentLine.getQuantity(),
-                mockRentLine.getPricePerDay());
+                mockRentLine.getPricePerDay(), mockRent.getPeriod());
         double expectedLineAmountWithVAT = RentComputation.calculateLineAmountWithVAT(expectedLineAmount, 15.0);
         double expectedLineAmountWithPenalties = RentComputation
                 .calculateLineAmountWithPenalties(expectedLineAmountWithVAT, mockRentLine.getPenaltiesAmount());

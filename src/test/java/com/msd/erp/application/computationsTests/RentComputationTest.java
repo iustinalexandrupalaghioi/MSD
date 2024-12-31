@@ -68,9 +68,9 @@ class RentComputationTest {
 
     @Test
     void calculateLineAmount_ShouldReturnCorrectAmount() {
-        Double lineAmount = RentComputation.calculateLineAmount(5, 10.0);
+        Double lineAmount = RentComputation.calculateLineAmount(5, 10.0, 2L);
 
-        assertEquals(50.0, lineAmount);
+        assertEquals(100.0, lineAmount);
     }
 
     @Test

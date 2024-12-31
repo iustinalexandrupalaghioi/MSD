@@ -107,6 +107,10 @@ public class AppliedPenaltyService {
         return appliedPenaltyRepository.findByRentLineId(rentLineId);
     }
 
+    public List<AppliedPenalty> findByRentId(Long rentId) {
+        return appliedPenaltyRepository.findByRentId(rentId);
+    }
+
     public AppliedPenalty save(AppliedPenalty appliedPenalty) {
         validationService.validateEntity(appliedPenalty);
         return appliedPenaltyRepository.save(appliedPenalty);

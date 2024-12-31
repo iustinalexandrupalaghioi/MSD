@@ -57,6 +57,12 @@ public class AppliedPenaltyController {
         return ResponseEntity.ok(appliedPenalties);
     }
 
+    @GetMapping("/rent/{rentId}")
+    public ResponseEntity<List<AppliedPenalty>> getAppliedPenaltiesByRentId(@PathVariable Long rentId) {
+        List<AppliedPenalty> appliedPenalties = appliedPenaltyService.findByRentId(rentId);
+        return ResponseEntity.ok(appliedPenalties);
+    }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteAppliedPenalty(@PathVariable Long id) {
         appliedPenaltyService.deleteById(id);

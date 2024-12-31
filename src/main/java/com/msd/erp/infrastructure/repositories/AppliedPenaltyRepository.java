@@ -14,4 +14,7 @@ public interface AppliedPenaltyRepository extends JpaRepository<AppliedPenalty, 
 
     @Query("SELECT ap FROM AppliedPenalty ap WHERE ap.rentLine.rentLineId = :rentLineId")
     List<AppliedPenalty> findByRentLineId(@Param("rentLineId") Long rentLineId);
+
+    @Query("SELECT ap FROM AppliedPenalty ap WHERE ap.rentLine.rent.rentId = :rentId")
+    List<AppliedPenalty> findByRentId(@Param("rentId") Long rentId);
 }

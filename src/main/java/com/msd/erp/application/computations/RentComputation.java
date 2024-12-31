@@ -19,8 +19,8 @@ public class RentComputation {
         }
     }
 
-    public static Double calculateLineAmount(Integer quantity, Double pricePerDay) {
-        return quantity * pricePerDay;
+    public static Double calculateLineAmount(Integer quantity, Double pricePerDay, Long days) {
+        return quantity * pricePerDay * days;
     }
 
     public static Double calculateLineAmountWithPenalties(Double lineAmountWithVAT, Double penaltiesAmount) {
@@ -32,7 +32,7 @@ public class RentComputation {
     }
 
     public static void computeLineAmounts(RentLine rentLine) {
-        rentLine.setLineAmount(calculateLineAmount(rentLine.getQuantity(), rentLine.getPricePerDay()));
+        rentLine.setLineAmount(calculateLineAmount(rentLine.getQuantity(), rentLine.getPricePerDay(), rentLine.getRent().getPeriod()));
         rentLine.setLineAmountWithVAT(calculateLineAmountWithVAT(rentLine.getLineAmount(),
                 rentLine.getArticle().getVatid().getPercent()));
         rentLine.setLineAmountWithPenalties(calculateLineAmountWithPenalties(rentLine.getLineAmountWithVAT(),
