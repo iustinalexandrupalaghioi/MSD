@@ -20,6 +20,8 @@ import com.msd.erp.application.services.RentService;
 import com.msd.erp.application.views.RentDTO;
 import com.msd.erp.domain.Rent;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @RestController
 @RequestMapping("/api/rents")
 public class RentController {
@@ -74,5 +76,58 @@ public class RentController {
         rentService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+     // Confirm rent
+    @PutMapping("/confirm/{rentId}")
+    public ResponseEntity<Void> confirmRent(@PathVariable Long rentId) {
+        try {
+            rentService.confirmRent(rentId);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (EntityNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (IllegalStateException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    // Mark rent as sent
+    @PutMapping("/send/{rentId}")
+    public ResponseEntity<Void> markAsSent(@PathVariable Long rentId) {
+        try {
+            rentService.markAsSent(rentId);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (EntityNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (IllegalStateException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    // Mark rent as returned
+    @PutMapping("/return/{rentId}")
+    public ResponseEntity<Void> markAsReturned(@PathVariable Long rentId) {
+        try {
+            rentService.markAsReturned(rentId);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (EntityNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (IllegalStateException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    // Cancel rent
+    @PutMapping("/cancel/{rentId}")
+    public ResponseEntity<Void> cancelRent(@PathVariable Long rentId) {
+        try {
+            rentService.cancelRent(rentId);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (EntityNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (IllegalStateException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
 
 }

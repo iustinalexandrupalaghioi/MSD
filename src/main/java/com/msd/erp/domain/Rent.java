@@ -2,7 +2,11 @@ package com.msd.erp.domain;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -51,4 +55,13 @@ public class Rent {
 
     @Min(value = 0, message = "Period must be a positive number")
     private Long period;
+
+    @Enumerated(EnumType.STRING)
+    @NotNull(message = "Rent state cannot be null")
+    private RentState state = RentState.NEW;
+
+    @JsonGetter("rentStateDescription")
+    public String getTypeDescription() {
+        return state.getDescription();
+    }
 }

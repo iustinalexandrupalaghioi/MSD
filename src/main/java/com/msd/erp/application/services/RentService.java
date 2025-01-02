@@ -10,7 +10,10 @@ import com.msd.erp.application.computations.RentComputation;
 import com.msd.erp.application.validations.DomainValidationService;
 import com.msd.erp.application.views.RentDTO;
 import com.msd.erp.domain.Rent;
+import com.msd.erp.domain.RentState;
 import com.msd.erp.infrastructure.repositories.RentRepository;
+
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class RentService {
@@ -86,4 +89,77 @@ public class RentService {
                 rent.getTotalPriceWithPenalties() - oldLineAmountWithPenalties + newLineAmountWithPenalties);
 
     }
+
+    // Confirm rent
+    public void confirmRent(Long rentId) {
+        Optional<Rent> optionalRent = rentRepository.findById(rentId);
+
+        if (optionalRent.isPresent()) {
+            Rent existingRent = optionalRent.get();
+
+            if (existingRent.getState() != RentState.NEW) {
+                throw new IllegalStateException("Rent can only be confirmed from the NEW state.");
+            }
+
+            existingRent.setState(RentState.CONFIRMED);
+            rentRepository.save(existingRent);
+        } else {
+            throw new EntityNotFoundException("Rent not found.");
+        }
+    }
+
+    // Mark rent as sent
+    public void markAsSent(Long rentId) {
+        Optional<Rent> optionalRent = rentRepository.findById(rentId);
+
+        if (optionalRent.isPresent()) {
+            Rent existingRent = optionalRent.get();
+
+            if (existingRent.getState() != RentState.CONFIRMED) {
+                throw new IllegalStateException("Rent can only be sent after being confirmed.");
+            }
+
+            existingRent.setState(RentState.SENT);
+            rentRepository.save(existingRent);
+        } else {
+            throw new EntityNotFoundException("Rent not found.");
+        }
+    }
+
+    // Mark rent as returned
+    public void markAsReturned(Long rentId) {
+        Optional<Rent> optionalRent = rentRepository.findById(rentId);
+
+        if (optionalRent.isPresent()) {
+            Rent existingRent = optionalRent.get();
+
+            if (existingRent.getState() != RentState.SENT) {
+                throw new IllegalStateException("Rent can only be returned after being sent.");
+            }
+
+            existingRent.setState(RentState.RETURNED);
+            rentRepository.save(existingRent);
+        } else {
+            throw new EntityNotFoundException("Rent not found.");
+        }
+    }
+
+    // Cancel rent
+    public void cancelRent(Long rentId) {
+        Optional<Rent> optionalRent = rentRepository.findById(rentId);
+
+        if (optionalRent.isPresent()) {
+            Rent existingRent = optionalRent.get();
+
+            if (existingRent.getState() == RentState.SENT || existingRent.getState() == RentState.RETURNED) {
+                throw new IllegalStateException("Rent cannot be cancelled after being sent or returned.");
+            }
+
+            existingRent.setState(RentState.CANCELLED);
+            rentRepository.save(existingRent);
+        } else {
+            throw new EntityNotFoundException("Rent not found.");
+        }
+    }
+
 }
