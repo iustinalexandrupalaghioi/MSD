@@ -14,6 +14,7 @@ import com.msd.erp.application.views.RentLineDTO;
 import com.msd.erp.domain.Article;
 import com.msd.erp.domain.Rent;
 import com.msd.erp.domain.RentLine;
+import com.msd.erp.domain.RentState;
 import com.msd.erp.infrastructure.repositories.RentLineRepository;
 
 import jakarta.transaction.Transactional;
@@ -38,6 +39,13 @@ public class RentLineService {
     public RentLine createRentLine(RentLine rentLine) {
         Rent rent = rentService.findById(rentLine.getRent().getRentId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Rent not found"));
+
+        if (rent.getState() == RentState.CONFIRMED || 
+            rent.getState() == RentState.CANCELLED || 
+            rent.getState() == RentState.SENT || 
+            rent.getState() == RentState.RETURNED) {
+        throw new IllegalStateException("Cannot add rent lines to a rent in the " + rent.getState() + " state.");
+    }
 
         Article article = articleService.getArticleById(rentLine.getArticle().getArticleid())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Article not found"));
@@ -74,6 +82,12 @@ public class RentLineService {
     public RentLine updateRentLine(RentLine rentLine) {
         Rent rent = rentService.findById(rentLine.getRent().getRentId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Rent not found"));
+        
+        if (rent.getState() == RentState.CONFIRMED || 
+            rent.getState() == RentState.CANCELLED || 
+            rent.getState() == RentState.RETURNED) {
+        throw new IllegalStateException("Cannot update rent lines to a rent in the " + rent.getState() + " state.");
+    }
 
         Double oldLineAmount = rentLine.getLineAmount();
         Double oldLineAmountWithPenalties = rentLine.getLineAmountWithPenalties();
@@ -121,6 +135,11 @@ public class RentLineService {
         if (optionalRentLine.isPresent()) {
             RentLine rentLine = optionalRentLine.get();
             Rent rent = rentLine.getRent();
+
+            if (rent.getState() == RentState.CONFIRMED || 
+                rent.getState() == RentState.SENT){
+                throw new IllegalStateException("Cannot delete rent lines from a rent in the " + rent.getState() + " state.");
+            }
 
             rentService.updateRentHeaderTotals(
                     rent,

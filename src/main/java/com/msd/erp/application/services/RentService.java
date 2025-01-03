@@ -10,7 +10,9 @@ import com.msd.erp.application.computations.RentComputation;
 import com.msd.erp.application.validations.DomainValidationService;
 import com.msd.erp.application.views.RentDTO;
 import com.msd.erp.domain.Rent;
+import com.msd.erp.domain.RentLine;
 import com.msd.erp.domain.RentState;
+import com.msd.erp.infrastructure.repositories.RentLineRepository;
 import com.msd.erp.infrastructure.repositories.RentRepository;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -20,6 +22,9 @@ public class RentService {
 
     @Autowired
     private RentRepository rentRepository;
+
+     @Autowired
+    private RentLineRepository rentLineRepository;
 
     @Autowired
     private DomainValidationService validationService;
@@ -101,6 +106,12 @@ public class RentService {
                 throw new IllegalStateException("Rent can only be confirmed from the NEW state.");
             }
 
+            List<RentLine> rentLines = rentLineRepository.findByRentId(rentId);
+
+            if (rentLines.isEmpty()) {
+            throw new IllegalStateException("Rent cannot be confirmed because it has no rent lines.");
+        }
+
             existingRent.setState(RentState.CONFIRMED);
             rentRepository.save(existingRent);
         } else {
@@ -118,6 +129,12 @@ public class RentService {
             if (existingRent.getState() != RentState.CONFIRMED) {
                 throw new IllegalStateException("Rent can only be sent after being confirmed.");
             }
+
+            List<RentLine> rentLines = rentLineRepository.findByRentId(rentId);
+
+            if (rentLines.isEmpty()) {
+            throw new IllegalStateException("Rent cannot be confirmed because it has no rent lines.");
+        }
 
             existingRent.setState(RentState.SENT);
             rentRepository.save(existingRent);
@@ -155,6 +172,7 @@ public class RentService {
                 throw new IllegalStateException("Rent cannot be cancelled after being sent or returned.");
             }
 
+            
             existingRent.setState(RentState.CANCELLED);
             rentRepository.save(existingRent);
         } else {
