@@ -11,6 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import com.msd.erp.domain.SalesOrderState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.mockito.ArgumentMatchers.any;
@@ -57,10 +59,10 @@ class SalesOrderServiceTest {
         // Setup salesOrder object for testing
         Relation customer = new Relation();
         Project project = new Project();
-        salesOrder = new SalesOrder(1L, customer, project, Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()), 100.0, 120.0);
+        salesOrder = new SalesOrder(1L, customer, Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()), 100.0, 120.0, SalesOrderState.NEW);
 
         // Setup updatedSalesOrder object for testing
-        updatedSalesOrder = new SalesOrder(1L, customer, project, Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()), 200.0, 240.0);
+        updatedSalesOrder = new SalesOrder(1L, customer, Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()), 200.0, 240.0, SalesOrderState.NEW);
     }
 
     @Test

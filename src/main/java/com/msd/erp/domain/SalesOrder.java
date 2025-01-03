@@ -1,14 +1,8 @@
 package com.msd.erp.domain;
 import java.util.Date;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonGetter;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -47,5 +41,14 @@ public class SalesOrder {
 
     // @OneToMany(mappedBy = "salesOrder", cascade = CascadeType.ALL, orphanRemoval = true)
     // private List<SalesOrderLine> salesOrderLines;
+
+    @Enumerated(EnumType.STRING)
+    @NotNull(message = "Sales order state cannot be null")
+    private SalesOrderState state = SalesOrderState.NEW;
+
+    @JsonGetter("salesOrderStateDescription")
+    public String getTypeDescription() {
+        return state.getDescription();
+    }
 
 }
