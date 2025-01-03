@@ -6,8 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="e904b406-082e-4434-b969-f099ca3dab11" name="Changes" comment="Error fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/services/PenaltyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/services/PenaltyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tasks.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/services/SalesOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/services/SalesOrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/views/SalesOrderDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/views/SalesOrderDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/SalesOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/SalesOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/computations/RentComputation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/computations/RentComputation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/AppliedPenaltyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/AppliedPenaltyService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/RentLineService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/RentLineService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/RentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/RentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/SalesOrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/SalesOrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/AppliedPenalty.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/AppliedPenalty.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Rent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Rent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/RentLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/RentLine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/SalesOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/SalesOrder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/AppliedPenaltyRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/AppliedPenaltyRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/AppliedPenaltyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/AppliedPenaltyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/RentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/RentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/RentLineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/RentLineController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +98,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.OrdersAmountsServiceTest">
+  <component name="RunManager">
     <configuration name="OrdersAmountsServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MSD" />
       <extension name="coverage">

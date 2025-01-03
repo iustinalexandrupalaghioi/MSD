@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 public class SalesOrderDTO {
     private Long id;
     private Long customerId;
-    private Long projectId;
     private LocalDateTime date;
     private Double totalPrice;
     private Double totalPriceWithVAT;

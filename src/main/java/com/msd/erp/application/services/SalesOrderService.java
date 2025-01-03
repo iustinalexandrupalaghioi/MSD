@@ -46,7 +46,6 @@ public class SalesOrderService {
     public Optional<SalesOrder> updateSalesOrder(Long id, SalesOrder updatedSalesOrder) {
         return salesOrderRepository.findById(id).map(existingSalesOrder -> {
             existingSalesOrder.setCustomerId(updatedSalesOrder.getCustomerId());
-            existingSalesOrder.setProjectId(updatedSalesOrder.getProjectId());
             existingSalesOrder.setDate(updatedSalesOrder.getDate());
             existingSalesOrder.setTotalPrice(updatedSalesOrder.getTotalPrice());
             existingSalesOrder.setTotalPriceWithVAT(updatedSalesOrder.getTotalPriceWithVAT());
