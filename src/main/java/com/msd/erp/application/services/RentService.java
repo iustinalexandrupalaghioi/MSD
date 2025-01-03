@@ -12,8 +12,10 @@ import com.msd.erp.application.views.RentDTO;
 import com.msd.erp.domain.Rent;
 import com.msd.erp.domain.RentLine;
 import com.msd.erp.domain.RentState;
+import com.msd.erp.domain.Stock;
 import com.msd.erp.infrastructure.repositories.RentLineRepository;
 import com.msd.erp.infrastructure.repositories.RentRepository;
+import com.msd.erp.infrastructure.repositories.StockRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 
@@ -25,6 +27,10 @@ public class RentService {
 
      @Autowired
     private RentLineRepository rentLineRepository;
+ 
+    @Autowired
+    private StockRepository stockRepository;
+     
 
     @Autowired
     private DomainValidationService validationService;
@@ -46,6 +52,7 @@ public class RentService {
 
         if (optionalRent.isPresent()) {
             Rent existingRent = optionalRent.get();
+            
 
             if (rentDTO.getCustomer() != null) {
                 existingRent.setCustomer(rentDTO.getCustomer());
@@ -93,6 +100,29 @@ public class RentService {
         rent.setTotalPriceWithPenalties(
                 rent.getTotalPriceWithPenalties() - oldLineAmountWithPenalties + newLineAmountWithPenalties);
 
+    }
+
+
+    public boolean validateStockForRent(Long rentId) {
+        Rent rent = rentRepository.findById(rentId)
+                .orElseThrow(() -> new EntityNotFoundException("Rent with ID " + rentId + " not found."));
+
+        if (!rent.getState().equals(RentState.NEW)) {
+            throw new IllegalStateException("Rent is not in a valid state for stock validation.");
+        }
+
+        List<RentLine> rentLines = rentLineRepository.findByRentId(rentId);
+
+        for (RentLine rentLine : rentLines) {
+            Stock stock = stockRepository.findByArticle(rentLine.getArticle())
+                    .orElseThrow(() -> new EntityNotFoundException("Stock for article " + rentLine.getArticle().getArticleid() + " - " + rentLine.getArticle().getName() + " not found."));
+
+            if (stock.getAvailableQuantity() < rentLine.getQuantity()) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     // Confirm rent

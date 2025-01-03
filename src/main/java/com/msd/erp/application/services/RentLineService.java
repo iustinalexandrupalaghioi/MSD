@@ -115,11 +115,14 @@ public class RentLineService {
             rentLine.setPricePerDay(rentLineDTO.getPricePerDay());
         }
 
+         if (rentLineDTO.getArticle() != null) {
+            Optional<Article> article = articleService.getArticleById(rentLineDTO.getArticle().getArticleid());
+            rentLine.setArticle(article.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Article not found")));
+        }
+
         if (rentLineDTO.getQuantity() != null) {
             rentLine.setQuantity(rentLineDTO.getQuantity());
         }
-
-        
 
         return updateRentLine(rentLine);
     }

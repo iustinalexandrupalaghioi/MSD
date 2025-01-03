@@ -77,18 +77,23 @@ public class RentController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-     // Confirm rent
-    @PutMapping("/confirm/{rentId}")
-    public ResponseEntity<Void> confirmRent(@PathVariable Long rentId) {
-        try {
-            rentService.confirmRent(rentId);
-            return new ResponseEntity<>(HttpStatus.OK);
-        } catch (EntityNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } catch (IllegalStateException e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+     @PutMapping("/confirm/{rentId}")
+        public ResponseEntity<String> confirmRent(@PathVariable Long rentId) {
+            try {
+                boolean isStockValid = rentService.validateStockForRent(rentId);
+
+                if (isStockValid) {
+                    rentService.confirmRent(rentId);
+                    return new ResponseEntity<>("Stock is sufficient for confirmation.", HttpStatus.OK);
+                } else {
+                    return new ResponseEntity<>("Not enough stock available.", HttpStatus.BAD_REQUEST);
+                }
+            } catch (EntityNotFoundException e) {
+                return new ResponseEntity<>("Rent with id " + rentId + " not found.", HttpStatus.NOT_FOUND);
+            } catch (IllegalStateException e) {
+                return new ResponseEntity<>("Rent with id " + rentId + " is not in a valid state for stock validation.", HttpStatus.BAD_REQUEST);
+            }
         }
-    }
 
     // Mark rent as sent
     @PutMapping("/send/{rentId}")

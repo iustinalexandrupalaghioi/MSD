@@ -11,4 +11,5 @@ public class RentDTO {
     private Relation customer;
     private Date startDate;
     private Date endDate;
+    
 }
