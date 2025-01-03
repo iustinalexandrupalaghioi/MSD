@@ -1,5 +1,8 @@
 package com.msd.erp.domain;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,6 +30,7 @@ public class Stock {
     @OneToOne
     @JoinColumn(name = "articleid", unique = true)
     @NotNull
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Article article;
 
     @NotNull(message = "Available quantity cannot be null")
