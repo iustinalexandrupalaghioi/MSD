@@ -2,8 +2,10 @@ package com.msd.erp.domain;
 
 public enum SalesOrderState {
     NEW("New"),
-    SHIPPED("Shipped"),
-    DELIVERED("Delivered");
+    CONFIRMED("Confirmed"),
+    CANCELLED("Cancelled"),
+    SENT("Sent to customer"),
+    RETURNED("Returned");
 
     private final String description;
 

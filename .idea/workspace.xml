@@ -6,7 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="e904b406-082e-4434-b969-f099ca3dab11" name="Changes" comment="Error fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/SalesOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/SalesOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/SalesOrderState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/SalesOrderState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/msd/erp/application/workflowTests/SalesOrderServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/msd/erp/application/workflowTests/SalesOrderServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/RentLineService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/RentLineService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/RentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/RentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/SalesOrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/SalesOrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/RentDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/RentDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/RentLineDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/RentLineDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Stock.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Stock.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/ArticleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/ArticleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/RentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/RentController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +69,7 @@
     &quot;JUnit.OrdersAmountsServiceTest.calculateSalesLineAmountWithVAT_ShouldReturnCorrectAmountWithVAT.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.OrdersAmountsServiceTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.PricingServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SalesOrderServiceTest.executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
