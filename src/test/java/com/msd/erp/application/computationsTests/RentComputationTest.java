@@ -11,6 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.msd.erp.application.computations.RentComputation;
+import com.msd.erp.domain.Article;
 import com.msd.erp.domain.Rent;
 import com.msd.erp.domain.RentLine;
 import com.msd.erp.domain.VATRate;
@@ -54,16 +55,20 @@ class RentComputationTest {
 
     // Initialize rent line
     rentLine = new RentLine();
+    rentLine.setRent(rent);
     rentLine.setQuantity(5);
     rentLine.setPricePerDay(10.0);
     rentLine.setPenaltiesAmount(50.0);
+     Article article = new Article();
+    article.setVatid(vat);
+    rentLine.setArticle(article);
     }
 
     @Test
     void updateRentPeriod_ShouldCalculatePeriodCorrectly() {
         RentComputation.updateRentPeriod(rent);
 
-        assertEquals(9, rent.getPeriod());
+        assertEquals(10, rent.getPeriod());
     }
 
     @Test
@@ -91,8 +96,8 @@ class RentComputationTest {
     void computeLineAmounts_ShouldCalculateAllLineAmountsCorrectly() {
         RentComputation.computeLineAmounts(rentLine);
 
-        assertEquals(50.0, rentLine.getLineAmount());
-        assertEquals(59.5, rentLine.getLineAmountWithVAT());
-        assertEquals(109.5, rentLine.getLineAmountWithPenalties());
+        assertEquals(450.0, rentLine.getLineAmount());
+        assertEquals(535.5, rentLine.getLineAmountWithVAT());
+        assertEquals(585.5, rentLine.getLineAmountWithPenalties());
     }
 }

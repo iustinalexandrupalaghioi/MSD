@@ -1,5 +1,6 @@
 C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\web\PenaltyController.java
 C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\services\AppliedPenaltyService.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\domain\SalesOrderState.java
 C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\services\RelationService.java
 C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\services\ProjectService.java
 C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\web\PurchaseOrderController.java
@@ -18,6 +19,7 @@ C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\web\Rent
 C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\services\PenaltyService.java
 C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\web\RelationController.java
 C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\services\ProjectLineService.java
+C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\domain\RentState.java
 C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\WebApplication.java
 C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\application\views\RentDTO.java
 C:\Users\alex0\OneDrive\Desktop\toate\MSD\MSD\src\main\java\com\msd\erp\infrastructure\repositories\ArticleRepository.java

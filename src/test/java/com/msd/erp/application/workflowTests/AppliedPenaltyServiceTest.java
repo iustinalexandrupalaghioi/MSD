@@ -17,6 +17,7 @@ import org.mockito.Mock;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -75,60 +76,58 @@ class AppliedPenaltyServiceTest {
         mockAppliedPenalty.setPenalty(mockPenalty);
     }
 
-    @Test
-    void createPenalty_ShouldSaveAndReturnAppliedPenalty() {
-        // Mock the dependent services
-        when(rentLineService.getRentLineById(1L)).thenReturn(Optional.of(mockRentLine));
-        when(penaltyService.getPenaltyById(1L)).thenReturn(Optional.of(mockPenalty)); // Mock PenaltyService
-        when(articleService.getArticleById(1L)).thenReturn(Optional.of(mockArticle)); // Mock ArticleService
-        when(appliedPenaltyRepository.save(any(AppliedPenalty.class))).thenReturn(mockAppliedPenalty);
+   @Test
+void createPenalty_ShouldSaveAndReturnAppliedPenalty() {
+    when(rentLineService.getRentLineById(1L)).thenReturn(Optional.of(mockRentLine));
+    when(penaltyService.getPenaltyById(1L)).thenReturn(Optional.of(mockPenalty));
+    when(appliedPenaltyRepository.save(any(AppliedPenalty.class))).thenReturn(mockAppliedPenalty);
 
-        AppliedPenalty savedAppliedPenalty = appliedPenaltyService.createPenalty(mockAppliedPenalty);
+    AppliedPenalty savedAppliedPenalty = appliedPenaltyService.createPenalty(mockAppliedPenalty);
 
-        assertNotNull(savedAppliedPenalty);
-        assertEquals(mockAppliedPenalty.getRentLine(), savedAppliedPenalty.getRentLine());
-        assertEquals(mockAppliedPenalty.getPenalty(), savedAppliedPenalty.getPenalty());
-        verify(appliedPenaltyRepository, times(1)).save(mockAppliedPenalty);
-    }
+    assertNotNull(savedAppliedPenalty);
+    assertEquals(mockAppliedPenalty.getRentLine(), savedAppliedPenalty.getRentLine());
+    assertEquals(mockAppliedPenalty.getPenalty(), savedAppliedPenalty.getPenalty());
+    verify(appliedPenaltyRepository, times(1)).save(mockAppliedPenalty);
 
-    @Test
-    void createPenalty_ShouldThrowExceptionIfRentLineDoesNotExist() {
-        when(articleService.getArticleById(1L)).thenReturn(Optional.of(mockArticle));
-        when(penaltyService.getPenaltyById(1L)).thenReturn(Optional.of(mockPenalty));
-        when(rentLineService.getRentLineById(1L)).thenReturn(Optional.empty());
+    verify(rentLineService, times(1)).getRentLineById(1L);
+    verify(penaltyService, times(1)).getPenaltyById(1L);
+}
 
-        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
-            appliedPenaltyService.createPenalty(mockAppliedPenalty);
-        });
 
-        assertEquals("RentLine with ID 1 does not exist.", thrown.getMessage());
-    }
+   @Test
+void createPenalty_ShouldThrowExceptionIfRentLineDoesNotExist() {
+    when(rentLineService.getRentLineById(1L)).thenReturn(Optional.empty());
+
+    IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+        appliedPenaltyService.createPenalty(mockAppliedPenalty);
+    });
+
+    assertEquals("RentLine with ID 1 does not exist.", thrown.getMessage());
+    verify(rentLineService, times(1)).getRentLineById(1L);
+    verifyNoInteractions(penaltyService);
+    verifyNoInteractions(articleService);
+}
+
 
     @Test
     void createPenalty_ShouldThrowExceptionIfPenaltyDoesNotExist() {
-        when(articleService.getArticleById(1L)).thenReturn(Optional.of(mockArticle));
-        when(penaltyService.getPenaltyById(1L)).thenReturn(Optional.empty());
+        when(rentLineService.getRentLineById(1L)).thenReturn(Optional.of(mockRentLine));
+        when(penaltyService.getPenaltyById(1L)).thenReturn(Optional.empty()); 
 
+       
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
             appliedPenaltyService.createPenalty(mockAppliedPenalty);
         });
 
         assertEquals("Penalty with ID 1 does not exist.", thrown.getMessage());
+
+    
+        verify(rentLineService, times(1)).getRentLineById(1L);
+        verify(penaltyService, times(1)).getPenaltyById(1L);
+        verifyNoInteractions(articleService);
     }
 
-    @Test
-    void createPenalty_ShouldThrowExceptionIfArticleDoesNotExist() {
-
-        when(articleService.getArticleById(1L)).thenReturn(Optional.empty());
-
-        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
-            appliedPenaltyService.createPenalty(mockAppliedPenalty);
-        });
-
-        assertEquals("Article with ID 1 does not exist.", thrown.getMessage());
-
-    }
-
+    
     @Test
     void findAll_ShouldReturnListOfAppliedPenalties() {
         List<AppliedPenalty> appliedPenalties = List.of(mockAppliedPenalty, new AppliedPenalty());

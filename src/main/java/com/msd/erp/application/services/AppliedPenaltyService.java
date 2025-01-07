@@ -34,12 +34,11 @@ public class AppliedPenaltyService {
         Long penaltyId = appliedPenalty.getPenalty().getPenaltyid();
 
         
-        
-        Penalty penalty = penaltyService.getPenaltyById(penaltyId)
-                .orElseThrow(() -> new IllegalArgumentException("Penalty with ID " + penaltyId + " does not exist."));
-
         RentLine rentLine = rentLineService.getRentLineById(rentLineId)
                 .orElseThrow(() -> new IllegalArgumentException("RentLine with ID " + rentLineId + " does not exist."));
+
+        Penalty penalty = penaltyService.getPenaltyById(penaltyId)
+                .orElseThrow(() -> new IllegalArgumentException("Penalty with ID " + penaltyId + " does not exist."));
 
         appliedPenalty.setPenalty(penalty);
         appliedPenalty.setRentLine(rentLine);

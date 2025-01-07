@@ -1,5 +1,10 @@
 package com.msd.erp.application.workflowTests;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -60,17 +65,32 @@ class RentLineServiceTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
+        // Define start and end dates
+        LocalDate startDate = LocalDate.of(2024, 11, 1);
+        LocalDate endDate = LocalDate.of(2024, 11, 10);
+
+        Instant instant1 = startDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
+        Instant instant2 = endDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
+        
+        Date dateStart = Date.from(instant1);
+        Date dateEnd = Date.from(instant2);
+
 
         mockRent = new Rent();
         mockRent.setRentId(1L);
+        mockRent.setStartDate(dateStart);
+        mockRent.setEndDate(dateEnd);
+        mockRent.setPeriod(ChronoUnit.DAYS.between(instant1, instant2) + 1);
 
-        mockArticle = new Article();
-        mockArticle.setArticleid(1L);
-
+        
         mockVATRate = new VATRate();
         mockVATRate.setVatid(1L);
         mockVATRate.setPercent(20.0);
-
+        
+        mockArticle = new Article();
+        mockArticle.setArticleid(1L);
+        mockArticle.setVatid(mockVATRate);
+        
         mockRentLine = new RentLine();
         mockRentLine.setRent(mockRent);
         mockRentLine.setRentLineId(1L);
