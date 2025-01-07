@@ -5,7 +5,7 @@ public enum SalesOrderState {
     CONFIRMED("Confirmed"),
     CANCELLED("Cancelled"),
     SENT("Sent to customer"),
-    RETURNED("Returned");
+    DELIVERED("Delivered");
 
     private final String description;
 
