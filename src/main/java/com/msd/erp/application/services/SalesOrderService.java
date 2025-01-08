@@ -10,8 +10,12 @@ import org.springframework.transaction.annotation.Transactional;
 import com.msd.erp.application.computations.OrdersAmountsService;
 import com.msd.erp.application.validations.DomainValidationService;
 import com.msd.erp.domain.SalesOrder;
+import com.msd.erp.domain.SalesOrderLine;
+import com.msd.erp.domain.SalesOrderState;
+import com.msd.erp.domain.Stock;
 import com.msd.erp.infrastructure.repositories.SalesOrderRepository;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -21,6 +25,8 @@ public class SalesOrderService {
     private final SalesOrderRepository salesOrderRepository;
     private final DomainValidationService validationService;
     private final OrdersAmountsService ordersAmountsService;
+    private final SalesOrderLineService salesOrderLineService;
+    private final StockService stockService;
     @Transactional
     public SalesOrder createSalesOrder(SalesOrder salesOrder) {
         validationService.validateEntity(salesOrder);
@@ -85,8 +91,6 @@ public class SalesOrderService {
         return salesOrderRepository.save(salesOrder);
     }
 
-
-
     public boolean salesOrderExists(Long id) {
         return salesOrderRepository.existsById(id);
     }
@@ -97,5 +101,106 @@ public class SalesOrderService {
 
     public List<SalesOrder> getSalesOrdersByDateRange(LocalDateTime startDate, LocalDateTime endDate) {
         return salesOrderRepository.findByDateRange(startDate, endDate);
+    }
+
+    public boolean validateStockForSalesOrder(Long salesOrderId) {
+        SalesOrder salesOrder = salesOrderRepository.findById(salesOrderId)
+                .orElseThrow(() -> new EntityNotFoundException("Sales order with ID " + salesOrderId + " not found."));
+
+        if (!salesOrder.getState().equals(SalesOrderState.NEW)) {
+            throw new IllegalStateException("Sales order is not in a valid state for stock validation.");
+        }
+
+        List<SalesOrderLine> salesOrderLines = salesOrderLineService.getSalesOrderLinesBySalesOrderId(salesOrderId);
+
+        for (SalesOrderLine salesOrderLine : salesOrderLines) {
+            Stock stock = stockService.findByArticle(salesOrderLine.getArticle())
+                    .orElseThrow(() -> new EntityNotFoundException("Stock for article " + salesOrderLine.getArticle().getArticleid() + " - " + salesOrderLine.getArticle().getName() + " not found."));
+
+            if (stock.getAvailableQuantity() < salesOrderLine.getQuantity()) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    // Confirm sales order
+    public void confirmSalesOrder(Long salesOrderId) {
+        Optional<SalesOrder> optionalSalesOrder = salesOrderRepository.findById(salesOrderId);
+
+        if (optionalSalesOrder.isPresent()) {
+            SalesOrder existingSalesOrder = optionalSalesOrder.get();
+
+            if (existingSalesOrder.getState() != SalesOrderState.NEW) {
+                throw new IllegalStateException("Sales order can only be confirmed from the NEW state.");
+            }
+
+            List<SalesOrderLine> salesOrderLines = salesOrderLineService.getSalesOrderLinesBySalesOrderId(salesOrderId);
+
+            if (salesOrderLines.isEmpty()) {
+            throw new IllegalStateException("Sales order cannot be confirmed because it has no rent lines.");
+        }
+
+            existingSalesOrder.setState(SalesOrderState.CONFIRMED);
+            salesOrderRepository.save(existingSalesOrder);
+        } else {
+            throw new EntityNotFoundException("Sales order not found.");
+        }
+    }
+
+    // Mark sales order as sent
+    public void markAsSent(Long salesOrderId) {
+        Optional<SalesOrder> optionalSalesOrder = salesOrderRepository.findById(salesOrderId);
+
+        if (optionalSalesOrder.isPresent()) {
+            SalesOrder existingSalesOrder = optionalSalesOrder.get();
+
+            if (existingSalesOrder.getState() != SalesOrderState.CONFIRMED) {
+                throw new IllegalStateException("Sales order can only be marked as sent after being confirmed.");
+            }
+
+            existingSalesOrder.setState(SalesOrderState.SENT);
+            salesOrderRepository.save(existingSalesOrder);
+        } else {
+            throw new EntityNotFoundException("Sales order not found.");
+        }
+    }
+
+    // Mark sales order as delivered
+    public void markAsDelivered(Long salesOrderId) {
+        Optional<SalesOrder> optionalSalesOrder = salesOrderRepository.findById(salesOrderId);
+
+        if (optionalSalesOrder.isPresent()) {
+            SalesOrder existingSalesOrder = optionalSalesOrder.get();
+
+            if (existingSalesOrder.getState() != SalesOrderState.SENT) {
+                throw new IllegalStateException("Sales order can only be marked as delivered after being sent.");
+            }
+
+            existingSalesOrder.setState(SalesOrderState.DELIVERED);
+            salesOrderRepository.save(existingSalesOrder);
+        } else {
+            throw new EntityNotFoundException("Sales order not found.");
+        }
+    }
+
+    // Cancel sales order
+    public void cancelSalesOrder(Long salesOrderId) {
+        Optional<SalesOrder> optionalSalesOrder = salesOrderRepository.findById(salesOrderId);
+
+        if (optionalSalesOrder.isPresent()) {
+            SalesOrder existingSalesOrder = optionalSalesOrder.get();
+
+            if (existingSalesOrder.getState() == SalesOrderState.SENT || 
+                existingSalesOrder.getState() == SalesOrderState.DELIVERED) {
+                throw new IllegalStateException("Sales order cannot be cancelled after being sent or delivered.");
+            }
+
+            existingSalesOrder.setState(SalesOrderState.CANCELLED);
+            salesOrderRepository.save(existingSalesOrder);
+        } else {
+            throw new EntityNotFoundException("Sales order not found.");
+        }
     }
 }

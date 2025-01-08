@@ -3,6 +3,7 @@ package com.msd.erp.web;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.msd.erp.application.services.SalesOrderService;
 import com.msd.erp.domain.SalesOrder;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -70,5 +72,63 @@ public class SalesOrderController {
             @RequestParam("endDate") LocalDateTime endDate) {
         List<SalesOrder> salesOrders = salesOrderService.getSalesOrdersByDateRange(startDate, endDate);
         return ResponseEntity.ok(salesOrders);
+    }
+
+    // Confirm sales order
+    @PutMapping("/confirm/{salesOrderId}")
+    public ResponseEntity<String> confirmSalesOrder(@PathVariable Long salesOrderId) {
+        try {
+            boolean isStockValid = salesOrderService.validateStockForSalesOrder(salesOrderId);
+
+            if (isStockValid) {
+                salesOrderService.confirmSalesOrder(salesOrderId);
+                return new ResponseEntity<>("Stock is sufficient for confirmation.", HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("Not enough stock available.", HttpStatus.BAD_REQUEST);
+            }
+        } catch (EntityNotFoundException e) {
+            return new ResponseEntity<>("Sales order with id " + salesOrderId + " not found.", HttpStatus.NOT_FOUND);
+        } catch (IllegalStateException e) {
+            return new ResponseEntity<>("Sales order with id " + salesOrderId + " is not in a valid state for stock validation.", HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    // Mark sales order as sent
+    @PutMapping("/send/{salesOrderId}")
+    public ResponseEntity<Void> markAsSent(@PathVariable Long salesOrderId) {
+        try {
+            salesOrderService.markAsSent(salesOrderId);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (EntityNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (IllegalStateException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    // Mark sales order as delivered
+    @PutMapping("/deliver/{salesOrderId}")
+    public ResponseEntity<Void> markAsDelivered(@PathVariable Long salesOrderId) {
+        try {
+            salesOrderService.markAsDelivered(salesOrderId);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (EntityNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (IllegalStateException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    // Cancel sales order
+    @PutMapping("/cancel/{salesOrderId}")
+    public ResponseEntity<Void> cancelSalesOrder(@PathVariable Long salesOrderId) {
+        try {
+            salesOrderService.cancelSalesOrder(salesOrderId);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (EntityNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (IllegalStateException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 }
