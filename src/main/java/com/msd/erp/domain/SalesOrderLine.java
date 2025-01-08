@@ -1,4 +1,7 @@
 package com.msd.erp.domain;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,6 +30,7 @@ public class SalesOrderLine {
     @NotNull(message = "Sales order cannot be null")
     @ManyToOne
     @JoinColumn(name = "_pk_salesOrderId", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private SalesOrder salesOrder;
 
     @NotNull(message = "Article cannot be null")

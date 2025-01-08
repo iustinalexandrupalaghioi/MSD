@@ -80,6 +80,13 @@ public class SalesOrderService {
         }
     }
 
+    public SalesOrder save(SalesOrder salesOrder) {
+        validationService.validateEntity(salesOrder);
+        return salesOrderRepository.save(salesOrder);
+    }
+
+
+
     public boolean salesOrderExists(Long id) {
         return salesOrderRepository.existsById(id);
     }

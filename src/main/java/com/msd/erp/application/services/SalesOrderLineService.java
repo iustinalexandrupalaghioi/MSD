@@ -13,6 +13,7 @@ import com.msd.erp.application.validations.DomainValidationService;
 import com.msd.erp.domain.Article;
 import com.msd.erp.domain.SalesOrder;
 import com.msd.erp.domain.SalesOrderLine;
+import com.msd.erp.domain.SalesOrderState;
 import com.msd.erp.infrastructure.repositories.ArticleRepository;
 import com.msd.erp.infrastructure.repositories.SalesOrderLineRepository;
 import com.msd.erp.infrastructure.repositories.SalesOrderRepository;
@@ -41,7 +42,7 @@ public class SalesOrderLineService {
         // Salvează salesOrderLine în baza de date
         return salesOrderLineRepository.save(salesOrderLine);
     }
-    @Transactional
+   
     public SalesOrderLine createSalesOrderLine(SalesOrderLine salesOrderLine) {
         SalesOrder salesOrder = salesOrderRepository.findById(salesOrderLine.getSalesOrder().getSalesOrderId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Sales order not found"));
@@ -68,15 +69,15 @@ public class SalesOrderLineService {
         return salesOrderLineRepository.findById(id);
     }
 
-    @Transactional
-    public Optional<SalesOrderLine> updateSalesOrderLine(Long id, SalesOrderLine updatedSalesOrderLine) {
+   
+    public SalesOrderLine updateSalesOrderLine(Long id, SalesOrderLine salesOrderLine) {
        SalesOrderLine existingSalesOrderLine = salesOrderLineRepository.findById(id)
         .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Sales order line not found"));
-
-        SalesOrder salesOrder = salesOrderRepository.findById(updatedSalesOrderLine.getSalesOrder().getSalesOrderId())
+       
+        SalesOrder salesOrder = salesOrderRepository.findById(salesOrderLine.getSalesOrder().getSalesOrderId())
             .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Sales order not found"));
 
-        Article article = articleRepository.findById(updatedSalesOrderLine.getArticle().getArticleid())
+        Article article = articleRepository.findById(salesOrderLine.getArticle().getArticleid())
             .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Article not found"));
 
         // Calculate old amounts
@@ -84,23 +85,22 @@ public class SalesOrderLineService {
         Double oldLineAmountWithVAT = existingSalesOrderLine.getTotalLineAmountWithVAT();
 
         // Update fields
-        updatedSalesOrderLine.setSalesOrder(salesOrder);
-        updatedSalesOrderLine.setArticle(article);
-        validationService.validateEntity(updatedSalesOrderLine);
+        salesOrderLine.setSalesOrder(salesOrder);
+        salesOrderLine.setArticle(article);
+       
 
         // Update header totals
         salesOrderService.updateSalesHeaderTotals(
             salesOrder,
             oldLineAmount,
-            updatedSalesOrderLine.getTotalLineAmount(),
+            salesOrderLine.getTotalLineAmount(),
             oldLineAmountWithVAT,
-            updatedSalesOrderLine.getTotalLineAmountWithVAT()
+            salesOrderLine.getTotalLineAmountWithVAT()
         );
 
         salesOrderService.saveSalesOrder(salesOrder);
-
-        SalesOrderLine savedSalesOrderLine = salesOrderLineRepository.save(updatedSalesOrderLine);
-        return Optional.of(savedSalesOrderLine);
+        validationService.validateEntity(salesOrderLine);
+        return salesOrderLineRepository.save(salesOrderLine);
     }
     
 
@@ -111,6 +111,32 @@ public class SalesOrderLineService {
         } else {
             throw new IllegalArgumentException("Sales order line with ID " + id + " does not exist.");
         }
+    }
+
+    public boolean deleteSalesOrderLineAndUpdateSalesOrder(Long salesOrderLine) {
+        Optional<SalesOrderLine> optionalSalesOrderLine = salesOrderLineRepository.findById(salesOrderLine);
+        if (optionalSalesOrderLine.isPresent()) {
+            SalesOrderLine orderLine = optionalSalesOrderLine.get();
+             SalesOrder salesOrder = orderLine.getSalesOrder();
+            
+            if (salesOrder.getState() == SalesOrderState.CONFIRMED || 
+                salesOrder.getState() == SalesOrderState.SENT){
+                throw new IllegalStateException("Cannot delete sales order lines from a sales order in the " + salesOrder.getState() + " state.");
+            }
+
+            salesOrderService.updateSalesHeaderTotals(
+                    salesOrder,
+                    orderLine.getTotalLineAmount() * -1,
+                    orderLine.getTotalLineAmountWithVAT() * -1
+                );
+
+            salesOrderService.save(salesOrder);
+
+            salesOrderLineRepository.delete(orderLine);
+
+            return true;
+        }
+        return false;
     }
 
     public boolean salesOrderLineExists(Long id) {

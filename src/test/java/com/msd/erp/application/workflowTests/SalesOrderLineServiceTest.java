@@ -1,21 +1,25 @@
 package com.msd.erp.application.workflowTests;
 
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import org.mockito.MockitoAnnotations;
+
 import com.msd.erp.application.services.SalesOrderLineService;
 import com.msd.erp.application.validations.DomainValidationService;
 import com.msd.erp.domain.Article;
 import com.msd.erp.domain.SalesOrder;
 import com.msd.erp.domain.SalesOrderLine;
 import com.msd.erp.infrastructure.repositories.SalesOrderLineRepository;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 class SalesOrderLineServiceTest {
 
@@ -89,13 +93,13 @@ class SalesOrderLineServiceTest {
         when(salesOrderLineRepository.findById(1L)).thenReturn(Optional.of(salesOrderLine));
         when(salesOrderLineRepository.save(salesOrderLine)).thenReturn(salesOrderLine);
 
-        Optional<SalesOrderLine> result = salesOrderLineService.updateSalesOrderLine(1L, updatedLine);
+        SalesOrderLine result = salesOrderLineService.updateSalesOrderLine(1L, updatedLine);
 
-        assertTrue(result.isPresent());
-        assertEquals(10, result.get().getQuantity());
-        assertEquals(30.0, result.get().getPrice());
-        assertEquals(300.0, result.get().getTotalLineAmount());
-        assertEquals(360.0, result.get().getTotalLineAmountWithVAT());
+        
+        assertEquals(10, result.getQuantity());
+        assertEquals(30.0, result.getPrice());
+        assertEquals(300.0, result.getTotalLineAmount());
+        assertEquals(360.0, result.getTotalLineAmountWithVAT());
         verify(validationService).validateEntity(salesOrderLine);
         verify(salesOrderLineRepository).save(salesOrderLine);
     }
