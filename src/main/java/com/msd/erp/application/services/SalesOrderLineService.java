@@ -1,21 +1,32 @@
 package com.msd.erp.application.services;
 
-import com.msd.erp.application.computations.OrdersAmountsService;
-import com.msd.erp.application.validations.DomainValidationService;
-import com.msd.erp.domain.SalesOrderLine;
-import com.msd.erp.infrastructure.repositories.SalesOrderLineRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
+
+import com.msd.erp.application.computations.OrdersAmountsService;
+import com.msd.erp.application.validations.DomainValidationService;
+import com.msd.erp.domain.Article;
+import com.msd.erp.domain.SalesOrder;
+import com.msd.erp.domain.SalesOrderLine;
+import com.msd.erp.infrastructure.repositories.ArticleRepository;
+import com.msd.erp.infrastructure.repositories.SalesOrderLineRepository;
+import com.msd.erp.infrastructure.repositories.SalesOrderRepository;
+
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
 public class SalesOrderLineService {
 
     private final SalesOrderLineRepository salesOrderLineRepository;
+    private final SalesOrderRepository salesOrderRepository;
+    private final SalesOrderService salesOrderService;
+    private final ArticleRepository articleRepository;
     private final DomainValidationService validationService;
     private final OrdersAmountsService ordersAmountsService;
     public SalesOrderLine saveSalesOrderLine(SalesOrderLine salesOrderLine) {
@@ -32,7 +43,20 @@ public class SalesOrderLineService {
     }
     @Transactional
     public SalesOrderLine createSalesOrderLine(SalesOrderLine salesOrderLine) {
+        SalesOrder salesOrder = salesOrderRepository.findById(salesOrderLine.getSalesOrder().getSalesOrderId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Sales order not found"));
+
+        Article article = articleRepository.findById(salesOrderLine.getArticle().getArticleid())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Article not found"));
+
+        salesOrderLine.setSalesOrder(salesOrder);
+        salesOrderLine.setArticle(article);
         validationService.validateEntity(salesOrderLine);
+        
+
+        salesOrderService.updateSalesHeaderTotals(salesOrder, salesOrderLine.getTotalLineAmount(), salesOrderLine.getTotalLineAmountWithVAT());
+
+        salesOrderService.saveSalesOrder(salesOrder);
         return salesOrderLineRepository.save(salesOrderLine);
     }
 
@@ -46,18 +70,39 @@ public class SalesOrderLineService {
 
     @Transactional
     public Optional<SalesOrderLine> updateSalesOrderLine(Long id, SalesOrderLine updatedSalesOrderLine) {
-        return salesOrderLineRepository.findById(id).map(existingSalesOrderLine -> {
-            existingSalesOrderLine.setSalesOrder(updatedSalesOrderLine.getSalesOrder());
-            existingSalesOrderLine.setArticle(updatedSalesOrderLine.getArticle());
-            existingSalesOrderLine.setQuantity(updatedSalesOrderLine.getQuantity());
-            existingSalesOrderLine.setTotalLineAmount(updatedSalesOrderLine.getTotalLineAmount());
-            existingSalesOrderLine.setTotalLineAmountWithVAT(updatedSalesOrderLine.getTotalLineAmountWithVAT());
-            existingSalesOrderLine.setPrice(updatedSalesOrderLine.getPrice());
+       SalesOrderLine existingSalesOrderLine = salesOrderLineRepository.findById(id)
+        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Sales order line not found"));
 
-            validationService.validateEntity(existingSalesOrderLine);
-            return salesOrderLineRepository.save(existingSalesOrderLine);
-        });
+        SalesOrder salesOrder = salesOrderRepository.findById(updatedSalesOrderLine.getSalesOrder().getSalesOrderId())
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Sales order not found"));
+
+        Article article = articleRepository.findById(updatedSalesOrderLine.getArticle().getArticleid())
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Article not found"));
+
+        // Calculate old amounts
+        Double oldLineAmount = existingSalesOrderLine.getTotalLineAmount();
+        Double oldLineAmountWithVAT = existingSalesOrderLine.getTotalLineAmountWithVAT();
+
+        // Update fields
+        updatedSalesOrderLine.setSalesOrder(salesOrder);
+        updatedSalesOrderLine.setArticle(article);
+        validationService.validateEntity(updatedSalesOrderLine);
+
+        // Update header totals
+        salesOrderService.updateSalesHeaderTotals(
+            salesOrder,
+            oldLineAmount,
+            updatedSalesOrderLine.getTotalLineAmount(),
+            oldLineAmountWithVAT,
+            updatedSalesOrderLine.getTotalLineAmountWithVAT()
+        );
+
+        salesOrderService.saveSalesOrder(salesOrder);
+
+        SalesOrderLine savedSalesOrderLine = salesOrderLineRepository.save(updatedSalesOrderLine);
+        return Optional.of(savedSalesOrderLine);
     }
+    
 
     @Transactional
     public void deleteSalesOrderLine(Long id) {

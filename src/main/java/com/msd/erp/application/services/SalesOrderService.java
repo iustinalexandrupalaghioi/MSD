@@ -1,16 +1,18 @@
 package com.msd.erp.application.services;
 
-import com.msd.erp.application.validations.DomainValidationService;
-import com.msd.erp.domain.SalesOrder;
-import com.msd.erp.application.computations.OrdersAmountsService;
-import com.msd.erp.infrastructure.repositories.SalesOrderRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.msd.erp.application.computations.OrdersAmountsService;
+import com.msd.erp.application.validations.DomainValidationService;
+import com.msd.erp.domain.SalesOrder;
+import com.msd.erp.infrastructure.repositories.SalesOrderRepository;
+
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
@@ -40,6 +42,20 @@ public class SalesOrderService {
 
     public Optional<SalesOrder> getSalesOrderById(Long id) {
         return salesOrderRepository.findById(id);
+    }
+
+    public void updateSalesHeaderTotals(
+            SalesOrder salesOrder, Double newLineAmount, Double newLineAmountWithVAT) {
+        updateSalesHeaderTotals(salesOrder, 0.0, newLineAmount, 0.0, newLineAmountWithVAT);
+    }
+
+    public void updateSalesHeaderTotals(
+            SalesOrder salesOrder, Double oldLineAmount, Double newLineAmount,
+            Double oldLineAmountWithVAT, Double newLineAmountWithVAT
+           ) {
+
+        salesOrder.setTotalPrice(salesOrder.getTotalPrice() - oldLineAmount + newLineAmount);
+        salesOrder.setTotalPriceWithVAT(salesOrder.getTotalPriceWithVAT() - oldLineAmountWithVAT + newLineAmountWithVAT);
     }
 
     @Transactional
