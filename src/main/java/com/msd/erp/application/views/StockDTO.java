@@ -11,5 +11,6 @@ public class StockDTO {
     private Integer rentedQuantity;
     private Integer technicalQuantity;
     private Integer availableQuantity;
+    private Integer soldQuantity;
 
 }
