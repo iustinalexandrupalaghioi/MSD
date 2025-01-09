@@ -70,6 +70,16 @@ public class StockService {
                     .setAvailableQuantity(existingStock.getAvailableQuantity() + stockUpdateDTO.getReturnedQuantity());
         }
 
+        if (stockUpdateDTO.getAvailableQuantity() != null) {
+            existingStock
+                    .setAvailableQuantity(existingStock.getAvailableQuantity() + stockUpdateDTO.getAvailableQuantity());
+        }
+
+        if (stockUpdateDTO.getSoldQuantity() != null) {
+            existingStock
+                    .setAvailableQuantity(existingStock.getAvailableQuantity() - stockUpdateDTO.getSoldQuantity());
+        }
+
         updateCalculatedQuantities(existingStock);
         return stockRepository.save(existingStock);
     }

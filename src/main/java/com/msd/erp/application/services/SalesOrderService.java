@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +14,7 @@ import com.msd.erp.domain.SalesOrder;
 import com.msd.erp.domain.SalesOrderLine;
 import com.msd.erp.domain.SalesOrderState;
 import com.msd.erp.domain.Stock;
+import com.msd.erp.infrastructure.repositories.SalesOrderLineRepository;
 import com.msd.erp.infrastructure.repositories.SalesOrderRepository;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -25,9 +27,10 @@ public class SalesOrderService {
     private final SalesOrderRepository salesOrderRepository;
     private final DomainValidationService validationService;
     private final OrdersAmountsService ordersAmountsService;
-    private final SalesOrderLineService salesOrderLineService;
     private final StockService stockService;
-    @Transactional
+    private final SalesOrderLineRepository salesOrderLineRepository;
+
+
     public SalesOrder createSalesOrder(SalesOrder salesOrder) {
         validationService.validateEntity(salesOrder);
         Double totalAmount = ordersAmountsService.calculateSaleOrderAmount(salesOrder);
@@ -111,7 +114,7 @@ public class SalesOrderService {
             throw new IllegalStateException("Sales order is not in a valid state for stock validation.");
         }
 
-        List<SalesOrderLine> salesOrderLines = salesOrderLineService.getSalesOrderLinesBySalesOrderId(salesOrderId);
+        List<SalesOrderLine> salesOrderLines = salesOrderLineRepository.findBySalesOrderId(salesOrderId);
 
         for (SalesOrderLine salesOrderLine : salesOrderLines) {
             Stock stock = stockService.findByArticle(salesOrderLine.getArticle())
@@ -136,10 +139,10 @@ public class SalesOrderService {
                 throw new IllegalStateException("Sales order can only be confirmed from the NEW state.");
             }
 
-            List<SalesOrderLine> salesOrderLines = salesOrderLineService.getSalesOrderLinesBySalesOrderId(salesOrderId);
+            List<SalesOrderLine> salesOrderLines = salesOrderLineRepository.findBySalesOrderId(salesOrderId);
 
             if (salesOrderLines.isEmpty()) {
-            throw new IllegalStateException("Sales order cannot be confirmed because it has no rent lines.");
+            throw new IllegalStateException("Sales order cannot be confirmed because it has no order lines.");
         }
 
             existingSalesOrder.setState(SalesOrderState.CONFIRMED);

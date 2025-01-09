@@ -8,5 +8,6 @@ public class StockUpdateDTO {
     private Integer rentedQuantity;
     private Integer receivedQuantity;
     private Integer returnedQuantity;
-
+    private Integer soldQuantity;
+    private Integer availableQuantity;
 }

@@ -3,6 +3,7 @@ package com.msd.erp.application.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,10 +27,13 @@ public class SalesOrderLineService {
 
     private final SalesOrderLineRepository salesOrderLineRepository;
     private final SalesOrderRepository salesOrderRepository;
-    private final SalesOrderService salesOrderService;
     private final ArticleRepository articleRepository;
     private final DomainValidationService validationService;
     private final OrdersAmountsService ordersAmountsService;
+
+    @Autowired
+    private  SalesOrderService salesOrderService;
+
     public SalesOrderLine saveSalesOrderLine(SalesOrderLine salesOrderLine) {
         // Calculează totalurile folosind OrdersAmountsService
         Double lineAmount = ordersAmountsService.calculateSalesLineAmount(salesOrderLine);
