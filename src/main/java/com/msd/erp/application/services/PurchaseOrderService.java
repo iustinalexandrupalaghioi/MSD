@@ -26,10 +26,10 @@ public class PurchaseOrderService {
     }
 
     public PurchaseOrder savePurchaseOrder(PurchaseOrder purchaseOrder) {
-        Double totalAmount = ordersAmountsService.calculatePurchaseOrderAmmount(purchaseOrder);
-        Double totalAmountWithVAT = ordersAmountsService.calculatePurchaseOrderAmountWithVAT(purchaseOrder);
-        purchaseOrder.setTotalPrice(totalAmount);
-        purchaseOrder.setTotalPriceWithVAT(totalAmountWithVAT);
+        // Double totalAmount = ordersAmountsService.calculatePurchaseOrderAmmount(purchaseOrder);
+        // Double totalAmountWithVAT = ordersAmountsService.calculatePurchaseOrderAmountWithVAT(purchaseOrder);
+        // purchaseOrder.setTotalPrice(totalAmount);
+        // purchaseOrder.setTotalPriceWithVAT(totalAmountWithVAT);
 
         return purchaseOrderRepository.save(purchaseOrder);
     }
@@ -46,7 +46,6 @@ public class PurchaseOrderService {
     public Optional<PurchaseOrder> updatePurchaseOrder(Long id, PurchaseOrder updatedPurchaseOrder) {
         return purchaseOrderRepository.findById(id).map(existingPurchaseOrder -> {
             existingPurchaseOrder.setSupplierId(updatedPurchaseOrder.getSupplierId());
-            existingPurchaseOrder.setProjectId(updatedPurchaseOrder.getProjectId());
             existingPurchaseOrder.setDate(updatedPurchaseOrder.getDate());
             existingPurchaseOrder.setTotalPrice(updatedPurchaseOrder.getTotalPrice());
             existingPurchaseOrder.setTotalPriceWithVAT(updatedPurchaseOrder.getTotalPriceWithVAT());
@@ -73,7 +72,4 @@ public class PurchaseOrderService {
         return purchaseOrderRepository.findBySupplierId(supplierId);
     }
 
-    public List<PurchaseOrder> getPurchaseOrdersByProjectId(Long projectId) {
-        return purchaseOrderRepository.findByProjectId(projectId);
-    }
 }

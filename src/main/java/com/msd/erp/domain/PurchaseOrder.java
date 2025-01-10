@@ -22,10 +22,10 @@ public class PurchaseOrder {
     @JoinColumn(name = "_fk_supplierId", nullable = false)
     private Relation supplierId;
 
-    @NotNull(message = "ProjectId cannot be null")
-    @ManyToOne
-    @JoinColumn(name = "_fk_projectId", nullable = false)
-    private Project projectId;
+    // @NotNull(message = "ProjectId cannot be null")
+    // @ManyToOne
+    // @JoinColumn(name = "_fk_projectId", nullable = false)
+    // private Project projectId;
 
     @NotNull(message = "Date cannot be null")
     @Column(name = "date", nullable = false)
@@ -34,13 +34,13 @@ public class PurchaseOrder {
     @NotNull(message = "Total price cannot be null")
     @DecimalMin(value = "0.0", inclusive = true, message = "Total price must be greater than 0")
     @Column(name = "total_price", nullable = false)
-    private Double totalPrice;
+    private Double totalPrice = 0.0;
 
     @NotNull(message = "Total price with VAT cannot be null")
     @DecimalMin(value = "0.0", inclusive = true, message = "Total price with VAT must be greater than 0")
     @Column(name = "total_price_with_vat", nullable = false)
-    private Double totalPriceWithVAT;
+    private Double totalPriceWithVAT = 0.0;
 
-    @OneToMany(mappedBy = "purchaseOrder", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<PurchaseOrderLine> purchaseOrderLines;
+    // @OneToMany(mappedBy = "purchaseOrder", cascade = CascadeType.ALL, orphanRemoval = true)
+    // private List<PurchaseOrderLine> purchaseOrderLines;
 }

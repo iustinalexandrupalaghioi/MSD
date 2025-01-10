@@ -24,21 +24,21 @@ public class OrdersAmountsService {
         return lineAmount + vatAmount;
     }
 
-    public Double calculatePurchaseOrderAmmount(PurchaseOrder order) {
-        Double totalPrice = 0.0;
-        for (PurchaseOrderLine line : order.getPurchaseOrderLines()) {
-            totalPrice = totalPrice + calculatePurchaseLineAmount(line);
-        }
-        return totalPrice;
-    }
+    // public Double calculatePurchaseOrderAmmount(PurchaseOrder order) {
+    //     Double totalPrice = 0.0;
+    //     for (PurchaseOrderLine line : order.getPurchaseOrderLines()) {
+    //         totalPrice = totalPrice + calculatePurchaseLineAmount(line);
+    //     }
+    //     return totalPrice;
+    // }
 
-    public Double calculatePurchaseOrderAmountWithVAT(PurchaseOrder order) {
-        Double totalPriceWithVAT = 0.0;
-        for (PurchaseOrderLine line : order.getPurchaseOrderLines()) {
-            totalPriceWithVAT = totalPriceWithVAT + calculatePurchaseLineAmountWithVAT(line);
-        }
-        return totalPriceWithVAT;
-    }
+    // public Double calculatePurchaseOrderAmountWithVAT(PurchaseOrder order) {
+    //     Double totalPriceWithVAT = 0.0;
+    //     for (PurchaseOrderLine line : order.getPurchaseOrderLines()) {
+    //         totalPriceWithVAT = totalPriceWithVAT + calculatePurchaseLineAmountWithVAT(line);
+    //     }
+    //     return totalPriceWithVAT;
+    // }
 
     public Double calculateSalesLineAmount(SalesOrderLine line) {
         Integer quantity = line.getQuantity();

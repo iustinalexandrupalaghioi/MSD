@@ -12,6 +12,5 @@ public interface PurchaseOrderRepository extends JpaRepository<PurchaseOrder, Lo
     @Query("SELECT po FROM PurchaseOrder po WHERE po.supplierId.relationid = :supplierId")
     List<PurchaseOrder> findBySupplierId(@Param("supplierId") Long supplierId);
 
-    @Query("SELECT po FROM PurchaseOrder po WHERE po.projectId = :projectId")
-    List<PurchaseOrder> findByProjectId(@Param("projectId") Long projectId);
+    
 }

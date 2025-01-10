@@ -43,7 +43,6 @@ class PurchaseOrderServiceTest {
         purchaseOrder.setTotalPrice(100.0);
         purchaseOrder.setTotalPriceWithVAT(120.0);
         purchaseOrder.setSupplierId(null);
-        purchaseOrder.setProjectId(null);
     }
 
     @Test
@@ -60,8 +59,8 @@ class PurchaseOrderServiceTest {
 
     @Test
     void savePurchaseOrder_ShouldCalculateAndSavePurchaseOrder() {
-        when(ordersAmountsService.calculatePurchaseOrderAmmount(purchaseOrder)).thenReturn(100.0);
-        when(ordersAmountsService.calculatePurchaseOrderAmountWithVAT(purchaseOrder)).thenReturn(120.0);
+        // when(ordersAmountsService.calculatePurchaseOrderAmmount(purchaseOrder)).thenReturn(100.0);
+        // when(ordersAmountsService.calculatePurchaseOrderAmountWithVAT(purchaseOrder)).thenReturn(120.0);
         when(purchaseOrderRepository.save(purchaseOrder)).thenReturn(purchaseOrder);
 
         PurchaseOrder result = purchaseOrderService.savePurchaseOrder(purchaseOrder);
@@ -69,8 +68,8 @@ class PurchaseOrderServiceTest {
         assertNotNull(result);
         assertEquals(100.0, result.getTotalPrice());
         assertEquals(120.0, result.getTotalPriceWithVAT());
-        verify(ordersAmountsService).calculatePurchaseOrderAmmount(purchaseOrder);
-        verify(ordersAmountsService).calculatePurchaseOrderAmountWithVAT(purchaseOrder);
+        // verify(ordersAmountsService).calculatePurchaseOrderAmmount(purchaseOrder);
+        // verify(ordersAmountsService).calculatePurchaseOrderAmountWithVAT(purchaseOrder);
         verify(purchaseOrderRepository).save(purchaseOrder);
     }
 

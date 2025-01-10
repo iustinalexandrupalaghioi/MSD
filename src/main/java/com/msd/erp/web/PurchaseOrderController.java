@@ -54,9 +54,5 @@ public class PurchaseOrderController {
         return ResponseEntity.ok(purchaseOrders);
     }
 
-    @GetMapping("/project/{projectId}")
-    public ResponseEntity<List<PurchaseOrder>> getPurchaseOrdersByProjectId(@PathVariable Long projectId) {
-        List<PurchaseOrder> purchaseOrders = purchaseOrderService.getPurchaseOrdersByProjectId(projectId);
-        return ResponseEntity.ok(purchaseOrders);
-    }
+
 }
