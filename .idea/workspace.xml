@@ -6,17 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="e904b406-082e-4434-b969-f099ca3dab11" name="Changes" comment="Error fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/SalesOrderState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/SalesOrderState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/msd/erp/application/workflowTests/SalesOrderServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/msd/erp/application/workflowTests/SalesOrderServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/RentLineService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/RentLineService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/RentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/RentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/services/PurchaseOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/services/PurchaseOrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/views/PurchaseOrderDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/views/PurchaseOrderDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/PurchaseOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/PurchaseOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/infrastructure/repositories/PurchaseOrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/infrastructure/repositories/PurchaseOrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/web/PurchaseOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/web/PurchaseOrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/msd/erp/application/workflowTests/PurchaseOrderServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/msd/erp/application/workflowTests/PurchaseOrderServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/PurchaseOrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/PurchaseOrderService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/SalesOrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/SalesOrderService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/RentDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/RentDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/RentLineDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/RentLineDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Stock.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Stock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/ArticleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/ArticleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/RentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/RentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/PurchaseOrderDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/PurchaseOrderDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/StockDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/StockDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/PurchaseOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/PurchaseOrder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/PurchaseOrderRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/PurchaseOrderRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/PurchaseOrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/PurchaseOrderController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +32,8 @@
       <list>
         <option value="module-info" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -201,6 +205,8 @@
       <workItem from="1730550953659" duration="16887000" />
       <workItem from="1730983733815" duration="6164000" />
       <workItem from="1731949458861" duration="7723000" />
+      <workItem from="1736449032575" duration="6139000" />
+      <workItem from="1736505194254" duration="887000" />
     </task>
     <task id="LOCAL-00001" summary="10. CREATE ProjectDTO PurchaseOrderDTO PurchaseOrderLineDTO SalesOrderDTO SalesOrderLineDTO">
       <created>1730545727820</created>

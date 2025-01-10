@@ -17,10 +17,10 @@ public class PurchaseOrder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long purchaseOrderId;
 
-    @NotNull(message = "CustomerId cannot be null")
+    @NotNull(message = "SupplierId cannot be null")
     @ManyToOne
-    @JoinColumn(name = "_fk_customerId", nullable = false)
-    private Relation customerId;
+    @JoinColumn(name = "_fk_supplierId", nullable = false)
+    private Relation supplierId;
 
     @NotNull(message = "ProjectId cannot be null")
     @ManyToOne

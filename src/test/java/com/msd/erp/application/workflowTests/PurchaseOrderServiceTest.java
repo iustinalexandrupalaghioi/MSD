@@ -42,7 +42,7 @@ class PurchaseOrderServiceTest {
         purchaseOrder.setDate(LocalDateTime.now());
         purchaseOrder.setTotalPrice(100.0);
         purchaseOrder.setTotalPriceWithVAT(120.0);
-        purchaseOrder.setCustomerId(null);
+        purchaseOrder.setSupplierId(null);
         purchaseOrder.setProjectId(null);
     }
 

@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class PurchaseOrderDTO {
     private Long id;
-    private Long customerId;
+    private Long supplierId;
     private Long projectId;
     private LocalDateTime date;
     private Double totalPrice;

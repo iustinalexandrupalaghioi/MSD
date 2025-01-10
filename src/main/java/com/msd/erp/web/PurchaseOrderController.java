@@ -48,9 +48,9 @@ public class PurchaseOrderController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/customer/{customerId}")
-    public ResponseEntity<List<PurchaseOrder>> getPurchaseOrdersByCustomerId(@PathVariable Long customerId) {
-        List<PurchaseOrder> purchaseOrders = purchaseOrderService.getPurchaseOrdersByCustomerId(customerId);
+    @GetMapping("/supplier/{supplierId}")
+    public ResponseEntity<List<PurchaseOrder>> getPurchaseOrdersBySupplierId(@PathVariable Long supplierId) {
+        List<PurchaseOrder> purchaseOrders = purchaseOrderService.getPurchaseOrdersBySupplierId(supplierId);
         return ResponseEntity.ok(purchaseOrders);
     }
 

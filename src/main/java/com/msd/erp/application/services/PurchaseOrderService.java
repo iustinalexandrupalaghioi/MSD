@@ -45,7 +45,7 @@ public class PurchaseOrderService {
     @Transactional
     public Optional<PurchaseOrder> updatePurchaseOrder(Long id, PurchaseOrder updatedPurchaseOrder) {
         return purchaseOrderRepository.findById(id).map(existingPurchaseOrder -> {
-            existingPurchaseOrder.setCustomerId(updatedPurchaseOrder.getCustomerId());
+            existingPurchaseOrder.setSupplierId(updatedPurchaseOrder.getSupplierId());
             existingPurchaseOrder.setProjectId(updatedPurchaseOrder.getProjectId());
             existingPurchaseOrder.setDate(updatedPurchaseOrder.getDate());
             existingPurchaseOrder.setTotalPrice(updatedPurchaseOrder.getTotalPrice());
@@ -69,8 +69,8 @@ public class PurchaseOrderService {
         return purchaseOrderRepository.existsById(id);
     }
 
-    public List<PurchaseOrder> getPurchaseOrdersByCustomerId(Long customerId) {
-        return purchaseOrderRepository.findByCustomerId(customerId);
+    public List<PurchaseOrder> getPurchaseOrdersBySupplierId(Long supplierId) {
+        return purchaseOrderRepository.findBySupplierId(supplierId);
     }
 
     public List<PurchaseOrder> getPurchaseOrdersByProjectId(Long projectId) {
