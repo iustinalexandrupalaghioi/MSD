@@ -89,13 +89,12 @@ class PurchaseOrderLineServiceTest {
         when(purchaseOrderLineRepository.findById(1L)).thenReturn(Optional.of(purchaseOrderLine));
         when(purchaseOrderLineRepository.save(purchaseOrderLine)).thenReturn(purchaseOrderLine);
 
-        Optional<PurchaseOrderLine> result = purchaseOrderLineService.updatePurchaseOrderLine(1L, updatedLine);
+        PurchaseOrderLine result = purchaseOrderLineService.updatePurchaseOrderLine(1L, updatedLine);
 
-        assertTrue(result.isPresent());
-        assertEquals(3, result.get().getQuantity());
-        assertEquals(60.0, result.get().getPrice());
-        assertEquals(180.0, result.get().getTotalLineAmount());
-        assertEquals(216.0, result.get().getTotalLineAmountWithVAT());
+        assertEquals(3, result.getQuantity());
+        assertEquals(60.0, result.getPrice());
+        assertEquals(180.0, result.getTotalLineAmount());
+        assertEquals(216.0, result.getTotalLineAmountWithVAT());
         verify(validationService).validateEntity(purchaseOrderLine);
         verify(purchaseOrderLineRepository).save(purchaseOrderLine);
     }

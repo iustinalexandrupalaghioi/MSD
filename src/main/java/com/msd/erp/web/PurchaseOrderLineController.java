@@ -3,8 +3,10 @@ package com.msd.erp.web;
 import com.msd.erp.domain.PurchaseOrderLine;
 import com.msd.erp.application.services.PurchaseOrderLineService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -35,18 +37,33 @@ public class PurchaseOrderLineController {
         return ResponseEntity.ok(purchaseOrderLines);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<PurchaseOrderLine> updatePurchaseOrderLine(@PathVariable Long id,
-            @RequestBody PurchaseOrderLine purchaseOrderLine) {
-        return purchaseOrderLineService.updatePurchaseOrderLine(id, purchaseOrderLine)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    @PutMapping("/update/{id}")
+    public ResponseEntity<PurchaseOrderLine> updateSalesOrderLine(@PathVariable Long id,
+                                                               @RequestBody PurchaseOrderLine purchaseOrderLine) {
+        try {
+            PurchaseOrderLine updatedPurchaseOrderLine = purchaseOrderLineService.updatePurchaseOrderLine(id, purchaseOrderLine);
+            return new ResponseEntity<>(updatedPurchaseOrderLine, HttpStatus.OK);
+        } catch (ResponseStatusException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePurchaseOrderLine(@PathVariable Long id) {
         purchaseOrderLineService.deletePurchaseOrderLine(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteRentLine(@PathVariable Long id) {
+
+        boolean isDeleted = purchaseOrderLineService.deletePurchaseOrderLineAndUpdatePurchaseOrder(id);
+
+        if (isDeleted) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @GetMapping("/purchase-order/{purchaseOrderId}")
@@ -59,7 +76,7 @@ public class PurchaseOrderLineController {
 
     @GetMapping("/article/{articleId}")
     public ResponseEntity<List<PurchaseOrderLine>> getPurchaseOrderLinesByArticleId(@PathVariable Long articleId) {
-        List<PurchaseOrderLine> purchaseOrderLines = purchaseOrderLineService.getSalesOrderLinesByArticleId(articleId);
+        List<PurchaseOrderLine> purchaseOrderLines = purchaseOrderLineService.getPurchaseOrderLinesByArticleId(articleId);
         return ResponseEntity.ok(purchaseOrderLines);
     }
 }

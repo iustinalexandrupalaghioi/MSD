@@ -1,26 +1,40 @@
 package com.msd.erp.application.services;
 
-import com.msd.erp.application.computations.OrdersAmountsService;
-import com.msd.erp.application.validations.DomainValidationService;
-import com.msd.erp.domain.PurchaseOrderLine;
-import com.msd.erp.infrastructure.repositories.PurchaseOrderLineRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
+
+import com.msd.erp.application.computations.OrdersAmountsService;
+import com.msd.erp.application.validations.DomainValidationService;
+import com.msd.erp.domain.Article;
+import com.msd.erp.domain.PurchaseOrder;
+import com.msd.erp.domain.PurchaseOrderLine;
+import com.msd.erp.domain.PurchaseOrderState;
+import com.msd.erp.infrastructure.repositories.ArticleRepository;
+import com.msd.erp.infrastructure.repositories.PurchaseOrderLineRepository;
+import com.msd.erp.infrastructure.repositories.PurchaseOrderRepository;
+
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
 public class PurchaseOrderLineService {
 
     private final PurchaseOrderLineRepository purchaseOrderLineRepository;
+    private final PurchaseOrderRepository purchaseOrderRepository;
+    private final ArticleRepository articleRepository;
     private final DomainValidationService validationService;
     private final OrdersAmountsService ordersAmountsService;
 
+    @Autowired
+    private PurchaseOrderService purchaseOrderService;
+
     public PurchaseOrderLine savePurchaseOrderLine(PurchaseOrderLine purchaseOrderLine) {
-        // Calculează totalurile folosind OrdersAmountsService
         Double lineAmount = ordersAmountsService.calculatePurchaseLineAmount(purchaseOrderLine);
         Double lineAmountWithVAT = ordersAmountsService.calculatePurchaseLineAmountWithVAT(purchaseOrderLine);
 
@@ -30,23 +44,20 @@ public class PurchaseOrderLineService {
         return purchaseOrderLineRepository.save(purchaseOrderLine);
     }
 
-    public PurchaseOrderLine save(PurchaseOrderLine purchaseOrderLine) {
-        validationService.validateEntity(purchaseOrderLine);
-        return purchaseOrderLineRepository.save(purchaseOrderLine);
-    }
-
-    public Optional<PurchaseOrderLine> findById(Long id) {
-        return purchaseOrderLineRepository.findById(id);
-    }
-
-    public void deleteById(Long id) {
-        purchaseOrderLineRepository.deleteById(id);
-    }
-
-
-    @Transactional
     public PurchaseOrderLine createPurchaseOrderLine(PurchaseOrderLine purchaseOrderLine) {
+        PurchaseOrder purchaseOrder = purchaseOrderRepository.findById(purchaseOrderLine.getPurchaseOrder().getPurchaseOrderId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Purchase order not found"));
+
+        Article article = articleRepository.findById(purchaseOrderLine.getArticle().getArticleid())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Article not found"));
+
+        purchaseOrderLine.setPurchaseOrder(purchaseOrder);
+        purchaseOrderLine.setArticle(article);
         validationService.validateEntity(purchaseOrderLine);
+
+        purchaseOrderService.updatePurchaseHeaderTotals(purchaseOrder, purchaseOrderLine.getTotalLineAmount(), purchaseOrderLine.getTotalLineAmountWithVAT());
+
+        purchaseOrderService.savePurchaseOrder(purchaseOrder);
         return purchaseOrderLineRepository.save(purchaseOrderLine);
     }
 
@@ -58,22 +69,33 @@ public class PurchaseOrderLineService {
         return purchaseOrderLineRepository.findById(id);
     }
 
-    @Transactional
-    public Optional<PurchaseOrderLine> updatePurchaseOrderLine(Long id, PurchaseOrderLine updatedPurchaseOrderLine) {
-        return purchaseOrderLineRepository.findById(id).map(existingPurchaseOrderLine -> {
-            // Actualizăm câmpurile
-            existingPurchaseOrderLine.setQuantity(updatedPurchaseOrderLine.getQuantity());
-            existingPurchaseOrderLine.setPrice(updatedPurchaseOrderLine.getPrice());
-            existingPurchaseOrderLine.setTotalLineAmount(updatedPurchaseOrderLine.getTotalLineAmount());
-            existingPurchaseOrderLine.setTotalLineAmountWithVAT(updatedPurchaseOrderLine.getTotalLineAmountWithVAT());
+    public PurchaseOrderLine updatePurchaseOrderLine(Long id, PurchaseOrderLine purchaseOrderLine) {
+        PurchaseOrderLine existingPurchaseOrderLine = purchaseOrderLineRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Purchase order line not found"));
 
-            // Validăm și salvăm
-            validationService.validateEntity(existingPurchaseOrderLine);
-            return purchaseOrderLineRepository.save(existingPurchaseOrderLine);
-        });
+        PurchaseOrder purchaseOrder = purchaseOrderRepository.findById(purchaseOrderLine.getPurchaseOrder().getPurchaseOrderId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Purchase order not found"));
+
+        Article article = articleRepository.findById(purchaseOrderLine.getArticle().getArticleid())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Article not found"));
+
+        Double oldLineAmount = existingPurchaseOrderLine.getTotalLineAmount();
+        Double oldLineAmountWithVAT = existingPurchaseOrderLine.getTotalLineAmountWithVAT();
+
+        purchaseOrderLine.setPurchaseOrder(purchaseOrder);
+        purchaseOrderLine.setArticle(article);
+
+        purchaseOrderService.updatePurchaseHeaderTotals(
+                purchaseOrder,
+                oldLineAmount,
+                purchaseOrderLine.getTotalLineAmount(),
+                oldLineAmountWithVAT,
+                purchaseOrderLine.getTotalLineAmountWithVAT());
+
+        purchaseOrderService.savePurchaseOrder(purchaseOrder);
+        validationService.validateEntity(purchaseOrderLine);
+        return purchaseOrderLineRepository.save(purchaseOrderLine);
     }
-
-
 
     @Transactional
     public void deletePurchaseOrderLine(Long id) {
@@ -84,6 +106,31 @@ public class PurchaseOrderLineService {
         }
     }
 
+    public boolean deletePurchaseOrderLineAndUpdatePurchaseOrder(Long purchaseOrderLineId) {
+        Optional<PurchaseOrderLine> optionalPurchaseOrderLine = purchaseOrderLineRepository.findById(purchaseOrderLineId);
+        if (optionalPurchaseOrderLine.isPresent()) {
+            PurchaseOrderLine orderLine = optionalPurchaseOrderLine.get();
+            PurchaseOrder purchaseOrder = orderLine.getPurchaseOrder();
+
+            if (purchaseOrder.getState() == PurchaseOrderState.CONFIRMED ||
+                    purchaseOrder.getState() == PurchaseOrderState.RECEIVED) {
+                throw new IllegalStateException("Cannot delete purchase order lines from a purchase order in the " + purchaseOrder.getState() + " state.");
+            }
+
+            purchaseOrderService.updatePurchaseHeaderTotals(
+                    purchaseOrder,
+                    orderLine.getTotalLineAmount() * -1,
+                    orderLine.getTotalLineAmountWithVAT() * -1);
+
+            purchaseOrderService.savePurchaseOrder(purchaseOrder);
+
+            purchaseOrderLineRepository.delete(orderLine);
+
+            return true;
+        }
+        return false;
+    }
+
     public boolean purchaseOrderLineExists(Long id) {
         return purchaseOrderLineRepository.existsById(id);
     }
@@ -92,7 +139,7 @@ public class PurchaseOrderLineService {
         return purchaseOrderLineRepository.findByPurchaseOrderId(purchaseOrderId);
     }
 
-    public List<PurchaseOrderLine> getSalesOrderLinesByArticleId(Long articleId) {
+    public List<PurchaseOrderLine> getPurchaseOrderLinesByArticleId(Long articleId) {
         return purchaseOrderLineRepository.findByArticleId(articleId);
     }
 }

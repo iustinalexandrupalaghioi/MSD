@@ -7,6 +7,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "purchaseOrderLine")
@@ -21,6 +23,7 @@ public class PurchaseOrderLine {
     @NotNull(message = "Purchase order cannot be null")
     @ManyToOne
     @JoinColumn(name = "_pk_purchaseOrderId", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private PurchaseOrder purchaseOrder;
 
     @NotNull(message = "Article cannot be null")

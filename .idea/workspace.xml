@@ -6,21 +6,30 @@
   <component name="ChangeListManager">
     <list default="true" id="e904b406-082e-4434-b969-f099ca3dab11" name="Changes" comment="Error fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/computations/OrdersAmountsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/computations/OrdersAmountsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/services/PurchaseOrderLineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/services/PurchaseOrderLineService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/services/PurchaseOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/services/PurchaseOrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/views/PurchaseOrderDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/application/views/PurchaseOrderDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/PurchaseOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/PurchaseOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/PurchaseOrderLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/domain/PurchaseOrderLine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/infrastructure/repositories/PurchaseOrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/infrastructure/repositories/PurchaseOrderRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/web/PurchaseOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/web/PurchaseOrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/msd/erp/web/PurchaseOrderLineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/msd/erp/web/PurchaseOrderLineController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/msd/erp/application/workflowTests/PurchaseOrderLineServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/msd/erp/application/workflowTests/PurchaseOrderLineServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/msd/erp/application/workflowTests/PurchaseOrderServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/msd/erp/application/workflowTests/PurchaseOrderServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/PurchaseOrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/PurchaseOrderService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/SalesOrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/SalesOrderService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/PurchaseOrderDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/PurchaseOrderDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/StockDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/StockDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/PurchaseOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/PurchaseOrder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/PurchaseOrderRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/PurchaseOrderRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/PurchaseOrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/PurchaseOrderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/computations/RentComputation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/computations/RentComputation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/AppliedPenaltyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/AppliedPenaltyService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/RentLineService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/RentLineService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/RentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/services/RentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/RentDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/application/views/RentDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/AppliedPenalty.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/AppliedPenalty.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Rent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/Rent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/RentLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/domain/RentLine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/AppliedPenaltyRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/infrastructure/repositories/AppliedPenaltyRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/AppliedPenaltyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/AppliedPenaltyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/RentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/RentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/msd/erp/web/RentLineController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/msd/erp/web/RentLineController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +40,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="module-info" />
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -63,40 +72,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.WebApplication.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.DomainValidationServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.OrdersAmountsServiceTest.calculatePurchaseOrderAmountWithVAT_ShouldReturnTotalAmountWithVAT.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.OrdersAmountsServiceTest.calculatePurchaseOrderAmount_ShouldReturnTotalAmountForOrder.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.OrdersAmountsServiceTest.calculateSaleOrderAmountWithVAT_ShouldReturnTotalAmountWithVAT.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.OrdersAmountsServiceTest.calculateSalesLineAmountWithVAT_ShouldReturnCorrectAmountWithVAT.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.OrdersAmountsServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PricingServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SalesOrderServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/NU STERGE NICIODATA!!!/Cursuri TERMINAT/MASTER/Semestrul 1/Dezvoltarea aplicatiilor multistrat/Laborator/Proiect/MSD&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;62171ff3b6fe5eda941078665bf2a277&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.WebApplication.executor": "Run",
+    "JUnit.DomainValidationServiceTest.executor": "Run",
+    "JUnit.OrdersAmountsComputationTest.executor": "Run",
+    "JUnit.OrdersAmountsServiceTest.calculatePurchaseOrderAmountWithVAT_ShouldReturnTotalAmountWithVAT.executor": "Run",
+    "JUnit.OrdersAmountsServiceTest.calculatePurchaseOrderAmount_ShouldReturnTotalAmountForOrder.executor": "Run",
+    "JUnit.OrdersAmountsServiceTest.calculateSaleOrderAmountWithVAT_ShouldReturnTotalAmountWithVAT.executor": "Run",
+    "JUnit.OrdersAmountsServiceTest.calculateSalesLineAmountWithVAT_ShouldReturnCorrectAmountWithVAT.executor": "Run",
+    "JUnit.OrdersAmountsServiceTest.executor": "Run",
+    "JUnit.PricingServiceTest.executor": "Run",
+    "JUnit.PurchaseOrderLineServiceTest.executor": "Run",
+    "JUnit.SalesOrderLineServiceTest.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.WebApplication.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/NU STERGE NICIODATA!!!/Cursuri TERMINAT/MASTER/Semestrul 1/Dezvoltarea aplicatiilor multistrat/Laborator/Proiect/MSD",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "spring.configuration.checksum": "62171ff3b6fe5eda941078665bf2a277",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="OrdersAmountsServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MSD" />
@@ -190,6 +203,14 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -205,8 +226,11 @@
       <workItem from="1730550953659" duration="16887000" />
       <workItem from="1730983733815" duration="6164000" />
       <workItem from="1731949458861" duration="7723000" />
-      <workItem from="1736449032575" duration="6139000" />
-      <workItem from="1736505194254" duration="887000" />
+      <workItem from="1735312154741" duration="836000" />
+      <workItem from="1735316224814" duration="10234000" />
+      <workItem from="1735646938271" duration="2660000" />
+      <workItem from="1736539527637" duration="1166000" />
+      <workItem from="1736550982452" duration="4984000" />
     </task>
     <task id="LOCAL-00001" summary="10. CREATE ProjectDTO PurchaseOrderDTO PurchaseOrderLineDTO SalesOrderDTO SalesOrderLineDTO">
       <created>1730545727820</created>
