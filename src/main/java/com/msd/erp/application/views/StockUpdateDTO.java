@@ -10,4 +10,5 @@ public class StockUpdateDTO {
     private Integer returnedQuantity;
     private Integer soldQuantity;
     private Integer availableQuantity;
+     private Integer canceledQuantity;
 }

@@ -80,6 +80,11 @@ public class StockService {
                     .setAvailableQuantity(existingStock.getAvailableQuantity() - stockUpdateDTO.getSoldQuantity());
         }
 
+        if (stockUpdateDTO.getCanceledQuantity() != null) {
+            existingStock
+                    .setIncomingQuantity(existingStock.getIncomingQuantity() - stockUpdateDTO.getCanceledQuantity());
+        }
+
         updateCalculatedQuantities(existingStock);
         return stockRepository.save(existingStock);
     }

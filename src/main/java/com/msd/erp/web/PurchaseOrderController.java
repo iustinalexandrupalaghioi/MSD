@@ -69,18 +69,26 @@ public class PurchaseOrderController {
     @PutMapping("/confirm/{purchaseOrderId}")
     public ResponseEntity<String> confirmPurchaseOrder(@PathVariable Long purchaseOrderId) {
         try {
-            boolean isStockValid = purchaseOrderService.validateStockForPurchaseOrder(purchaseOrderId);
-
-            if (isStockValid) {
-                purchaseOrderService.confirmPurchaseOrder(purchaseOrderId);
-                return new ResponseEntity<>("Stock is sufficient for confirmation.", HttpStatus.OK);
-            } else {
-                return new ResponseEntity<>("Not enough stock available.", HttpStatus.BAD_REQUEST);
-            }
+            purchaseOrderService.confirmPurchaseOrder(purchaseOrderId);
+            return new ResponseEntity<>(HttpStatus.OK);
         } catch (EntityNotFoundException e) {
-            return new ResponseEntity<>("Purchase order with id " + purchaseOrderId + " not found.", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (IllegalStateException e) {
-            return new ResponseEntity<>("Purchase order with id " + purchaseOrderId + " is not in a valid state for stock validation.", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+
+    // Confirm purchase order
+    @PutMapping("/receive/{purchaseOrderId}")
+    public ResponseEntity<String> receivePurchaseOrder(@PathVariable Long purchaseOrderId) {
+        try {
+            purchaseOrderService.markAsReceived(purchaseOrderId);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (EntityNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (IllegalStateException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -112,7 +120,7 @@ public class PurchaseOrderController {
 
     // Cancel purchase order
     @PutMapping("/cancel/{purchaseOrderId}")
-    public ResponseEntity<Void> cancelSalesOrder(@PathVariable Long purchaseOrderId) {
+    public ResponseEntity<Void> cancelPurchaseOrder(@PathVariable Long purchaseOrderId) {
         try {
             purchaseOrderService.cancelPurchaseOrder(purchaseOrderId);
             return new ResponseEntity<>(HttpStatus.OK);
